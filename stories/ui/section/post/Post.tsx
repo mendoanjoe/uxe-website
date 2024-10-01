@@ -140,7 +140,7 @@ export const Post = ({ data, custom, ...props }: SectionProps<PostProps>) => {
               className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
               onClick={() => GAClick("other_clicked", gtm_reference, SECTION_POST, "button-see-all-product")}
             >
-              See All Product
+              See All News
             </Link>
           </div>
         </div>

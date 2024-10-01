@@ -26,11 +26,11 @@
 .get-started-profile img {
   @apply h-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))]
   w-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))]
-  rounded-full border border-white;
+  rounded-full border border-[#CFCFCF];
 }
 
 .get-started-profile img:not(:first-child) {
-  @apply -ml-[max(8px,_min(calc(100vw_*_(24_/_1440)),_24px))];
+  @apply -ml-[max(8px,_min(calc(100vw_*_(16_/_1440)),_16px))];
 }
 
 .get-started-button {

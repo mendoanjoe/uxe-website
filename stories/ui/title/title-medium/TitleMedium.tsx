@@ -7,7 +7,7 @@ interface TitleMediumProps {
   label: string;         // Text content of the title
   hover?: boolean;        // Whether to apply hover styles
   decoration?: boolean;   // Whether to apply decoration styles
-  el?: "a" | "button" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6"; // HTML element type
+  el?: "a" | "button" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote" ; // HTML element type
   href?: string;         // URL for 'a' element
   onClick?: () => void;  // Click event handler
   style?: any;

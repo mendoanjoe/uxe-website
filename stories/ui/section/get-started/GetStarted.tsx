@@ -91,22 +91,22 @@ export const GetStarted = ({
             <div className="get-started-profile">
               <img
                 alt="profile"
-                src="/image/person-image-01.png"
+                src="/image/person-1.png"
                 title="Person"
               />
               <img
                 alt="profile"
-                src="/image/person-image-02.png"
+                src="/image/person-2.png"
                 title="Person"
               />
               <img
                 alt="profile"
-                src="/image/person-image-03.png"
+                src="/image/person-3.png"
                 title="Person"
               />
               <img
                 alt="profile"
-                src="/image/person-image-04.png"
+                src="/image/person-4.png"
                 title="Person"
               />
             </div>

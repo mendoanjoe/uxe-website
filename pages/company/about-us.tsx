@@ -11,6 +11,7 @@ import { VisionMission2 } from "@/ui/section/vision-mission-2/VisionMission2";
 import { Leadership } from "@/ui/section/leadership/Leadership";
 import { CEOMsgSection } from "@/ui/section/ceo/ceo";
 import { AboutUsCompany } from "@/ui/section/about-us/AboutUsCompany";
+import { AboutUs } from "@/ui/section/about-us/AboutUs";
 
 export default function ProductSection({ options }) {
   const currentPage = "about-us";
@@ -42,7 +43,7 @@ export default function ProductSection({ options }) {
         }}
         custom={{ gtm_reference: currentPage }}
       />
-      <AboutUsCompany
+      {/* <AboutUsCompany
         data={{
           text: `
             Investment is an private equity fund with a mandate to <br/>
@@ -54,6 +55,61 @@ export default function ProductSection({ options }) {
             driven to enhance the security industry globally focus
             <br/>
             driven to enhance the security industry globally.
+          `,
+        }}
+        custom={{ gtm_reference: currentPage }}
+      /> */}
+      <AboutUs
+        data={{
+          text: `
+            Established in 2018, UXE Security Solutions proudly holds the
+            position of being the premier smart business support and a
+            reliable security provider in MENA region.
+            <br />
+            <br />
+            Committed to delivering services of the highest professional
+            quality, we distinguish ourselves by adopting a unique strategy
+            grounded in Smart Cutting-edge, Innovative Technology.
+            <br />
+            <br />
+            With a considerable client base exceeding 750 clients, we navigate
+            a dynamic and culturally rich environment, embodying the core
+            values of reliability and professionalism.
+            <br />
+            <br />
+            At UXE, we specialize in offering comprehensive and tailored smart
+            security solutions, designed to meet the diverse needs of various
+            sectors and industries.
+            <br />
+            <br />
+            Our ecosystem of products and services allows clients to address
+            multiple security requirements within a singular, integrated
+            framework.
+            <br />
+            <br />
+            Having undergone significant diversification, we have emerged as a
+            pioneer in smart city technologies, AI Solutions, Security
+            services and audits.
+            <br />
+            <br />
+            As a key player in these sectors, UXE has evolved into the
+            foremost business support and tech company provider in the UAE.
+            <br />
+            <br />
+            We proudly carry forward the legacy set by the leaders of the UAE,
+            delivering top-notch security solutions finely tuned to the
+            diverse needs of our clients.
+            <br />
+            <br />
+            Across a wide spectrum of industries, we extend our security
+            expertise to educational institutions, hospitality sector,
+            financial institutions, warehouse and logistics centres, retail,
+            shopping malls, transportation, residential communities, cultural
+            heritage sites, and amusement parks.
+            <br />
+            <br />
+            Our wide range of solutions underlines our commitment to meeting
+            distinct security demands across various industries.
           `,
         }}
         custom={{ gtm_reference: currentPage }}
