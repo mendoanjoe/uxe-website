@@ -1,5 +1,5 @@
 async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
-  const API_URL = process.env.WORDPRESS_API_URL || "http://wordpress.bayarrin.com/graphql"
+  const API_URL = process.env.WORDPRESS_API_URL || "https://api.uxe.ai/graphql"
   const headers = { 'Content-Type': 'application/json' }
 
   if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
@@ -71,6 +71,21 @@ export async function getAllProductsWithSlug() {
     }
   `)
   return data?.products
+}
+
+export async function getAllCareersWithSlug() {
+  const data = await fetchAPI(`
+    {
+      careers(first: 10000) {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
+  return data?.careers
 }
 
 export async function getHeroSection(){
@@ -354,7 +369,41 @@ export async function getProductAndMoreProducts(slug) {
   return data
 }
 
-
+export async function getCareerAndMoreCareers(slug) {
+  const data = await fetchAPI(
+    `
+    query CareerBySlug($id: ID!) {
+      career(id: $id, idType: URI) {
+        title
+        slug
+        date
+        content
+        location
+        department
+        role
+      }
+      careers(first: 3, where: {orderby: {field: DATE, order: DESC}}) {
+        edges {
+          node {
+            title
+            slug
+            date
+            location
+            department
+            role
+          }
+        }
+      }
+    }
+  `,
+    {
+      variables: {
+        id: slug,
+      },
+    }
+  )
+  return data
+}
 
 
 // MY

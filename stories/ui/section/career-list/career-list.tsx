@@ -1,38 +1,121 @@
-import React from "react";
+import { TextLarge } from "@/ui/text/text-large/TextLarge";
+import { TextMedium } from "@/ui/text/text-medium/TextMedium";
+import { TextSmall } from "@/ui/text/text-small/TextSmall";
+import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
+import { TitleXSmall } from "@/ui/title/title-xsmall/TitleXSmall";
+import { SECTION_CAREER, SECTION_PRODUCT } from "lib/constants";
+import { GAClick, GATimeSpent } from "lib/ga";
+import { getAllCareer } from "lib/new-api";
+import React, { useEffect, useRef, useState } from "react";
 
-export const CareerListSection = () => {
+export const CareerListSection = ({ data, department, roles, options, custom, ...props }) => {
+  // Props
+  const { gtm_reference, show_title } = custom;
+
+  // Reference
+  const sectionRef = useRef(null);
+
+  // State
+  const [careers, setCareers] = useState([...data.edges]);
+  const [endCursor, setEndCursor] = useState(data?.pageInfo?.endCursor || null);
+  const [hasMoreCareers, setHasMoreCareers] = useState(
+    data?.pageInfo?.hasNextPage || null
+  );
+  const [isLoading, setLoading] = useState(false);
+  const [selectedDepartment, setSelectedDepartment] = useState(undefined)
+  const [selectedRole, setSelectedRole] = useState(undefined)
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    const observer = GATimeSpent(gtm_reference, SECTION_CAREER);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [sectionRef]);
+
+  useEffect(() => {
+    const dataCareer = data.edges
+    if (selectedDepartment != undefined) {
+      setCareers(dataCareer.filter(item => item.node.department == selectedDepartment))
+    }
+    if (selectedRole != undefined) {
+      setCareers(dataCareer.filter(item => item.node.role == selectedRole))
+    }
+  }, [selectedDepartment, selectedRole])
+  
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  // const fetchCareers = async (afterCursor) => {
+  //   try {
+  //     const newCareers = await getAllCareer(afterCursor);
+  //     setCareers([...careers, ...newCareers.edges]);
+  //     setEndCursor(
+  //       newCareers?.pageInfo?.endCursor ? newCareers?.pageInfo?.endCursor : ""
+  //     );
+  //     setHasMoreCareers(newCareers?.pageInfo?.hasNextPage);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.log(`Error: ${error}`);
+  //   }
+  // };
+
+  // const handleLoadMore = (event) => {
+  //   event.preventDefault();
+  //   setLoading(true);
+  //   fetchCareers(endCursor);
+  //   GAClick("other_clicked", gtm_reference, SECTION_PRODUCT, "button-load-career")
+  // };
+
   return (
     <section className="py-20">
       <div className="max-w-[1440px] mx-auto px-4 flex flex-col gap-10 min-h-screen">
         <div className="px-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))] flex flex-col gap-12">
+          {show_title && (
           <div className="flex justify-between items-end">
             <div className="flex flex-col gap-3">
-              <h2 className="text-[32px] font-medium leading-[40px]">Job Openings</h2>
-              <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50 line-clamp-2">Join UXE  Innovate Smart City Security with Us</p>
+              <TitleMedium
+                el="h2"
+                label="Job Openings"
+              />
+              <TextLarge
+                label="Join UXE  Innovate Smart City Security with Us"
+                cls="opacity-50"
+              />
             </div>
             <div className="flex gap-3">
-              <div className="w-full">      
+              <div className="w-full min-w-40">      
                 <div className="relative">
-                  <select title="Blabla"
-                      className="w-full bg-transparent pl-4 pr-8 py-3 transition duration-300 border border-[#D9D9D9] rounded-[100px] ease focus:outline-none appearance-none cursor-pointer">
-                      <option value="brazil">Departement</option>
-                      <option value="bucharest">Bucharest</option>
-                      <option value="london">London</option>
-                      <option value="washington">Washington</option>
+                  <select title="Department"
+                   className="w-full bg-transparent pl-4 pr-8 py-3 transition duration-300 border border-[#D9D9D9] rounded-[100px] ease focus:outline-none appearance-none cursor-pointer"
+                   onChange={(event) => setSelectedDepartment(event.target.value)}
+                  >
+                    {department.edges.map((item, index) => (
+                      <option key={index} value={item.node.department}>{item.node.department}</option>
+                    ))}
                   </select>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="h-5 w-5 ml-1 absolute top-4 right-4 text-slate-700">
                     <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#19191B" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square"/>
                   </svg>
                 </div>
               </div>
-              <div className="w-full">      
+              <div className="w-full min-w-40">      
                 <div className="relative">
-                  <select title="Blabla"
-                      className="w-full bg-transparent pl-4 pr-8 py-3 transition duration-300 border border-[#D9D9D9] rounded-[100px] ease focus:outline-none appearance-none cursor-pointer">
-                      <option value="brazil">Roles</option>
-                      <option value="bucharest">Bucharest</option>
-                      <option value="london">London</option>
-                      <option value="washington">Washington</option>
+                  <select title="Role"
+                    className="w-full bg-transparent pl-4 pr-8 py-3 transition duration-300 border border-[#D9D9D9] rounded-[100px] ease focus:outline-none appearance-none cursor-pointer"
+                    onChange={(event) => setSelectedRole(event.target.value)}
+                  >
+                    {roles.edges.map((item, index) => (
+                      <option key={index} value={item.node.role}>{item.node.role}</option>
+                    ))}
                   </select>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="h-5 w-5 ml-1 absolute top-4 right-4 text-slate-700">
                     <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#19191B" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square"/>
@@ -41,15 +124,18 @@ export const CareerListSection = () => {
               </div>
             </div>
           </div>
+          )}
           <div className="grid grid-cols-[.7fr_1fr] gap-[10%]">
             <div className="space-y-4">
               <div className="aspect-video rounded-xl overflow-hidden relative">
-                <video
-                  src="https://api.uxe.ai/wp-content/uploads/2024/01/mixkit-surveillance-team-checking-the-cameras-22997-large.mp4"
-                  className="w-full h-full object-cover"
-                  controls
-                ></video>
-                <div className="absolute inset-0 w-full h-full object-cover z-10">
+                {isClient && (
+                  <video
+                    src={`${options.video.url}`}
+                    className="w-full h-full object-cover"
+                    controls
+                  ></video>
+                )}
+                {/* <div className="absolute inset-0 w-full h-full object-cover z-10">
                   <div className="w-full h-full relative">
                     <img
                       src="https://uxewpconte-93dcf4a41e0e3f83-endpoint.azureedge.net/blobuxewpcontefe8b049772/wp-content/uploads/2024/09/dekstop_about.png"
@@ -62,119 +148,61 @@ export const CareerListSection = () => {
                       </svg>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
-              <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-75 line-clamp-2">Prepare your interview job with us.</p>
+              <TextLarge
+                label="Prepare your interview job with us."
+                cls="opacity-75"
+              />
             </div>
             <div className="flex flex-col gap-5">
-              <div className="grow shrink-0 border border-[#19191B1F] rounded-xl p-6 max-h-[168px] h-full flex items-start justify-between gap-4">
-                <div className="flex flex-col justify-between h-full w-full">
-                  <div className="space-y-2.5">
-                    <h3 className="text-[20px] text-[#3963FF] font-medium leading-[132%] -tracking-[.2px]">Product Designer</h3>
-                    <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px]">We’re looking for  a mid-level product designer to join our team.</p>
-                  </div>
+              {careers.map(({ node }, index) => (
+                <a
+                  key={index}
+                  onClick={() =>
+                    GAClick(
+                      "career_clicked",
+                      gtm_reference,
+                      SECTION_PRODUCT,
+                      "career-image"
+                    )
+                  }
+                  href={"/career/" + node?.slug}
+                  title="Product Designer"
+                  className="group/item-career grow shrink-0 border border-[#19191B1F] rounded-xl p-6 max-h-[168px] h-full flex items-start justify-between gap-4"
+                >
+                  <div className="flex flex-col justify-between h-full w-full group-hover/item-career:opacity-75">
+                    <div className="space-y-2.5">
+                      <TitleXSmall
+                        label={node.title}
+                        cls="text-[#3963FF]"
+                      />
+                      <TextLarge
+                        label={node.description}
+                      />
+                    </div>
 
-                  <div className="flex gap-2 items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <g clipPath="url(#clip0_440_9144)">
-                        <path d="M10.0003 5.0013V10.0013L13.3337 11.668M18.3337 10.0013C18.3337 14.6037 14.6027 18.3346 10.0003 18.3346C5.39795 18.3346 1.66699 14.6037 1.66699 10.0013C1.66699 5.39893 5.39795 1.66797 10.0003 1.66797C14.6027 1.66797 18.3337 5.39893 18.3337 10.0013Z" stroke="#19191B" stroke-opacity="0.5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_440_9144">
-                          <rect width="20" height="20" fill="white"/>
-                        </clipPath>
-                      </defs>
+                    <div className="flex gap-2 items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <g clipPath="url(#clip0_440_9144)">
+                          <path d="M10.0003 5.0013V10.0013L13.3337 11.668M18.3337 10.0013C18.3337 14.6037 14.6027 18.3346 10.0003 18.3346C5.39795 18.3346 1.66699 14.6037 1.66699 10.0013C1.66699 5.39893 5.39795 1.66797 10.0003 1.66797C14.6027 1.66797 18.3337 5.39893 18.3337 10.0013Z" stroke="#19191B" stroke-opacity="0.5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_440_9144">
+                            <rect width="20" height="20" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <TextMedium label={node.type} cls="opacity-50" />
+                    </div>
+                  </div>
+                  <div className="p-2 border border-[#CFCFCF40] bg-[#19191B] rounded-full group-hover/item-career:opacity-75 group-hover/item-career:translate-x-1 group-hover/item-career:-translate-y-1">
+                    <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.93002 0.608L8.94602 7.664L7.73002 8.88L7.69802 2.784L1.36202 9.104L0.450016 8.192L6.81802 1.824H0.690016L1.90602 0.608H8.93002Z" fill="white"/>
                     </svg>
-                    <p className="text-[14px] text-[#19191B80]">Full-time</p>
                   </div>
-                </div>
-                <div className="p-2 border border-[#CFCFCF40] bg-[#19191B] rounded-full">
-                  <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.93002 0.608L8.94602 7.664L7.73002 8.88L7.69802 2.784L1.36202 9.104L0.450016 8.192L6.81802 1.824H0.690016L1.90602 0.608H8.93002Z" fill="white"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="grow shrink-0 border border-[#19191B1F] rounded-xl p-6 max-h-[168px] h-full flex items-start justify-between gap-4">
-                <div className="flex flex-col justify-between h-full w-full">
-                  <div className="space-y-2.5">
-                    <h3 className="text-[20px] text-[#3963FF] font-medium leading-[132%] -tracking-[.2px]">Product Designer</h3>
-                    <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px]">We’re looking for  a mid-level product designer to join our team.</p>
-                  </div>
-
-                  <div className="flex gap-2 items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <g clipPath="url(#clip0_440_9144)">
-                        <path d="M10.0003 5.0013V10.0013L13.3337 11.668M18.3337 10.0013C18.3337 14.6037 14.6027 18.3346 10.0003 18.3346C5.39795 18.3346 1.66699 14.6037 1.66699 10.0013C1.66699 5.39893 5.39795 1.66797 10.0003 1.66797C14.6027 1.66797 18.3337 5.39893 18.3337 10.0013Z" stroke="#19191B" stroke-opacity="0.5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_440_9144">
-                          <rect width="20" height="20" fill="white"/>
-                        </clipPath>
-                      </defs>
-                    </svg>
-                    <p className="text-[14px] text-[#19191B80]">Full-time</p>
-                  </div>
-                </div>
-                <div className="p-2 border border-[#CFCFCF40] bg-[#19191B] rounded-full">
-                  <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.93002 0.608L8.94602 7.664L7.73002 8.88L7.69802 2.784L1.36202 9.104L0.450016 8.192L6.81802 1.824H0.690016L1.90602 0.608H8.93002Z" fill="white"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="grow shrink-0 border border-[#19191B1F] rounded-xl p-6 max-h-[168px] h-full flex items-start justify-between gap-4">
-                <div className="flex flex-col justify-between h-full w-full">
-                  <div className="space-y-2.5">
-                    <h3 className="text-[20px] text-[#3963FF] font-medium leading-[132%] -tracking-[.2px]">Product Designer</h3>
-                    <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px]">We’re looking for  a mid-level product designer to join our team.</p>
-                  </div>
-
-                  <div className="flex gap-2 items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <g clipPath="url(#clip0_440_9144)">
-                        <path d="M10.0003 5.0013V10.0013L13.3337 11.668M18.3337 10.0013C18.3337 14.6037 14.6027 18.3346 10.0003 18.3346C5.39795 18.3346 1.66699 14.6037 1.66699 10.0013C1.66699 5.39893 5.39795 1.66797 10.0003 1.66797C14.6027 1.66797 18.3337 5.39893 18.3337 10.0013Z" stroke="#19191B" stroke-opacity="0.5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_440_9144">
-                          <rect width="20" height="20" fill="white"/>
-                        </clipPath>
-                      </defs>
-                    </svg>
-                    <p className="text-[14px] text-[#19191B80]">Full-time</p>
-                  </div>
-                </div>
-                <div className="p-2 border border-[#CFCFCF40] bg-[#19191B] rounded-full">
-                  <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.93002 0.608L8.94602 7.664L7.73002 8.88L7.69802 2.784L1.36202 9.104L0.450016 8.192L6.81802 1.824H0.690016L1.90602 0.608H8.93002Z" fill="white"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="grow shrink-0 border border-[#19191B1F] rounded-xl p-6 max-h-[168px] h-full flex items-start justify-between gap-4">
-                <div className="flex flex-col justify-between h-full w-full">
-                  <div className="space-y-2.5">
-                    <h3 className="text-[20px] text-[#3963FF] font-medium leading-[132%] -tracking-[.2px]">Product Designer</h3>
-                    <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px]">We’re looking for  a mid-level product designer to join our team.</p>
-                  </div>
-
-                  <div className="flex gap-2 items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <g clipPath="url(#clip0_440_9144)">
-                        <path d="M10.0003 5.0013V10.0013L13.3337 11.668M18.3337 10.0013C18.3337 14.6037 14.6027 18.3346 10.0003 18.3346C5.39795 18.3346 1.66699 14.6037 1.66699 10.0013C1.66699 5.39893 5.39795 1.66797 10.0003 1.66797C14.6027 1.66797 18.3337 5.39893 18.3337 10.0013Z" stroke="#19191B" stroke-opacity="0.5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_440_9144">
-                          <rect width="20" height="20" fill="white"/>
-                        </clipPath>
-                      </defs>
-                    </svg>
-                    <p className="text-[14px] text-[#19191B80]">Full-time</p>
-                  </div>
-                </div>
-                <div className="p-2 border border-[#CFCFCF40] bg-[#19191B] rounded-full">
-                  <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.93002 0.608L8.94602 7.664L7.73002 8.88L7.69802 2.784L1.36202 9.104L0.450016 8.192L6.81802 1.824H0.690016L1.90602 0.608H8.93002Z" fill="white"/>
-                  </svg>
-                </div>
-              </div>
+                </a>
+              ))}
             </div>
           </div>
         </div>

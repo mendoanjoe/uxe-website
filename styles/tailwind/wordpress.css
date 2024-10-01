@@ -186,7 +186,7 @@
 }
 
 .form-career input[type="submit"] {
-  @apply w-fit text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-black hover:opacity-70 cursor-pointer;
+  @apply w-fit min-w-32 text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-black hover:opacity-70 cursor-pointer;
   border: 1px solid rgba(207, 207, 207, 0.25);
 }
 
@@ -198,12 +198,7 @@
   @apply text-[max(12px,_min(calc(100vw_*_(14_/_1440)),_14px))] leading-[132%] -tracking-[.14px] font-medium
 }
 
-/* .form-career form > div:nth-child(2), */
-/* .form-career form > div:nth-child(2),
-.form-career form > div:nth-child(9), */
-/* .form-career form > p:nth-child(1), */
-/* .form-career form > p:nth-child(2),
-.form-career form > p:nth-child(3), */
+.form-career form > div:nth-child(2),
 .form-career form > div:nth-child(9),
 .form-career form > p:nth-child(10),
 .form-career form > p:nth-child(11) {
@@ -212,5 +207,10 @@
 
 
 .form-career input[type="file"] {
-  @apply p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none bg-white mt-2;
+  @apply p-[10px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none bg-white mt-2 text-[max(12px,_min(calc(100vw_*_(16_/_1440)),_16px))];
+}
+
+.form-career input::file-selector-button {
+  @apply w-fit text-[max(12px,_min(calc(100vw_*_(14_/_1440)),_14px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[6px_12px] rounded-full bg-black hover:opacity-70 cursor-pointer mr-2;
+  border: 1px solid rgba(207, 207, 207, 0.25);
 }

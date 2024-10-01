@@ -107,6 +107,87 @@ export async function getAllProduct(afterCursor = "") {
   return data?.products
 }
 
+export async function getAllCareer(afterCursor = "") {
+  const data = await fetchAPI(
+    `
+    query AllCareers($first: Int = 6, $order: OrderEnum = DESC, $after: String = "") {
+      careers(
+        first: $first
+        where: {orderby: {field: DATE, order: $order}}
+        after: $after
+      ) {
+        edges {
+          node {
+            title
+            slug
+            date
+            location
+            department
+            role
+            description
+            type
+          }
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
+        }
+      }
+    }
+  `,
+    {
+      variables: {
+        after: afterCursor,
+      },
+    }
+  )
+
+  return data?.careers
+}
+
+export async function getAllDepartment() {
+  const data = await fetchAPI(
+    `
+    {
+      careers {
+        edges {
+          node {
+            department
+          }
+        }
+      }
+    }
+  `,
+    {
+      variables: {},
+    }
+  )
+
+  return data?.careers
+}
+export async function getAllRole() {
+  const data = await fetchAPI(
+    `
+    {
+      careers {
+        edges {
+          node {
+            role
+          }
+        }
+      }
+    }
+  `,
+    {
+      variables: {},
+    }
+  )
+
+  return data?.careers
+}
+
 export async function getSettings() {
   const data = await fetchAPI(
     `
@@ -252,11 +333,14 @@ export async function getSettings() {
           url
         }
       }
-      careerOptions {
-        description
-        external_link
-        job_type
-        title
+      career2Options {
+        contact {
+          html
+        }
+        video {
+          type
+          url
+        }
       }
       teamOptions {
         name

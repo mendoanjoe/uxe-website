@@ -6,20 +6,25 @@ import { TextSmall } from "../../stories/ui/text/text-small/TextSmall";
 import { TitleMedium } from "../../stories/ui/title/title-medium/TitleMedium";
 import { SECTION_PRODUCT_DETAIL } from "../../lib/constants";
 import {
-  getAllProductsWithSlug,
-  getProductAndMoreProducts,
+  getAllCareersWithSlug,
+  getCareerAndMoreCareers,
 } from "../../lib/api";
 import { useEffect, useRef } from "react";
 import { Layout } from "@/ui/base/layout/Layout";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { getSettings } from "lib/new-api";
 import { GATimeSpent } from "lib/ga";
+import { TextXSmall } from "@/ui/text/text-xsmall/TextXSmall";
+import { TextMedium } from "@/ui/text/text-medium/TextMedium";
+import { TextLarge } from "@/ui/text/text-large/TextLarge";
+import { TitleXSmall } from "@/ui/title/title-xsmall/TitleXSmall";
+import { TitleXXSmall } from "@/ui/title/title-xxsmall/TitleXXSmall";
 
-export default function Career({ product, options }) {
+export default function Career({ career, options }) {
   const currentPage = "career-detail";
   // Reference
   const sectionRef = useRef(null);
-  const productContent = useRef(null);
+  const careerContent = useRef(null);
 
   useEffect(() => {
     const observer = GATimeSpent(currentPage, SECTION_PRODUCT_DETAIL);
@@ -97,14 +102,14 @@ export default function Career({ product, options }) {
 
   const router = useRouter();
 
-  if (!router.isFallback && !product?.slug && !options?.footerOptions) {
+  if (!router.isFallback && !career?.slug && !options?.footerOptions) {
     return <ErrorPage statusCode={404} />;
   }
 
   return (
     <Layout data={{ general: options?.generalSettings, footer: options?.footerOptions }}>
       <Head>
-        <title>{`${options?.generalSettings?.title} | ${product?.title}`}</title>
+        <title>{`${options?.generalSettings?.title} | ${career?.title}`}</title>
       </Head>
       <section ref={sectionRef} className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(44px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] pb-0 max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] max-xl:pb-0 overflow-hidden">
@@ -112,47 +117,91 @@ export default function Career({ product, options }) {
             <div className="min-h-screen w-full p-[max(44px,_min(calc(100vw_*_(80_/_1440)),_80px))] pl-0">
               <div className="space-y-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))]">
                 <div className="space-y-3">
-                  <h1 className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] text-[#19191B] font-medium leading-[112%] -tracking-[.64px]">Product Designer</h1>
-                  <div className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] leading-[132%] -tracking-[.16px]">
-                    <p>Sharjah Emirate, United Arab Emirates</p>
-                    <p>Full-time</p>
+                  <TitleMedium el="h1" label={career?.title} />
+                  <div>
+                    <TextLarge label={career?.location} />
+                    <TextLarge label="Full-time" />
                   </div>
                 </div>
-                <div className="space-y-3 mt-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))]">
-                  <h2 className="text-[max(12px,_min(calc(100vw_*_(18_/_1440)),_18px))] font-medium leading-[132%] -tracking-[.18px]">Company Description</h2>
+                <div className="post-content space-y-3 mt-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))]" dangerouslySetInnerHTML={{ __html: career?.content }}>
+                </div>
+                {/* <div className="space-y-3 mt-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))]">
+                  <TitleXSmall el="h2" label="Job Description" />
                   <div className="space-y-3 text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] leading-[132%] -tracking-[.16px]">
-                    <p>UXE is a global, best in class, HR and recruitment technology company that empowers organisations with people-focused feedback to make great decisions. Recruit, retain and remember your people with UXE automated reference, pulse and exit surveys.</p>
-                    <p>We are a global, ASX-listed company with users in 195 countries. When you work with UXE, you work with a vast array of clients of all sizes and industry backgrounds. Our users love and trust us - we have a 4.7 star rating out of 5 on Google, G2 and Capterra.</p>
-                    <p>UXE vision is to make it easier for the world to hire and track talent throughout their journey by changing the way organisations collect and action feedback from their people. We&apos;re growing rapidly with plenty of exciting new developments and opportunities in play!</p>
+                    <TextLarge
+                      label="This is a great opportunity for a budding data engineer to gain a strong foundation in a high performing company. You will work with leading technologies and be supported by a highly experienced team to deliver the information, analytics and capability needed for UXE to be a customer focused, data driven organisation."
+                      cls="max-w-full"
+                    />
+                    <TextLarge
+                      label="We are a global, ASX-listed company with users in 195 countries. When you work with UXE, you work with a vast array of clients of all sizes and industry backgrounds. Our users love and trust us - we have a 4.7 star rating out of 5 on Google, G2 and Capterra."
+                      cls="max-w-full"
+                    />
+                    <TextLarge
+                      label="You will design, build, run and support cloud-based data processing platforms, real time workload and streaming data flows in a large utility environment."
+                      cls="max-w-full"
+                    />
+  
                   </div>
                 </div>
                 <div className="space-y-3">
-                  <h2 className="text-[max(12px,_min(calc(100vw_*_(18_/_1440)),_18px))] font-medium leading-[132%] -tracking-[.18px]">Job Description</h2>
-                  <div className="space-y-3 text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] leading-[132%] -tracking-[.16px]">
-                    <p>This is a great opportunity for a budding data engineer to gain a strong foundation in a high performing company. You will work with leading technologies and be supported by a highly experienced team to deliver the information, analytics and capability needed for UXE to be a customer focused, data driven organisation.</p>
-                    <p>We are a global, ASX-listed company with users in 195 countries. When you work with UXE, you work with a vast array of clients of all sizes and industry backgrounds. Our users love and trust us - we have a 4.7 star rating out of 5 on Google, G2 and Capterra.</p>
-                    <p>You will design, build, run and support cloud-based data processing platforms, real time workload and streaming data flows in a large utility environment.</p>
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <h2 className="text-[max(12px,_min(calc(100vw_*_(18_/_1440)),_18px))] font-medium leading-[132%] -tracking-[.18px]">Your key responsibilities will be:</h2>
+                  <TitleXSmall el="h2" label="Your key responsibilities will be:" />
                   <div className="space-y-3 text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] leading-[132%] -tracking-[.16px]">
                     <ol className="list-disc ml-5">
-                      <li>Software design</li>
-                      <li>Software deployment on AWS</li>
-                      <li>Data design</li>
-                      <li>Develop, test, and maintain data/software applications to extract data from diverse and scattered sources, and transform and load it into several different storage systems.</li>
-                      <li>Develop, test, and maintain software applications to connect and extract data from diverse external APIs</li>
-                      <li>Create AI systems to process unstructured data to solve classification and dimensionality reduction problems.</li>
-                      <li>Implement, manage, and upgrade data infrastructure and software applications for the numerous present and coming data workloads.</li>
-                      <li>Collecting requirements for the development of new data systems.</li>
-                      <li>Compose extensive documentation on software applications, data assets, data lineage, and data products.</li>
-                      <li>Give support on data and data system matters as SME, sharing best practices on software design and data handling.</li>
+                      <TextLarge
+                        el="li"
+                        label="Software design"
+                        cls="max-w-full"
+                      />
+                      <TextLarge
+                        el="li"
+                        label="Software deployment on AWS"
+                        cls="max-w-full"
+                      />
+                      <TextLarge
+                        el="li"
+                        label="Data design"
+                        cls="max-w-full"
+                      />
+                      <TextLarge
+                        el="li"
+                        label="Develop, test, and maintain data/software applications to extract data from diverse and scattered sources, and transform and load it into several different storage systems."
+                        cls="max-w-full"
+                      />
+                      <TextLarge
+                        el="li"
+                        label="Develop, test, and maintain software applications to connect and extract data from diverse external APIs"
+                        cls="max-w-full"
+                      />
+                      <TextLarge
+                        el="li"
+                        label="Create AI systems to process unstructured data to solve classification and dimensionality reduction problems."
+                        cls="max-w-full"
+                      />
+                      <TextLarge
+                        el="li"
+                        label="Implement, manage, and upgrade data infrastructure and software applications for the numerous present and coming data workloads."
+                        cls="max-w-full"
+                      />
+                      <TextLarge
+                        el="li"
+                        label="Collecting requirements for the development of new data systems."
+                        cls="max-w-full"
+                      />
+                      <TextLarge
+                        el="li"
+                        label="Compose extensive documentation on software applications, data assets, data lineage, and data products."
+                        cls="max-w-full"
+                      />
+                      <TextLarge
+                        el="li"
+                        label="Give support on data and data system matters as SME, sharing best practices on software design and data handling."
+                        cls="max-w-full"
+                      />
                     </ol>
                   </div>
-                </div>
+                </div> */}
                 <div className="space-y-3">
-                  <h2 className="text-[max(12px,_min(calc(100vw_*_(18_/_1440)),_18px))] font-medium leading-[132%] -tracking-[.18px]">Share this job</h2>
+                  <TitleXSmall el="h2" label="Share this job" />
                   <div className="flex gap-[8px]">
                     <a href="#" className="block h-[32px] w-[32px] p-[4px] bg-[#BEBEBE40] rounded-[8px]">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20" fill="none">
@@ -186,16 +235,16 @@ export default function Career({ product, options }) {
             <div className="min-h-screen w-full bg-[#F4F5F6] p-[max(44px,_min(calc(100vw_*_(80_/_1440)),_80px))]">
               <div className="space-y-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))]">
                 <div className="space-y-3">
-                  <h3 className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] text-[#19191B] font-medium leading-[112%] -tracking-[.64px]">Apply Now</h3>
-                  <div className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] leading-[132%] -tracking-[.16px]">
-                    <p>Join UXE  Innovate Smart City Security with Us</p>
+                  <TitleMedium el="h1" label="Apply Now" />
+                  <div>
+                    <TextLarge label="Join UXE  Innovate Smart City Security with Us" />
                   </div>
                 </div>
                 <div className="space-y-3">
                   <div
                     className="form-career"
                     ref={formBlock}
-                    dangerouslySetInnerHTML={{ __html: options?.contactOptions?.html }}
+                    dangerouslySetInnerHTML={{ __html: options?.career2Options.contact?.html }}
                   ></div>
                   <p
                     ref={formMessage}
@@ -212,11 +261,11 @@ export default function Career({ product, options }) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const data = await getProductAndMoreProducts(params?.slug);
+  const data = await getCareerAndMoreCareers(params?.slug);
   const options = await getSettings();
   return {
     props: {
-      product: data.product,
+      career: data.career,
       options,
     },
     revalidate: 10,
@@ -224,12 +273,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPosts = await getAllProductsWithSlug();
-
-  console.log(allPosts)
+  const allCareers = await getAllCareersWithSlug();
 
   return {
-    paths: allPosts.edges.map(({ node }) => `/career/${node.slug}`) || [],
+    paths: allCareers.edges.map(({ node }) => `/career/${node.slug}`) || [],
     fallback: true,
   };
 };

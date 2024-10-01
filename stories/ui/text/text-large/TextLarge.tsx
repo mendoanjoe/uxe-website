@@ -7,7 +7,7 @@ interface TextLargeProps {
   label: string;            // Text content of the title
   hover?: boolean;           // Whether to apply hover styles
   decoration?: boolean;      // Whether to apply decoration styles
-  el?: "p" | "a" | "button"; // HTML element type
+  el?: "p" | "a" | "button" | "li"; // HTML element type
   href?: string;            // URL for 'a' element
   onClick?: () => void;     // Click event handler
   style?: any;
