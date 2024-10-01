@@ -53,6 +53,7 @@ add_action('graphql_register_types', function() {
 
 // Include necessary files
 require_once plugin_dir_path(__FILE__) . 'includes/post-types.php';
+require_once plugin_dir_path(__FILE__) . 'includes/career-types.php';
 require_once plugin_dir_path(__FILE__) . 'includes/admin-menu.php';
 require_once plugin_dir_path(__FILE__) . 'includes/solution-option.php';
 require_once plugin_dir_path(__FILE__) . 'includes/feature-option.php';
