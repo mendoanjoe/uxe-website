@@ -49,6 +49,7 @@ export default function BlogSection({ posts, options }) {
           subtitle:"Media Center",
           description:"",
           image_url: backgroundOptions?.hero_blog?.url,
+          subDescription: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments"
         }}
         custom={{ gtm_reference: currentPage }}
       />

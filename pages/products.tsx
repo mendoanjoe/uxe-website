@@ -22,6 +22,7 @@ export default function ProductSection({ products, options }) {
           subtitle:"OUR PRODUCT",
           description:"",
           image_url: backgroundOptions?.hero_product?.url,
+          subDescription: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments"
         }}
         custom={{ gtm_reference: currentPage }}
       />

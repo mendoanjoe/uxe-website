@@ -26,6 +26,7 @@ export default function TeamSection({ options }) {
           subtitle:"Our Team",
           description:"",
           image_url: backgroundOptions?.hero_team?.url,
+          subDescription: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments"
         }}
         custom={{ gtm_reference: currentPage }}
       />

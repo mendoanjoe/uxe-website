@@ -38,7 +38,7 @@ export default function CareerSection({ careers, department, roles, options }) {
           subtitle:"Careers",
           description:"",
           image_url: backgroundOptions?.hero_career?.url,
-          
+          subDescription: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments"
         }}
         custom={{ gtm_reference: currentPage }}
       />

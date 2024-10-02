@@ -159,10 +159,6 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
                   <li className="text-large opacity-75">Reward and Recognition</li>
                 </ol>
               </div>
-{/*               <TextLarge
-                label="Prepare your interview job with us."
-                cls="opacity-75"
-              /> */}
             </div>
             <div className="flex flex-col gap-5">
               {careers.map(({ node }, index) => (

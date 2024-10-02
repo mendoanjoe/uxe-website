@@ -20,7 +20,8 @@ export const Default: Story = {
       title: "Discover Innovation in Smart Security Products",
       subtitle: "OUR PRODUCT",
       description: "",
-      image_url: "https://api.uxe.ai/wp-content/uploads/2024/01/career-background.png"
+      image_url: "https://api.uxe.ai/wp-content/uploads/2024/01/career-background.png",
+      subDescription: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments"
     }
   },
 };

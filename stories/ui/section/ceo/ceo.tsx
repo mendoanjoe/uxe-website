@@ -1,3 +1,4 @@
+import { TextHuge } from "@/ui/text/text-huge/TextHuge";
 import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 import Image from "next/image";
 import React from "react";
@@ -29,7 +30,9 @@ export const CEOMsgSection = () => {
               width={20}
               height={10}
             />
-            <TitleMedium el="blockquote" label="As Dubai strives to be at the forefront of sustainability, this project complements Dubai’s ambitions for providing a sustainable lifestyle." cls="text-[#19191B] italic font-normal" />
+            <TextHuge el="blockquote" label={`At UXE Security Solutions, we proudly align with Dubai’s vision of becoming the safest city in the world. As leaders in the tech industry, we provide ‘Smart Solutions for a Smart City’ offering innovative, reliable, and trustworthy technology that empowers our clients in an ever-changing landscape.
+            By investing in cutting-edge technologies and fostering a dedicated team, we are committed to addressing the challenges of today while anticipating the needs of tomorrow. Our comprehensive solutions ensure peace of mind for businesses, communities, governments, and individuals alike.
+            Headquartered in Dubai, we are passionate about contributing to the safety and growth of our city. We uphold the highest standards of quality and professionalism, offering tailored technological solutions that meet the unique needs of each client. Whether you are a business, a government entity, or an individual, our mission is to enable you to operate confidently and efficiently.`} cls="text-[#19191B] italic font-normal" />
 
             {/* CEO Name & Title */}
             <p className="text-[24px] font-medium leading-[32px] text-[#19191B]">

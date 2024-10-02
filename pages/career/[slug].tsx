@@ -46,7 +46,7 @@ export default function Career({ career, options }) {
     window.addEventListener("scroll", handleScrollNav);
 
     return () => {
-      if (sectionRef.current) {
+      if (sectionRef && sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
       window.removeEventListener("scroll", handleScrollNav);

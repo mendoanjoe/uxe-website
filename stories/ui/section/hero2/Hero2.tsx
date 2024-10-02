@@ -7,11 +7,12 @@ type Hero2Data = {
   subtitle: string;
   description: string;
   image_url: any;
+  subDescription: string;
 }
 
 export const Hero2 = ({ data, custom }: SectionProps<Hero2Data>) => {
   // Props
-  const { title, subtitle, description, image_url } = data;
+  const { title, subtitle, description, image_url, subDescription } = data;
   const { gtm_reference } = custom;
 
   // Reference
@@ -40,7 +41,7 @@ export const Hero2 = ({ data, custom }: SectionProps<Hero2Data>) => {
                 <span className="text-[12px] text-white font-medium leading-[112%] -tracking-[.96px] uppercase">
                   {subtitle}
                 </span>
-                <h2 className="text-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))] max-lg:text-[max(24px,_min(calc(100vw_*_(80_/_1440)),_80px))] font-medium leading-[120%] -tracking-[1.28px] bg-linear-4 !bg-clip-text text-transparent">
+                <h2 className="text-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))] max-lg:text-[max(24px,_min(calc(100vw_*_(80_/_1440)),_80px))] font-medium leading-[120%] -tracking-[1.28px] !bg-clip-text bg-linear-11 text-transparent">
                   {title}
                 </h2>
               </div>
@@ -55,14 +56,10 @@ export const Hero2 = ({ data, custom }: SectionProps<Hero2Data>) => {
               backgroundImage: `url(${image_url})`,
             }}
           ></div>
-{/*           <div className="absolute top-0 z-10 w-full min-h-[400px] bg-linear-9"></div> */}
-          <div className="absolute bottom-0 right-0 p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))] text-right text-white">
-          
-            <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] font-medium leading-[132%] -tracking-[.16px]">
-              Intelligent Security Beyond Cameras: Seamless 
-            </p>
-            <p>
-            Solutions for Governments and Business Environments
+          {/*           <div className="absolute top-0 z-10 w-full min-h-[400px] bg-linear-9"></div> */}
+          <div className="absolute bottom-0 right-0 p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))] text-right text-white max-w-xl">
+            <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] font-medium leading-[132%] -tracking-[.16px] !bg-clip-text bg-linear-10 text-transparent">
+              {subDescription}
             </p>
           </div>
         </div>

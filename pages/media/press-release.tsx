@@ -23,6 +23,7 @@ export default function NewsSection({ options, pressReleaseOptions }) {
           subtitle: "COMPANY",
           description: "",
           image_url: backgroundOptions?.hero_about_us?.url,
+          subDescription: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments"
         }}
         custom={{ gtm_reference: currentPage }}
       />
