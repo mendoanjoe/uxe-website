@@ -84,10 +84,10 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
             <div className="flex flex-col gap-3">
               <TitleMedium
                 el="h2"
-                label="Job Openings"
+                label="Join us and grow with UXE"
               />
               <TextLarge
-                label="Join UXE  Innovate Smart City Security with Us"
+                label="Our key employee focus areas"
                 cls="opacity-50"
               />
             </div>
@@ -150,10 +150,19 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
                   </div>
                 </div> */}
               </div>
-              <TextLarge
+              <div>
+                <ol classname="list-decimal">
+                  <li classname="text-large opacity-75">Safety & wellbeing</li>
+                  <li classname="text-large opacity-75">Work Culture</li>
+                  <li classname="text-large opacity-75">Development &amp; Career</li>
+                  <li classname="text-large opacity-75">Diversity</li>
+                  <li classname="text-large opacity-75">Reward and Recognition</li>
+                </ol>
+              </div>
+{/*               <TextLarge
                 label="Prepare your interview job with us."
                 cls="opacity-75"
-              />
+              /> */}
             </div>
             <div className="flex flex-col gap-5">
               {careers.map(({ node }, index) => (
