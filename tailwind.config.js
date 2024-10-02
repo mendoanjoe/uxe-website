@@ -48,7 +48,8 @@ module.exports = {
         "linear-5": "linear-gradient(167deg, #FFF -15%, rgba(255, 255, 255, 0.00) 157.25%)",
         "linear-6": "linear-gradient(270deg, rgba(25, 25, 27, 0.10) 0%, rgba(25, 25, 27, 0.29) 50.7%, rgba(25, 25, 27, 0.10) 103.78%)",
         "linear-7": "linear-gradient(0deg, #00000021 0%, rgb(0 0 0 / 0%) 62.65%, rgba(0, 0, 0, 0.49) 88.93%, rgba(0, 0, 0, 0.00) 100%)",
-        "linear-8": "linear-gradient(123deg, #FFF 27.05%, rgba(255, 255, 255, 0.00) 123.2%)"
+        "linear-8": "linear-gradient(123deg, #FFF 27.05%, rgba(255, 255, 255, 0.00) 123.2%)",
+        "linear-9": "linear-gradient(0deg, #0000000f 0%, rgba(0, 0, 0, 0.80) 62.65%, rgba(0, 0, 0, 0.49) 88.93%, rgba(0, 0, 0, 0.00) 100%)"
       }
     },
   },

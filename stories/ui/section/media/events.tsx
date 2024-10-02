@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatToReadableDate } from 'utils/dateformatter';
+import { TitleMedium } from '@/ui/title/title-medium/TitleMedium';
+import { TextSmall } from '@/ui/text/text-small/TextSmall';
+import { TextLarge } from '@/ui/text/text-large/TextLarge';
 
 
 
@@ -66,7 +69,10 @@ const NewsList = () => {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold">Events</h2>
+        <div className='space-y-3'>
+          <TitleMedium label='Event'/>
+          <TextLarge label='Explore the latest event updates from the UXE team' cls='opacity-50'/>
+        </div>
         <div className="flex items-center space-x-4">
           {/* Search form */}
           <form onSubmit={handleSearch} className="relative">
@@ -108,10 +114,6 @@ const NewsList = () => {
             )}
           </div>
         </div>
-      </div>
-      <div className="w-full mb-5">
-        {/* background: #19191B; */}
-        <p className='text-gray-600'>Explore the latest news and product updates from the UXE</p>
       </div>
 
       {loading ? (

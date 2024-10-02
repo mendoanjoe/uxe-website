@@ -61,10 +61,10 @@ export const Navigation = ({ menu }: NavigationProps) => {
         <div className="p-[20px_38px_0_38px] max-xl:p-0">
           <div id='navigation-container' className={containerClass}>
             <div className={cn(
-              "px-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] max-md:py-[max(12px,_min(calc(100vw_*_(18_/_1440)),_18px))] max-md:flex-col flex items-center justify-between max-md:justify-start",
-              { "max-md:h-screen": isMobile }
+              "px-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] max-lg:py-[max(12px,_min(calc(100vw_*_(18_/_1440)),_18px))] max-lg:flex-col flex items-center justify-between max-lg:justify-start",
+              { "max-lg:h-screen": isMobile }
               )}>
-              <div className='max-md:w-full flex items-center justify-between'>
+              <div className='max-lg:w-full flex items-center justify-between'>
                 <Link href="/">
                   {isFixed ? (
                     <svg xmlns="http://www.w3.org/2000/svg" width="98" height="40" viewBox="0 0 98 40" fill="none">
@@ -84,7 +84,7 @@ export const Navigation = ({ menu }: NavigationProps) => {
                     </svg>
                   )}
                 </Link>
-                <button title='Mobile Menu' className='md:hidden'>
+                <button title='Mobile Menu' className='lg:hidden'>
                   {isMobile ? (
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                       <path d="M6.4 19L5 17.6L10.6 12L5 6.4L6.4 5L12 10.6L17.6 5L19 6.4L13.4 12L19 17.6L17.6 19L12 13.4L6.4 19Z" fill="black"/>
@@ -97,8 +97,8 @@ export const Navigation = ({ menu }: NavigationProps) => {
                 </button>
               </div>
 
-              <div className={cn("items-center max-md:items-start max-md:w-full max-md:mt-[20px] flex", { "max-md:hidden": !isMobile })}>
-                <ul className="flex gap-[8px] max-md:*:p-[14px_8px] max-md:flex-col max-md:w-full *:p-[28px_8px] *:flex *:items-center">
+              <div className={cn("items-center max-lg:items-start max-lg:w-full max-lg:mt-[20px] flex", { "max-lg:hidden": !isMobile })}>
+                <ul className="flex gap-[8px] max-lg:*:p-[14px_8px] max-lg:flex-col max-lg:w-full *:p-[28px_8px] *:flex *:items-center">
                   {menu.length > 0 ? (
                     <MenuItem isFixed={isFixed} menu={menu} />
                   ) : (<></>)}

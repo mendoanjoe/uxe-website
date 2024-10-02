@@ -10,6 +10,9 @@ import { useEffect, useRef } from "react";
 import { Meta } from "@/ui/base/Meta";
 import { TitleXSmall } from "@/ui/title/title-xsmall/TitleXSmall";
 import Image from "next/image";
+import { TitleLarge } from "@/ui/title/title-large/TitleLarge";
+import { TextSmall } from "@/ui/text/text-small/TextSmall";
+import { TitleXXSmall } from "@/ui/title/title-xxsmall/TitleXXSmall";
 
 export default function ContactUsSection({ options }) {
   const { backgroundOptions, contactOptions, footerOptions, generalSettings } = options;
@@ -105,16 +108,17 @@ export default function ContactUsSection({ options }) {
         <div className="bg-white">
           <div className="max-w-[1440px] mx-auto overflow-hidden">
             <div className="grid grid-cols-2 max-md:grid-cols-1 min-h-screen">
-              <div className="bg-black p-[max(20px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(96_/_1440)),_96px))] flex flex-col gap-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] items-start text-white">
-                <div className="relative rounded-[12px] overflow-hidden">
+              <div className="bg-black text-white">
+                <div className="relative overflow-hidden w-full h-full object-cover">
                   {backgroundOptions?.hero_contact && (
                     <img
                       alt="Contact Us Background"
                       src={backgroundOptions?.hero_contact?.url}
+                      className="w-full h-full object-cover"
                     />
                   )}
 
-                  <div className="flex flex-col items-start gap-[12px] absolute left-[20px] bottom-[14px]">
+                  {/* <div className="flex flex-col items-start gap-[12px] absolute left-[20px] bottom-[14px]">
                     <div className="p-[10px] rounded-full backdrop-blur-[2px] bg-[#01010140] text-white flex items-center gap-[6px]">
                       <div className="p-[4px] bg-[#FFFFFF] rounded-full">
                         <svg
@@ -187,9 +191,9 @@ export default function ContactUsSection({ options }) {
                       </div>
                       <TextMedium label="Agile & Excellence" />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
-                <div className="flex flex-col gap-[12px]">
+                {/* <div className="flex flex-col gap-[12px]">
                   <TitleMedium
                     el="h2"
                     label="Solutions for Government and Business Environments"
@@ -210,15 +214,12 @@ export default function ContactUsSection({ options }) {
                       ))}
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
-              <div className="p-[max(20px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(96_/_1440)),_96px))] flex flex-col gap-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] items-start">
+              <div className="p-[max(20px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(96_/_1440)),_96px))] flex flex-col gap-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] items-start bg-[#F4F5F6]">
                 <div className="flex flex-col gap-[12px]">
-                  <TitleMedium el="h2" label="Get Started with UXE" />
-                  <TextLarge
-                    label="Contact us for more details to learn more about the best, smartest, and most efficient solution that fits your requirements"
-                    cls="max-w-none"
-                  />
+                  <TextSmall label="Contact us" cls="font-medium uppercase"/>
+                  <TitleLarge el="h2" label="Get Started with UXE" />
                 </div>
                 <div
                   className="form-contact"
@@ -229,6 +230,45 @@ export default function ContactUsSection({ options }) {
                   ref={formMessage}
                   className="hidden p-[10px] border-[2px] border-black w-full"
                 ></p>
+              </div>
+            </div>
+            <div className="space-y-12 p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))] flex flex-col">
+              <div className="flex justify-between items-end max-md:flex-col max-md:items-start max-md:gap-5">
+                <div className="space-y-3 max-w-xl">
+                  <TitleMedium label="Solutions for Governments and Business Environments" el="h2" />
+                  <TextMedium label="By choosing UXE Security Solutions you are selecting a reliable and experienced security partner who is dedicated to delivering tailored solutions, providing you with the highest level of security expertise and service." />
+                </div>
+                <a href="tel:+971-60053-9000" className="flex gap-3 items-end p-5 border border-[#19191B0F] w-fit max-md:w-full rounded-xl">
+                  <div className="bg-[#F4F5F6] border border-[#19191B0F] p-3 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <g clip-path="url(#clip0_834_3024)">
+                        <path d="M19.4293 14.1325L15.0543 12.2575C14.8674 12.1778 14.6597 12.161 14.4624 12.2096C14.2652 12.2582 14.089 12.3696 13.9605 12.527L12.023 14.8942C8.98232 13.4605 6.53524 11.0134 5.10156 7.97269L7.46875 6.03519C7.62644 5.90694 7.73804 5.73081 7.78668 5.53345C7.83531 5.3361 7.81832 5.12828 7.73828 4.94144L5.86328 0.566443C5.77543 0.36504 5.62007 0.200601 5.42397 0.101481C5.22787 0.00236139 5.00332 -0.0252267 4.78906 0.0234739L0.726562 0.960974C0.519988 1.00868 0.335682 1.12499 0.203725 1.29093C0.0717677 1.45687 -4.75863e-05 1.66264 2.36571e-08 1.87465C2.36571e-08 11.8942 8.12109 19.9996 18.125 19.9996C18.3371 19.9998 18.5429 19.928 18.709 19.796C18.875 19.6641 18.9913 19.4797 19.0391 19.2731L19.9766 15.2106C20.025 14.9953 19.9968 14.7698 19.8969 14.5731C19.797 14.3763 19.6317 14.2205 19.4293 14.1325Z" fill="black"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_834_3024">
+                          <rect width="20" height="20" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                  <div>
+                    <TitleXXSmall label="Contact" cls="text-[max(16px,_min(calc(100vw_*_(18_/_1440)),_18px))] leading-[132%] -tracking-[.18px]"/>
+                    <TextLarge label="+971-60053-9000" />
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5.83398 14.1673L14.1673 5.83398M14.1673 5.83398H5.83398M14.1673 5.83398V14.1673" stroke="#19191B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+              <div className="rounded-xl overflow-hidden">
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.222351737497!2d55.4177951!3d25.2631046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f6ae92ab57d%3A0x59f6c410c1681472!2sMuhaisnah%202!5e0!3m2!1sid!2sid!4v1727780140571!5m2!1sid!2sid"
+                width="1280"
+                height="400"
+                style={{ border: 0, width: "100%" }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"/>
               </div>
             </div>
           </div>

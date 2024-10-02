@@ -11,25 +11,113 @@
       "submenu": []
     },
     {
-      "name": "Solution",
-      "url": "/solution",
+      "name": "For Governments",
+      "url": "",
       "submenu": [
         {
-          "name": "Goverments",
-          "description": "All-in-One Security Platform Centralized Surveillance",
-          "url": "/products",
-          "sub_menu_three": [
+          "group": "Governments",
+          "submenu": [
             {
-              "name": "For Bussines Masuk Sub Menu",
-              "description": "All-in-One Security Platform Centralized Surveillance",
-              "url": "/#section-solution"
+              "group": "Solutions",
+              "submenu": [
+                {
+                  "name": "Video guard",
+                  "url": "/products"
+                },
+                {
+                  "name": "E-guard",
+                  "url": "/products"
+                },
+                {
+                  "name": "Securepath",
+                  "url": "/products"
+                }
+              ]
+            },
+            {
+              "group": "Product",
+              "submenu": [
+                {
+                  "name": "Container Tracker",
+                  "url": "/products"
+                }
+              ]
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "name": "For Business",
+      "url": "/csr",
+      "submenu": [
         {
-          "name": "Bussines",
-          "description": "Discover Innovation in Smart Security Products",
-          "url": "/#section-solution"
+          "group": "Business",
+          "submenu": [
+            {
+              "group": "Solutions",
+              "submenu": [
+                {
+                  "name": "Boxdrop",
+                  "url": "/products"
+                },
+                {
+                  "name": "Keyless",
+                  "url": "/products"
+                },
+                {
+                  "name": "Qumra",
+                  "url": "/products"
+                },
+                {
+                  "name": "UC",
+                  "url": "/products"
+                }
+              ]
+            },
+            {
+              "group": "Product",
+              "submenu": [
+                {
+                  "name": "Smart Locks",
+                  "url": "/products"
+                },
+                {
+                  "name": "Vehicle Tracker",
+                  "url": "/products"
+                },
+                {
+                  "name": "Bodyworn Camera",
+                  "url": "/products"
+                },
+                {
+                  "name": "Smart Guard",
+                  "url": "/products"
+                }
+              ]
+            },
+            {
+              "group": "Services",
+              "submenu": [
+                {
+                  "name": "Security Audit",
+                  "url": "/products"
+                },
+                {
+                  "name": "Security Consulting",
+                  "url": "/products"
+                },
+                {
+                  "name": "Security Training",
+                  "url": "/products"
+                },
+                {
+                  "name": "Smart Guard",
+                  "url": "/products"
+                }
+              ]
+            }
+          ]
         }
       ]
     },

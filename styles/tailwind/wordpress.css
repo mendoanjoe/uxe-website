@@ -142,7 +142,7 @@
 .form-contact input[type="file"],
 .form-contact select,
 .form-contact textarea{
-  @apply p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none bg-white;
+  @apply p-[14px_12px] border border-[#19191B1F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none bg-white mt-2;
 }
 
 .form-contact input[type="submit"] {
@@ -151,14 +151,15 @@
 }
 
 .form-contact form {
-  @apply flex flex-col gap-[16px];
+  /* @apply flex flex-col gap-[16px]; */
+  @apply grid grid-cols-2 w-full gap-[16px];
 }
 
 .form-contact form p:not(:first-of-type) {
   @apply max-w-none col-span-2 text-[12px] leading-[132%] -tracking-[.12px];;
 }
 
-.form-contact form p:first-of-type {
+.form-contact form div:first-of-type {
   @apply grid grid-cols-2 w-full gap-[16px];
 }
 
@@ -169,6 +170,13 @@
 .form-contact form p:first-of-type > span:nth-of-type(1),
 .form-contact form p:first-of-type > span:nth-of-type(2) {
   @apply max-lg:col-span-2;
+}
+
+.form-contact form > div:nth-child(4),
+.form-contact form > div:nth-child(5),
+.form-contact form > p:nth-child(6),
+.form-contact form > p:nth-child(7) {
+  grid-column: span 2 / span 2;
 }
 
 .form-career label {
