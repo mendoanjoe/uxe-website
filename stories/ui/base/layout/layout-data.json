@@ -22,15 +22,15 @@
               "submenu": [
                 {
                   "name": "Video guard",
-                  "url": "/products"
+                  "url": "/product/video-guard"
                 },
                 {
                   "name": "E-guard",
-                  "url": "/products"
+                  "url": "/product/e-guard"
                 },
                 {
                   "name": "Securepath",
-                  "url": "/products"
+                  "url": "/product/securepath"
                 }
               ]
             },
@@ -39,7 +39,7 @@
               "submenu": [
                 {
                   "name": "Container Tracker",
-                  "url": "/products"
+                  "url": "/product/container-tracker"
                 }
               ]
             }
@@ -59,19 +59,19 @@
               "submenu": [
                 {
                   "name": "Boxdrop",
-                  "url": "/products"
+                  "url": "/product/boxdrop"
                 },
                 {
                   "name": "Keyless",
-                  "url": "/products"
+                  "url": "/product/keyless"
                 },
                 {
                   "name": "Qumra",
-                  "url": "/products"
+                  "url": "/product/qumra"
                 },
                 {
                   "name": "UC",
-                  "url": "/products"
+                  "url": "/product/uc"
                 }
               ]
             },
@@ -80,19 +80,19 @@
               "submenu": [
                 {
                   "name": "Smart Locks",
-                  "url": "/products"
+                  "url": "/product/smart-locks"
                 },
                 {
                   "name": "Vehicle Tracker",
-                  "url": "/products"
+                  "url": "/product/vehicle-tracker"
                 },
                 {
                   "name": "Bodyworn Camera",
-                  "url": "/products"
+                  "url": "/product/bodyworn-camera"
                 },
                 {
                   "name": "Smart Guard",
-                  "url": "/products"
+                  "url": "/product/smart-guard"
                 }
               ]
             },
@@ -101,19 +101,15 @@
               "submenu": [
                 {
                   "name": "Security Audit",
-                  "url": "/products"
+                  "url": "/product/security-audit"
                 },
                 {
                   "name": "Security Consulting",
-                  "url": "/products"
+                  "url": "/product/security-consulting"
                 },
                 {
                   "name": "Security Training",
-                  "url": "/products"
-                },
-                {
-                  "name": "Smart Guard",
-                  "url": "/products"
+                  "url": "/product/security-training"
                 }
               ]
             }
