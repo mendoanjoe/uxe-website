@@ -55,7 +55,7 @@ export const Hero2 = ({ data, custom }: SectionProps<Hero2Data>) => {
               backgroundImage: `url(${image_url})`,
             }}
           ></div>
-          <div className="absolute top-0 z-10 w-full min-h-[400px] bg-linear-9"></div>
+{/*           <div className="absolute top-0 z-10 w-full min-h-[400px] bg-linear-9"></div> */}
           <div className="absolute bottom-0 right-0 p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))] text-right text-white">
           
             <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] font-medium leading-[132%] -tracking-[.16px]">
