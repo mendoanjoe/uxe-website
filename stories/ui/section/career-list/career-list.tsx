@@ -151,12 +151,12 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
                 </div> */}
               </div>
               <div>
-                <ol classname="list-decimal">
-                  <li classname="text-large opacity-75">Safety & wellbeing</li>
-                  <li classname="text-large opacity-75">Work Culture</li>
-                  <li classname="text-large opacity-75">Development &amp; Career</li>
-                  <li classname="text-large opacity-75">Diversity</li>
-                  <li classname="text-large opacity-75">Reward and Recognition</li>
+                <ol className="list-decimal">
+                  <li className="text-large opacity-75">Safety & wellbeing</li>
+                  <li className="text-large opacity-75">Work Culture</li>
+                  <li className="text-large opacity-75">Development &amp; Career</li>
+                  <li className="text-large opacity-75">Diversity</li>
+                  <li className="text-large opacity-75">Reward and Recognition</li>
                 </ol>
               </div>
 {/*               <TextLarge
