@@ -34,7 +34,7 @@ export default function CareerSection({ careers, department, roles, options }) {
       </Head>
       <Hero2
         data={{
-          title:"Became part of our community",
+          title:"Shape Your Future with Us Explore a World of Opportunities",
           subtitle:"Careers",
           description:"",
           image_url: backgroundOptions?.hero_career?.url,
