@@ -76,11 +76,11 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
   // };
 
   return (
-    <section className="py-20">
-      <div className="max-w-[1440px] mx-auto px-4 flex flex-col gap-10 min-h-screen">
-        <div className="px-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))] flex flex-col gap-12">
+    <section>
+      <div className="max-w-[1440px] mx-auto flex flex-col gap-10 min-h-screen">
+        <div className="p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] flex flex-col gap-12 max-md:gap-10 max-sm:gap-8">
           {show_title && (
-          <div className="flex justify-between items-end">
+          <div className="flex justify-between items-end max-md:flex-col max-md:items-start max-md:gap-8 max-sm:gap-6">
             <div className="flex flex-col gap-3">
               <TitleMedium
                 el="h2"
@@ -91,18 +91,18 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
                 cls="opacity-50"
               />
             </div>
-            <div className="flex gap-3">
+            <div className="flex max-sm:flex-wrap gap-3">
               <div className="w-full min-w-40">      
                 <div className="relative">
                   <select title="Department"
-                   className="w-full bg-transparent pl-4 pr-8 py-3 transition duration-300 border border-[#D9D9D9] rounded-[100px] ease focus:outline-none appearance-none cursor-pointer"
+                   className="w-full bg-transparent pl-4 pr-8 py-3 max-md:py-2 transition duration-300 border border-[#D9D9D9] rounded-[100px] ease focus:outline-none appearance-none cursor-pointer"
                    onChange={(event) => setSelectedDepartment(event.target.value)}
                   >
                     {department.edges.map((item, index) => (
                       <option key={index} value={item.node.department}>{item.node.department}</option>
                     ))}
                   </select>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="h-5 w-5 ml-1 absolute top-4 right-4 text-slate-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="h-5 w-5 ml-1 absolute top-4 right-4 max-md:top-3 max-md:right-3 text-slate-700">
                     <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#19191B" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square"/>
                   </svg>
                 </div>
@@ -110,14 +110,14 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
               <div className="w-full min-w-40">      
                 <div className="relative">
                   <select title="Role"
-                    className="w-full bg-transparent pl-4 pr-8 py-3 transition duration-300 border border-[#D9D9D9] rounded-[100px] ease focus:outline-none appearance-none cursor-pointer"
+                    className="w-full bg-transparent pl-4 pr-8 py-3 max-md:py-2 transition duration-300 border border-[#D9D9D9] rounded-[100px] ease focus:outline-none appearance-none cursor-pointer"
                     onChange={(event) => setSelectedRole(event.target.value)}
                   >
                     {roles.edges.map((item, index) => (
                       <option key={index} value={item.node.role}>{item.node.role}</option>
                     ))}
                   </select>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="h-5 w-5 ml-1 absolute top-4 right-4 text-slate-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="h-5 w-5 ml-1 absolute top-4 right-4 max-md:top-3 max-md:right-3 text-slate-700">
                     <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#19191B" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square"/>
                   </svg>
                 </div>
@@ -125,7 +125,7 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
             </div>
           </div>
           )}
-          <div className="grid grid-cols-[.7fr_1fr] gap-[10%]">
+          <div className="grid grid-cols-[.7fr_1fr] max-lg:grid-cols-2 max-md:grid-cols-1 gap-[10%]">
             <div className="space-y-4">
               <div className="aspect-video rounded-xl overflow-hidden relative">
                 {isClient && (
@@ -151,7 +151,7 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
                 </div> */}
               </div>
               <div>
-                <ol className="list-decimal">
+                <ol className="list-decimal ml-4">
                   <li className="text-large opacity-75">Safety & wellbeing</li>
                   <li className="text-large opacity-75">Work Culture</li>
                   <li className="text-large opacity-75">Development &amp; Career</li>

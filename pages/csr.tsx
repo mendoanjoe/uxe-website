@@ -35,14 +35,13 @@ export default function CsrSection({ careers, department, roles, options }) {
         data={{
           title:"Access with Purpose",
           subtitle:"Corporate Social Responsibility",
-          description:"",
-          image_url: backgroundOptions?.hero_career?.url,
-          subDescription: "UXE Corporate Social Responsibility Initiatives Driving Social and Environmnetal Change"
+          description: "UXE Corporate Social Responsibility Initiatives Driving Social and Environmnetal Change",
+          image_url: backgroundOptions?.hero_career?.url
         }}
         custom={{ gtm_reference: currentPage }}
       />
       <section>
-        <div className="max-w-[1440px] mx-auto px-4 flex flex-col gap-10 min-h-screen">
+        <div className="max-w-[1440px] mx-auto flex flex-col gap-10 min-h-screen">
           <div className="p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] flex flex-col gap-20 max-md:gap-10">
             <div className="grid grid-cols-2 max-md:grid-cols-1 items-center gap-[10%] max-md:gap-8">
               <div className="rounded-xl overflow-hidden">

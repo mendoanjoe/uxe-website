@@ -138,7 +138,10 @@
 //         </section>
 //       )}
 //       <GetStarted
-//         data={{ label:"Get started with UXE" }}
+//         data={{
+//           label: "Get started with UXE",
+//           description: "Join over 4,000+ startups already growing with UXE."
+//         }}
 //         custom={{ gtm_reference: currentPage, template: 1, isPadding:!(careerOptions.length > 0) }}
 //       />
 //       <Testimonial

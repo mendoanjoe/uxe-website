@@ -9,6 +9,7 @@ import { TextLarge } from "@/ui/text/text-large/TextLarge";
 
 type GetStartedData = {
   label: string;
+  description: string;
 };
 
 type GetStartedCustom = {
@@ -26,7 +27,7 @@ export const GetStarted = ({
   ...props
 }: SectionProps<GetStartedData, GetStartedCustom>) => {
   // Props
-  const { label } = data;
+  const { label, description } = data;
   const { gtm_reference, template = 0, isPadding = false } = custom;
 
   // Reference
@@ -62,10 +63,7 @@ export const GetStarted = ({
             <div className="flex gap-[20px] items-center justify-between w-full max-md:flex-col max-md:text-center">
               <div className="flex flex-col gap-[16px]">
                 <TitleMedium el="h2" label={label} decoration />
-                <TextLarge
-                  label="Join over 4,000+ startups already growing with UXE."
-                  cls="text-white"
-                />
+                <TextLarge label={description} cls="text-white max-w-full" />
               </div>
               <Link
                 onClick={() =>

@@ -2350,7 +2350,10 @@ export default function Index({ options }) {
         custom={{ gtm_reference: currentPage, show: 3 }}
       />
       <GetStarted
-        data={{ label:"Get started with UXE" }}
+        data={{
+          label:"Get started with UXE",
+          description: "Join over 4,000+ startups already growing with UXE."
+        }}
         custom={{ gtm_reference: currentPage }}
       />
       <Post data={posts} custom={{ gtm_reference: currentPage }} />

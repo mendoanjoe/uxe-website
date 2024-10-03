@@ -52,7 +52,7 @@ export const VisionMission2 = ({
 
               <div className="flex flex-col gap-6 justify-center flex-1">
                 <p className="text-[32px] font-normal leading-[40px] text-left">
-                  At UXE, our goal is to make unwavering impact on individuals and companies to feel secure through our products and services.
+                  {vision.description}
                 </p>
               </div>
 
@@ -68,7 +68,7 @@ export const VisionMission2 = ({
 
               <div className="flex flex-col gap-6 justify-center flex-1">
                 <p className="text-[32px] font-normal leading-[40px] text-left">
-                  Our mission is to build a futuristic entity that holds in its mission the sense of security, well-being of people by adopting cutting edge technologies, Trackers, Artificial Intelligence and Robotics.
+                {mission.description}
                 </p>
               </div>
 

@@ -16,6 +16,6 @@ type Story = StoryObj<typeof GetStarted>;
 
 export const Default: Story = {
   args: {
-    data: { label: "Trusted by hundreds of organizations" }
+    data: { label: "Trusted by hundreds of organizations", description: "blabla" }
   },
 };

@@ -24,9 +24,8 @@ export default function TeamSection({ options }) {
         data={{
           title:"Happy people who work hard to empower your teams.",
           subtitle:"Our Team",
-          description:"",
-          image_url: backgroundOptions?.hero_team?.url,
-          subDescription: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments"
+          description: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments",
+          image_url: backgroundOptions?.hero_team?.url
         }}
         custom={{ gtm_reference: currentPage }}
       />
@@ -133,7 +132,10 @@ export default function TeamSection({ options }) {
         </div>
       </section> */}
       <GetStarted
-        data={{ label:"Get started with UXE" }}
+        data={{
+          label:"Get started with UXE",
+          description: "Join over 4,000+ startups already growing with UXE."
+        }}
         custom={{ gtm_reference: currentPage, template: 1, isPadding: true }}
       />
       <Testimonial

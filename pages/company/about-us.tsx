@@ -37,9 +37,8 @@ export default function ProductSection({ options }) {
         data={{
           title:"Multiple services to ensure the safety",
           subtitle:"COMPANY",
-          description:"",
-          image_url: backgroundOptions?.hero_about_us?.url,
-          subDescription: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments"
+          description: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments",
+          image_url: backgroundOptions?.hero_about_us?.url
           
         }}
         custom={{ gtm_reference: currentPage }}
@@ -134,7 +133,10 @@ export default function ProductSection({ options }) {
       <br></br>
       
       <GetStarted
-        data={{ label:"Get started with UXE" }}
+        data={{
+          label:"Connect with Us",
+          description: "To explore potential partnership opportunities, please contact us at your earliest convenience"
+        }}
         custom={{ gtm_reference: currentPage, template: 1 }}
       />
       <Testimonial

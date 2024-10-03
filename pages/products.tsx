@@ -20,9 +20,8 @@ export default function ProductSection({ products, options }) {
         data={{
           title:"Discover Innovation in Smart Security Products",
           subtitle:"OUR PRODUCT",
-          description:"",
-          image_url: backgroundOptions?.hero_product?.url,
-          subDescription: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments"
+          description: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments",
+          image_url: backgroundOptions?.hero_product?.url
         }}
         custom={{ gtm_reference: currentPage }}
       />
@@ -31,7 +30,10 @@ export default function ProductSection({ products, options }) {
         custom={{ gtm_reference: currentPage, show_title: true }}
       />
       <GetStarted
-        data={{ label:"Get started with UXE" }}
+        data={{
+          label:"Get started with UXE",
+          description: "Join over 4,000+ startups already growing with UXE."
+        }}
         custom={{ gtm_reference: currentPage, template: 1 }}
       />
       <Testimonial
