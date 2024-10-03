@@ -123,7 +123,17 @@ export default function ProductSection({ options }) {
         custom={{ gtm_reference: currentPage }}
       />
 
-      <CEOMsgSection/>
+      <CEOMsgSection custom={{ gtm_reference: currentPage }} text={
+        `
+        At UXE Security Solutions, we proudly align with Dubai’s vision of becoming the safest city in the world. As leaders in the tech industry, we provide ‘Smart Solutions for a Smart City’ offering innovative, reliable, and trustworthy technology that empowers our clients in an ever-changing landscape.
+        <br />
+        <br />
+        By investing in cutting-edge technologies and fostering a dedicated team, we are committed to addressing the challenges of today while anticipating the needs of tomorrow. Our comprehensive solutions ensure peace of mind for businesses, communities, governments, and individuals alike.
+        <br />
+        <br />
+        Headquartered in Dubai, we are passionate about contributing to the safety and growth of our city. We uphold the highest standards of quality and professionalism, offering tailored technological solutions that meet the unique needs of each client. Whether you are a business, a government entity, or an individual, our mission is to enable you to operate confidently and efficiently.
+        `
+      }/>
 
 
       <Leadership

@@ -16,12 +16,7 @@ type HeroData = {
 
 export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => {
   // Set default hero data as an empty array, and load the default image if loading
-  const [heroData, setHeroData] = useState<HeroData[]>([
-    {
-      title: "First Hero",
-      hero_url: "/image/slider1.png", // Default image when loading
-    },
-  ]);
+  const [heroData, setHeroData] = useState<HeroData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const sectionRef = useRef(null);
@@ -92,7 +87,8 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
   return (
     <section ref={sectionRef} id="section-hero" className="nhero">
       <div>
-        <Container size="xlarge" cls="nhero-container">
+        {/* <Container size="xlarge" cls="nhero-container"> */}
+        <div>
           <div className="slider-container">
             <Slider {...settings}>
               {/* {heroData.map && (
@@ -109,7 +105,8 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
               ))}
             </Slider>
           </div>
-        </Container>
+        {/* </Container> */}
+        </div>
       </div>
     </section>
   );

@@ -21,6 +21,7 @@ export const SECTION_GET_STARTED = "get_started"
 export const SECTION_LEADERSHIP = "leadership"
 export const SECTION_FOOTER = "footer"
 export const SECTION_PRODUCT_DETAIL = "product_detail"
+export const SECTION_CEO = "ceo_message"
 
 // COMPONENT
 export const COMPONENT_CIRCLE_READ_MORE = "circle_read_more"
