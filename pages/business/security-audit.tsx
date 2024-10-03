@@ -136,7 +136,7 @@ export default function CsrSection({ careers, department, roles, options }) {
                         <path d="M6.49948 15.0002C6.41248 15.0002 6.32348 14.9772 6.24248 14.9292C6.00548 14.7872 5.92948 14.4802 6.07148 14.2432L9.07148 9.24321C9.21248 9.00621 9.51948 8.92921 9.75648 9.07121C9.99348 9.21321 10.0695 9.52021 9.92748 9.75721L6.92748 14.7572C6.83448 14.9142 6.66848 15.0002 6.49948 15.0002Z" fill="#3760FF"/>
                       </svg>
                     </div>
-                    <TextLarge label="ANPR" cls="uppercase font-medium" />
+                    <TextLarge label="ANPR" cls="font-medium" />
                   </div>
                   <TextLarge label="Verification of Automatic number plate recognition system (ANPR) based on activity as per SIRA Law requirements." />
                 </div>
@@ -159,7 +159,7 @@ export default function CsrSection({ careers, department, roles, options }) {
                         </defs>
                       </svg>
                     </div>
-                    <TextLarge label="HVM" cls="uppercase font-medium" />
+                    <TextLarge label="HVM" cls="font-medium" />
                   </div>
                   <TextLarge label="Verification of Access Control System (ACS) based on activity as per SIRA Law requirements." />
                 </div>
@@ -181,7 +181,7 @@ export default function CsrSection({ careers, department, roles, options }) {
                         </defs>
                       </svg>
                     </div>
-                    <TextLarge label="Access Control System" cls="uppercase font-medium" />
+                    <TextLarge label="Access Control System" cls="font-medium" />
                   </div>
                   <TextLarge label="Verification of Access Control System (ACS) based on activity as per SIRA Law requirements." />
                 </div>
