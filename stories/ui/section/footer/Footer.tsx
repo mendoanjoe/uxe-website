@@ -70,22 +70,22 @@ export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
                 <div className="flex flex-col gap-[16px]">
                   <h3 className="text-[12px] font-[500] leading-[140%] tracking-[.48px] uppercase">Follow Us</h3>
                   <div className="flex gap-[8px]">
-                    <a href="#" className="block h-[32px] w-[32px] p-[4px] bg-[#BEBEBE40] rounded-[8px]">
+                    <a href="https://x.com/uxe_ai" className="block h-[32px] w-[32px] p-[4px] bg-[#BEBEBE40] rounded-[8px]">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M17.1761 4.24219H19.9362L13.9061 11.0196L21 20.2422H15.4456L11.0951 14.6488L6.11723 20.2422H3.35544L9.80517 12.993L3 4.24219H8.69545L12.6279 9.35481L17.1761 4.24219ZM16.2073 18.6176H17.7368L7.86441 5.78147H6.2232L16.2073 18.6176Z" fill="#D9D9D9"/>
                       </svg>
                     </a>
-                    <a href="#" className="block h-[32px] w-[32px] p-[4px] bg-[#BEBEBE40] rounded-[8px]">
+                    <a href="https://www.facebook.com/profile.php?id=61556168915473" className="block h-[32px] w-[32px] p-[4px] bg-[#BEBEBE40] rounded-[8px]">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M22 12.3033C22 6.7467 17.5229 2.24219 12 2.24219C6.47715 2.24219 2 6.7467 2 12.3033C2 17.325 5.65684 21.4874 10.4375 22.2422V15.2116H7.89844V12.3033H10.4375V10.0867C10.4375 7.56515 11.9305 6.17231 14.2146 6.17231C15.3088 6.17231 16.4531 6.36882 16.4531 6.36882V8.8448H15.1922C13.95 8.8448 13.5625 9.62041 13.5625 10.4161V12.3033H16.3359L15.8926 15.2116H13.5625V22.2422C18.3432 21.4874 22 17.3252 22 12.3033Z" fill="#D9D9D9"/>
                       </svg>
                     </a>
-                    <a href="#" className="block h-[32px] w-[32px] p-[4px] bg-[#BEBEBE40] rounded-[8px]">
+                    <a href="https://www.instagram.com/uxe.ai/" className="block h-[32px] w-[32px] p-[4px] bg-[#BEBEBE40] rounded-[8px]">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M12.0043 6.60977C9.02305 6.60977 6.61836 9.01445 6.61836 11.9957C6.61836 14.977 9.02305 17.3816 12.0043 17.3816C14.9855 17.3816 17.3902 14.977 17.3902 11.9957C17.3902 9.01445 14.9855 6.60977 12.0043 6.60977ZM12.0043 15.4973C10.0777 15.4973 8.50273 13.927 8.50273 11.9957C8.50273 10.0645 10.073 8.49414 12.0043 8.49414C13.9355 8.49414 15.5059 10.0645 15.5059 11.9957C15.5059 13.927 13.9309 15.4973 12.0043 15.4973ZM18.8668 6.38945C18.8668 7.08789 18.3043 7.6457 17.6105 7.6457C16.9121 7.6457 16.3543 7.0832 16.3543 6.38945C16.3543 5.6957 16.9168 5.1332 17.6105 5.1332C18.3043 5.1332 18.8668 5.6957 18.8668 6.38945ZM22.434 7.66445C22.3543 5.98164 21.9699 4.49102 20.7371 3.26289C19.509 2.03477 18.0184 1.65039 16.3355 1.56602C14.6012 1.46758 9.40273 1.46758 7.66836 1.56602C5.99023 1.6457 4.49961 2.03008 3.2668 3.2582C2.03398 4.48633 1.6543 5.97695 1.56992 7.65977C1.47148 9.39414 1.47148 14.5926 1.56992 16.327C1.64961 18.0098 2.03398 19.5004 3.2668 20.7285C4.49961 21.9566 5.98555 22.341 7.66836 22.4254C9.40273 22.5238 14.6012 22.5238 16.3355 22.4254C18.0184 22.3457 19.509 21.9613 20.7371 20.7285C21.9652 19.5004 22.3496 18.0098 22.434 16.327C22.5324 14.5926 22.5324 9.39883 22.434 7.66445ZM20.1934 18.1879C19.8277 19.1066 19.1199 19.8145 18.1965 20.1848C16.8137 20.7332 13.5324 20.6066 12.0043 20.6066C10.4762 20.6066 7.19023 20.7285 5.81211 20.1848C4.89336 19.8191 4.18555 19.1113 3.81523 18.1879C3.2668 16.8051 3.39336 13.5238 3.39336 11.9957C3.39336 10.4676 3.27148 7.18164 3.81523 5.80352C4.18086 4.88477 4.88867 4.17695 5.81211 3.80664C7.19492 3.2582 10.4762 3.38477 12.0043 3.38477C13.5324 3.38477 16.8184 3.26289 18.1965 3.80664C19.1152 4.17227 19.823 4.88008 20.1934 5.80352C20.7418 7.18633 20.6152 10.4676 20.6152 11.9957C20.6152 13.5238 20.7418 16.8098 20.1934 18.1879Z" fill="#D9D9D9"/>
                       </svg>
                     </a>
-                    <a href="#" className="block h-[32px] w-[32px] p-[4px] bg-[#BEBEBE40] rounded-[8px]">
+                    <a href="https://www.youtube.com/@UXESecuritySolutions" className="block h-[32px] w-[32px] p-[4px] bg-[#BEBEBE40] rounded-[8px]">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M22.9012 6.50346C22.6395 5.51804 21.8684 4.74196 20.8893 4.47858C19.1148 4 11.9989 4 11.9989 4C11.9989 4 4.88305 4 3.10843 4.47858C2.12939 4.742 1.3583 5.51804 1.09659 6.50346C0.621094 8.28958 0.621094 12.0162 0.621094 12.0162C0.621094 12.0162 0.621094 15.7427 1.09659 17.5289C1.3583 18.5143 2.12939 19.258 3.10843 19.5214C4.88305 20 11.9989 20 11.9989 20C11.9989 20 19.1147 20 20.8893 19.5214C21.8684 19.258 22.6395 18.5143 22.9012 17.5289C23.3767 15.7427 23.3767 12.0162 23.3767 12.0162C23.3767 12.0162 23.3767 8.28958 22.9012 6.50346ZM9.67159 15.3996V8.63271L15.6191 12.0162L9.67159 15.3996Z" fill="#D9D9D9"/>
                       </svg>
@@ -98,18 +98,18 @@ export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
                   <div className="flex flex-col gap-[16px]">
                     <h3 className="text-[12px] font-[500] leading-[140%] tracking-[.48px] uppercase">Company</h3>
                     <div className="flex flex-col gap-[4px]">
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">About UXE</a>
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">CSR</a>
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Careers</a>
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Contact Us</a>
+                      <a href="/company/about-us" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">About UXE</a>
+                      <a href="/csr" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">CSR</a>
+                      <a href="/careers" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Careers</a>
+                      <a href="/contact-us" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Contact Us</a>
                     </div>
                   </div>
                   <div className="flex flex-col gap-[16px]">
                     <h3 className="text-[12px] font-[500] leading-[140%] tracking-[.48px] uppercase">Solution</h3>
                     <div className="flex flex-col gap-[4px]">
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">For Governments</a>
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">For Business</a>
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Product</a>
+                      <a href="/#for-government" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">For Governments</a>
+                      <a href="/#for-business" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">For Business</a>
+                      <a href="/products" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Product</a>
                       <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Security Consultancy</a>
                       <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Training Center</a>
                     </div>
@@ -117,18 +117,17 @@ export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
                   <div className="flex flex-col gap-[16px]">
                     <h3 className="text-[12px] font-[500] leading-[140%] tracking-[.48px] uppercase">Media center</h3>
                     <div className="flex flex-col gap-[4px]">
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Event</a>
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">News</a>
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Product</a>
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Media & Press Release</a>
+                      <a href="/media/event" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Event</a>
+                      <a href="/media/event" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">News</a>
+                      <a href="/media/press-release" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">Media & Press Release</a>
                     </div>
                   </div>
                   <div className="flex flex-col gap-[16px]">
                     <h3 className="text-[12px] font-[500] leading-[140%] tracking-[.48px] uppercase">Contact</h3>
                     <div className="flex flex-col gap-[4px]">
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">+971600539000</a>
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">info@uxe.ai</a>
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">support@keyless.ae</a>
+                      <a href="tel:+971600539000" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">+971600539000</a>
+                      <a href="mailto:info@uxe.ai" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">info@uxe.ai</a>
+                      <a href="mailto:support@keyless.ae" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">support@keyless.ae</a>
                     </div>
                   </div>
                 </div>

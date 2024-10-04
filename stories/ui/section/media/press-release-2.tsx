@@ -64,11 +64,11 @@ const MediaPressRelease = () => {
                     >
                         {/* Column 1: Image */}
                         <div className="col-span-1 relative" style={{ width: '300px', height: '200px' }}>
-                            <Image
+                            <img
                                 src={article.image_url}
                                 alt={article.title}
-                                layout="fill" // Ensures the image fills the container
-                                objectFit="cover" // Ensures the image maintains aspect ratio and covers the container
+                                // layout="fill" // Ensures the image fills the container
+                                // objectFit="cover" // Ensures the image maintains aspect ratio and covers the container
                             />
                         </div>
                         {/* Column 2: Date, Title, Author */}

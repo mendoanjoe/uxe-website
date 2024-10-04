@@ -7,7 +7,7 @@ export const PressReleaseCard = ({ event }) => {
   return (
     <div className="flex bg-white rounded-lg shadow-md p-6 mb-6 hover:bg-gray-50 transition duration-200">
       <div className="w-1/4">
-        <Image
+        <img
           src={event.image_url}
           alt={event.title}
           width={300}
@@ -29,7 +29,7 @@ export const PressReleaseCard = ({ event }) => {
           </p>
         </Link>
         <div className="flex items-center mt-2">
-          <Image
+          <img
             src={event.authorImage}
             alt={event.author}
             width={24}

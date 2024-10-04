@@ -111,6 +111,7 @@ export const Solution = ({
           </div>
           <div className="transition-all flex max-lg:grid max-lg:grid-cols-1 gap-[20px]">
             <div
+              id="for-government"
               ref={slide1Ref}
               className={cn(
                 "group/solution1 transition-all ease-[cubic-bezier(0.47,1.07,0.37,1.03)] duration-500 max-lg:w-full rounded-[12px] bg-[#19191B] h-[475px] flex flex-col justify-between overflow-hidden",
@@ -124,7 +125,7 @@ export const Solution = ({
               }}
             >
               <div className="flex flex-col items-start gap-[12px] p-[24px]">
-                <a
+                {/* <a
                   onClick={() =>
                     GAClick(
                       "contact_us_clicked",
@@ -149,7 +150,7 @@ export const Solution = ({
                       fill="currentColor"
                     ></path>
                   </svg>
-                </a>
+                </a> */}
                 <TitleSmall
                   el="h4"
                   label={data[0]?.title}
@@ -171,6 +172,7 @@ export const Solution = ({
               </div>
             </div>
             <div
+              id="for-business"
               ref={slide2Ref}
               className={cn(
                 "group/solution2 transition-all ease-[cubic-bezier(0.47,1.07,0.37,1.03)] duration-500 max-lg:w-full rounded-[12px] bg-[#365EFF] h-[475px] flex flex-col justify-between overflow-hidden",
@@ -184,7 +186,7 @@ export const Solution = ({
               }}
             >
               <div className="flex flex-col items-start gap-[12px] p-[24px]">
-                <a
+                {/* <a
                   onClick={() =>
                     GAClick(
                       "contact_us_clicked",
@@ -209,7 +211,7 @@ export const Solution = ({
                       fill="currentColor"
                     ></path>
                   </svg>
-                </a>
+                </a> */}
                 <TitleSmall
                   el="h4"
                   label={data[1]?.title}
