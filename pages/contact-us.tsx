@@ -13,6 +13,7 @@ import Image from "next/image";
 import { TitleLarge } from "@/ui/title/title-large/TitleLarge";
 import { TextSmall } from "@/ui/text/text-small/TextSmall";
 import { TitleXXSmall } from "@/ui/title/title-xxsmall/TitleXXSmall";
+import { useRouter } from 'next/router';
 
 export default function ContactUsSection({ options }) {
   const { backgroundOptions, contactOptions, footerOptions, generalSettings } = options;
@@ -64,6 +65,12 @@ export default function ContactUsSection({ options }) {
     };
   }, [formBlock, formMessage]);
 
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
+
   return (
     <>
       <Meta seo={generalSettings} />
@@ -75,7 +82,7 @@ export default function ContactUsSection({ options }) {
         <div className="bg-white sticky top-0 z-20">
           <div className="max-w-[1440px] mx-auto overflow-hidden">
             <div className="flex items-center justify-between gap-[48px] p-[20px_max(20px,_min(calc(100vw_*_(40_/_1440)),_40px))]">
-              <Link href="/" className="flex items-center gap-[8px]">
+              <button onClick={handleBack} className="flex items-center gap-[8px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -89,7 +96,7 @@ export default function ContactUsSection({ options }) {
                   />
                 </svg>
                 Back
-              </Link>
+              </button>
 
               <Link href="/">
                 <svg xmlns="http://www.w3.org/2000/svg" width="98" height="40" viewBox="0 0 98 40" fill="none">
@@ -262,7 +269,8 @@ export default function ContactUsSection({ options }) {
               </div>
               <div className="rounded-xl overflow-hidden">
                 <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.222351737497!2d55.4177951!3d25.2631046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f6ae92ab57d%3A0x59f6c410c1681472!2sMuhaisnah%202!5e0!3m2!1sid!2sid!4v1727780140571!5m2!1sid!2sid"
+                title="Google Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d373.1881839032969!2d55.41774100650829!3d25.262812596584762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f6ae92ab57d%3A0x59f6c410c1681472!2sMuhaisnah%202!5e0!3m2!1sid!2sid!4v1728035296876!5m2!1sid!2sid"
                 width="1280"
                 height="400"
                 style={{ border: 0, width: "100%" }}

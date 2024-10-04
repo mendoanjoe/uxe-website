@@ -14,6 +14,7 @@ import { TitleSmall } from "@/ui/title/title-small/TitleSmall";
 import { TitleXXSmall } from "@/ui/title/title-xxsmall/TitleXXSmall";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { TextHuge } from "@/ui/text/text-huge/TextHuge";
+import { useEffect, useState } from "react";
 
 export default function CsrSection({ careers, department, roles, options }) {
   const currentPage = "career";
@@ -28,6 +29,11 @@ export default function CsrSection({ careers, department, roles, options }) {
     career2Options,
   } = options;
 
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   
   return (
     <Layout data={{ general: generalSettings, footer: footerOptions }}>
@@ -47,15 +53,17 @@ export default function CsrSection({ careers, department, roles, options }) {
         <div className="max-w-[1440px] mx-auto flex flex-col gap-10">
           <div className="p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] flex flex-col gap-20 max-md:gap-10">
             <div className="grid grid-cols-2 max-md:grid-cols-1 items-center gap-[8%] max-md:gap-8">
-              <div className="rounded-xl overflow-hidden">
-                <video
-                  src="https://api.uxe.ai/wp-content/uploads/2024/10/HR-career-fair.mp4"
-                  className="w-full h-full object-cover"
-                  controls
-                ></video>
-              </div>
+              {isClient && (
+                <div className="rounded-xl overflow-hidden">
+                  <video
+                    src="https://api.uxe.ai/wp-content/uploads/2024/10/HR-career-fair.mp4"
+                    className="w-full h-full object-cover"
+                    controls
+                  ></video>
+                </div>
+              )}
               <div className="space-y-4">
-                <div className="space-y-8">
+                <div className="space-y-8 max-md:space-y-8 max-sm:space-y-6">
                   {/* <TextSmall label="OUR VALUES" cls="font-medium opacity-50 uppercase"/> */}
                   <TitleMedium label="Objective of security Audit system" cls="" />
                   <TextLarge cls="max-w-full text-[#939599]" label="Objectives and scope of the security audit, outlining the goals and areas to be evaluated within the security system user environment. This may include :" />
@@ -120,9 +128,9 @@ export default function CsrSection({ careers, department, roles, options }) {
                 </div>
               </div>
             </div>
-            <div className="space-y-24">
+            <div className="space-y-24 max-lg:space-y-10 max-md:space-y-8 max-sm:space-y-6">
               <TitleMedium label="Services provided by UXE Audit Department" cls="max-w-96" />
-              <div className="grid grid-cols-3 gap-8">
+              <div className="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8 max-md:gap-6 max-sm:gap-4">
                 <div className="space-y-6 bg-[#F7F7F7] p-6 rounded-xl border border-[#19191B0F]">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg border border-[#3760FF17] bg-[#3760FF0A]">

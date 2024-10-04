@@ -86,10 +86,10 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
 
   return (
     <section ref={sectionRef} id="section-hero" className="nhero">
-      <div>
+      <div className="h-[700px]">
         {/* <Container size="xlarge" cls="nhero-container"> */}
         <div>
-          <div className="slider-container">
+          <div className="slider-container h-[700px]">
             <Slider {...settings}>
               {/* {heroData.map && (
                 <img className="nhero-image" src={heroData.hero_url} alt="Hero Image" style={{ height: "100%" }} />
@@ -97,7 +97,7 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
               {heroData.map((item, index) => (
                 <img
                   key={index}
-                  className="nhero-image"
+                  className="nhero-image object-cover h-full w-full"
                   src={item.hero_url}
                   alt="Hero Image"
                   style={{ height: "100%" }}

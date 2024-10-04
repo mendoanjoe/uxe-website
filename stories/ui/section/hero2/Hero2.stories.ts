@@ -17,7 +17,7 @@ type Story = StoryObj<typeof Hero2>;
 export const Default: Story = {
   args: {
     data : {
-      title: "Discover Innovation in Smart Security Products",
+      title: "Transforming Security with Smart Technology",
       subtitle: "OUR PRODUCT",
       description: "",
       image_url: "https://api.uxe.ai/wp-content/uploads/2024/01/career-background.png",

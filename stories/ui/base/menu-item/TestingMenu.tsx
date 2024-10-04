@@ -57,7 +57,7 @@ const Menu = () => {
               </div>
               <div className="dropdown-column">
                 <h3>Business</h3>
-                <p>Discover Innovation in Smart Security Products</p>
+                <p>Transforming Security with Smart Technology</p>
               </div>
             </div>
           )}

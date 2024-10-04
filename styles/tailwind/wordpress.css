@@ -174,8 +174,9 @@
 
 .form-contact form > div:nth-child(4),
 .form-contact form > div:nth-child(5),
-.form-contact form > p:nth-child(6),
-.form-contact form > p:nth-child(7) {
+.form-contact form > div:nth-child(6),
+.form-contact form > p:nth-child(7),
+.form-contact form > p:nth-child(8) {
   grid-column: span 2 / span 2;
 }
 

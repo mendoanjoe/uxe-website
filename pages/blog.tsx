@@ -57,7 +57,7 @@ export default function BlogSection({ posts, options }) {
           <div className="flex flex-col gap-[48px]">
             <div className="flex flex-col items-start gap-[max(8px,_min(calc(100vw_*_(12_/_1440)),_12px))] text-center">
               <TitleMedium el="h2" label="Lastest blog posts" cls="text-[#19191B] !max-w-full" />
-              <TextLarge label="Tool and strategies modern teams need to help their companies grow." cls="text-[#19191B]" />
+              <TextLarge label="Tool and strategies modern teams need to help their companies grow." cls="text-[#19191B] text-left" />
             </div>
             {postData.length > 0 && (
               <>
@@ -196,11 +196,11 @@ export default function BlogSection({ posts, options }) {
                 ) : (
                   (postData.length > 6) && (
                     <div className="flex justify-center cursor-pointer">
-                      <div
+                      {/* <div
                         className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
                       >
                         All posts loaded
-                      </div>
+                      </div> */}
                     </div>
                   )
                 )}

@@ -43,10 +43,10 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
   useEffect(() => {
     const dataCareer = data.edges
     if (selectedDepartment != undefined) {
-      setCareers(dataCareer.filter(item => item.node.department == selectedDepartment))
+      selectedDepartment != "Departments" && setCareers(dataCareer.filter(item => item.node.department == selectedDepartment))
     }
     if (selectedRole != undefined) {
-      setCareers(dataCareer.filter(item => item.node.role == selectedRole))
+      selectedRole != "Roles" && setCareers(dataCareer.filter(item => item.node.role == selectedRole))
     }
   }, [selectedDepartment, selectedRole])
   
@@ -98,6 +98,7 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
                    className="w-full bg-transparent pl-4 pr-8 py-3 max-md:py-2 transition duration-300 border border-[#D9D9D9] rounded-[100px] ease focus:outline-none appearance-none cursor-pointer"
                    onChange={(event) => setSelectedDepartment(event.target.value)}
                   >
+                    <option value="Departments">Departments</option>
                     {department.edges.map((item, index) => (
                       <option key={index} value={item.node.department}>{item.node.department}</option>
                     ))}
@@ -113,6 +114,7 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
                     className="w-full bg-transparent pl-4 pr-8 py-3 max-md:py-2 transition duration-300 border border-[#D9D9D9] rounded-[100px] ease focus:outline-none appearance-none cursor-pointer"
                     onChange={(event) => setSelectedRole(event.target.value)}
                   >
+                    <option value="Roles">Roles</option>
                     {roles.edges.map((item, index) => (
                       <option key={index} value={item.node.role}>{item.node.role}</option>
                     ))}

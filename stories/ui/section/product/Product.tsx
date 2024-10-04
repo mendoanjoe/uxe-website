@@ -35,6 +35,7 @@ type ProductData = {
 
 type ProductCustom = {
   show_title: boolean;
+  show_button: boolean;
 };
 
 export const Product = ({
@@ -43,7 +44,7 @@ export const Product = ({
   ...props
 }: SectionProps<ProductData, ProductCustom>) => {
   // Props
-  const { gtm_reference, show_title } = custom;
+  const { gtm_reference, show_title, show_button } = custom;
 
   // Reference
   const sectionRef = useRef(null);
@@ -108,7 +109,7 @@ export const Product = ({
               />
               <TitleMedium
                 el="h2"
-                label="Discover Innovation in Smart Security Products"
+                label="Transforming Security with Smart Technology"
                 cls="text-[#19191B] font-medium mt-[10px]"
               />
             </div>
@@ -159,7 +160,7 @@ export const Product = ({
               </div>
             ))}
           </div>
-          {show_title && (
+          {show_button && (
             <div className="flex justify-center">
               <Link
                 href={"/products"}

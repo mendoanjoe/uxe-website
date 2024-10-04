@@ -11,6 +11,7 @@ import { TextMedium } from "@/ui/text/text-medium/TextMedium";
 import { GAClick } from "lib/ga";
 import { TextSmall } from "@/ui/text/text-small/TextSmall";
 import { TitleSmall } from "@/ui/title/title-small/TitleSmall";
+import { useEffect, useState } from "react";
 
 export default function CsrSection({ careers, department, roles, options }) {
   const currentPage = "career";
@@ -24,6 +25,12 @@ export default function CsrSection({ careers, department, roles, options }) {
     teamOptions,
     career2Options,
   } = options;
+
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   
   return (
@@ -44,13 +51,15 @@ export default function CsrSection({ careers, department, roles, options }) {
         <div className="max-w-[1440px] mx-auto flex flex-col gap-10 min-h-screen">
           <div className="p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] flex flex-col gap-20 max-md:gap-10">
             <div className="grid grid-cols-2 max-md:grid-cols-1 items-center gap-[10%] max-md:gap-8">
-              <div className="rounded-xl overflow-hidden">
-                <video
-                  src="https://api.uxe.ai/wp-content/uploads/2024/10/HR-career-fair.mp4"
-                  className="w-full h-full object-cover"
-                  controls
-                ></video>
-              </div>
+              {isClient && (
+                <div className="rounded-xl overflow-hidden">
+                  <video
+                    src="https://api.uxe.ai/wp-content/uploads/2024/10/HR-career-fair.mp4"
+                    className="w-full h-full object-cover"
+                    controls
+                  ></video>
+                </div>
+              )}
               <div className="space-y-4">
                 <div className="space-y-2">
                   <TextSmall label="OUR VALUES" cls="font-medium opacity-50 uppercase"/>
@@ -59,7 +68,7 @@ export default function CsrSection({ careers, department, roles, options }) {
                 <TextLarge cls="max-w-full" label="Established in 2019, UXE Corporate Social Responsibility programme is aimed at reducing waste, preserving the environment and the wellbeing of our people, creating and strengthening sustainable partnerships and having a measurable, positive impact on the community." />
               </div>
             </div>
-            <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] max-md:grid-cols-[1fr_auto_1fr_auto] max-sm:grid-cols-[1fr_auto] items-center border border-[#19191B0F] rounded-xl">
+            <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] max-md:grid-cols-[1fr_auto_1fr_auto] max-sm:grid-cols-[1fr_auto] items-center justify-center border border-[#19191B0F] rounded-xl overflow-hidden">
               <div className="flex flex-col items-center gap-5 py-8 max-md:border-b max-md:border-[#19191B0F]">
                 <div className="p-3 rounded-xl bg-[#E6EDFF]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -75,7 +84,7 @@ export default function CsrSection({ careers, department, roles, options }) {
                 </div>
                 <TitleXSmall label="Water Saving" el="h4" cls="font-medium" />
               </div>
-              <div className="w-[1px] h-[75%] bg-[#19191B0F] mx-auto max-sm:invisible"></div>
+              <div className="w-[1px] h-[118px] bg-[#19191B0F] mx-auto max-sm:invisible"></div>
               <div className="flex flex-col items-center gap-5 py-8 max-md:border-b max-md:border-[#19191B0F]">
                 <div className="p-3 rounded-xl bg-[#E6EDFF]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -93,7 +102,7 @@ export default function CsrSection({ careers, department, roles, options }) {
                 </div>
                 <TitleXSmall label="Recycling" el="h4" cls="font-medium" />
               </div>
-              <div className="w-[1px] h-[75%] bg-[#19191B0F] mx-auto max-md:invisible"></div>
+              <div className="w-[1px] h-[118px] bg-[#19191B0F] mx-auto max-md:invisible"></div>
               <div className="flex flex-col items-center gap-5 py-8 max-sm:border-b max-sm:border-[#19191B0F]">
                 <div className="p-3 rounded-xl bg-[#E6EDFF]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -114,7 +123,7 @@ export default function CsrSection({ careers, department, roles, options }) {
                 </div>
                 <TitleXSmall label="Energy Saving" el="h4" cls="font-medium" />
               </div>
-              <div className="w-[1px] h-[75%] bg-[#19191B0F] mx-auto max-sm:invisible"></div>
+              <div className="w-[1px] h-[118px] bg-[#19191B0F] mx-auto max-sm:invisible"></div>
               <div className="flex flex-col items-center gap-5 py-8">
                 <div className="p-3 rounded-xl bg-[#E6EDFF]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

@@ -18,7 +18,7 @@ export default function ProductSection({ products, options }) {
       </Head>
       <Hero2
         data={{
-          title:"Discover Innovation in Smart Security Products",
+          title:"Transforming Security with Smart Technology",
           subtitle:"OUR PRODUCT",
           description: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments",
           image_url: backgroundOptions?.hero_product?.url
@@ -27,7 +27,7 @@ export default function ProductSection({ products, options }) {
       />
       <Product
         data={products}
-        custom={{ gtm_reference: currentPage, show_title: true }}
+        custom={{ gtm_reference: currentPage, show_title: true, show_button: false }}
       />
       <GetStarted
         data={{

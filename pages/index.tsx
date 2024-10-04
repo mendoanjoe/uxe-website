@@ -120,7 +120,7 @@ export default function Index({ options }) {
       />
       <Product
         data={products}
-        custom={{ gtm_reference: currentPage, show_title: true }}
+        custom={{ gtm_reference: currentPage, show_title: true, show_button: true }}
       />
       <div className="w-[70vw] mx-auto h-[1px] bg-[#19191B17]"></div>
       <section className="bg-white">
