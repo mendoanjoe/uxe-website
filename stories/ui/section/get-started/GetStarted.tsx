@@ -89,21 +89,25 @@ export const GetStarted = ({
             <div className="get-started-profile">
               <img
                 alt="profile"
+                className="!w-12 !h-12 max-md:!w-11 max-md:!h-11"
                 src="/image/person-1.png"
                 title="Person"
               />
               <img
                 alt="profile"
+                className="!w-12 !h-12 max-md:!w-11 max-md:!h-11"
                 src="/image/person-2.png"
                 title="Person"
               />
               <img
                 alt="profile"
+                className="!w-12 !h-12 max-md:!w-11 max-md:!h-11"
                 src="/image/person-3.png"
                 title="Person"
               />
               <img
                 alt="profile"
+                className="!w-12 !h-12 max-md:!w-11 max-md:!h-11"
                 src="/image/person-4.png"
                 title="Person"
               />

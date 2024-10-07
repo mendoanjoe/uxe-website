@@ -48,7 +48,7 @@ export default function CsrSection({ careers, department, roles, options }) {
         custom={{ gtm_reference: currentPage }}
       />
       <section>
-        <div className="max-w-[1440px] mx-auto flex flex-col gap-10 min-h-screen">
+        <div className="max-w-[1440px] mx-auto flex flex-col gap-10">
           <div className="p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] flex flex-col gap-20 max-md:gap-10">
             <div className="grid grid-cols-2 max-md:grid-cols-1 items-center gap-[10%] max-md:gap-8">
               {isClient && (

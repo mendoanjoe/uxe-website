@@ -51,7 +51,7 @@ export const VisionMission2 = ({
               </div>
 
               <div className="flex flex-col gap-6 justify-center flex-1">
-                <p className="text-[32px] font-normal leading-[40px] text-left">
+                <p className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-normal leading-[max(32px,_min(calc(100vw_*_(40_/_1440)),_40px))] text-left">
                   {vision.description}
                 </p>
               </div>
@@ -67,7 +67,7 @@ export const VisionMission2 = ({
               </div>
 
               <div className="flex flex-col gap-6 justify-center flex-1">
-                <p className="text-[32px] font-normal leading-[40px] text-left">
+                <p className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-normal leading-[max(32px,_min(calc(100vw_*_(40_/_1440)),_40px))] text-left">
                 {mission.description}
                 </p>
               </div>

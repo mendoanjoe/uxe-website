@@ -112,9 +112,9 @@ export default function Career({ career, options }) {
         <title>{`${options?.generalSettings?.title} | ${career?.title}`}</title>
       </Head>
       <section ref={sectionRef} className="bg-white">
-        <div className="max-w-[1440px] mx-auto p-[max(44px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] pb-0 max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] max-xl:pb-0 overflow-hidden">
-          <div className="grid grid-cols-2">
-            <div className="min-h-screen w-full p-[max(44px,_min(calc(100vw_*_(80_/_1440)),_80px))] pl-0">
+        <div className="max-w-[1440px] mx-auto p-[max(44px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] lg:pb-0 max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
+          <div className="grid grid-cols-2 max-lg:grid-cols-1">
+            <div className="w-full p-[max(44px,_min(calc(100vw_*_(80_/_1440)),_80px))] pl-0">
               <div className="space-y-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))]">
                 <div className="space-y-3">
                   <TitleMedium el="h1" label={career?.title} />
@@ -232,7 +232,7 @@ export default function Career({ career, options }) {
                 </div>
               </div>
             </div>
-            <div className="min-h-screen w-full bg-[#F4F5F6] p-[max(44px,_min(calc(100vw_*_(80_/_1440)),_80px))]">
+            <div className="w-full bg-[#F4F5F6] p-[max(20px,_min(calc(100vw_*_(80_/_1440)),_80px))]">
               <div className="space-y-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))]">
                 <div className="space-y-3">
                   <TitleMedium el="h1" label="Apply Now" />
