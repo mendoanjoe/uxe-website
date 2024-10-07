@@ -9,17 +9,11 @@ import { ConnectWithUs } from "@/ui/section/get-started/ConnectWithUs";
 
 export default function EventSection({ options }) {
   const currentPage = "Event";
-  const {
-   
-    backgroundOptions,
-    footerOptions,
-    generalSettings,
-    teamOptions
-  } = options;
+  const { backgroundOptions, footerOptions, generalSettings, teamOptions } =
+    options;
 
   let coreTeam = teamOptions.slice(0, 5) || [];
 
-  
   return (
     <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
@@ -27,24 +21,19 @@ export default function EventSection({ options }) {
       </Head>
       <Hero2
         data={{
-          title:"Multiple services to ensure the safety",
-          subtitle:"COMPANY",
-          description: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments",
-          image_url: backgroundOptions?.hero_about_us?.url
-          
+          title: "Multiple services to ensure the safety",
+          subtitle: "COMPANY",
+          description:
+            "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments",
+          image_url: backgroundOptions?.hero_about_us?.url,
         }}
         custom={{ gtm_reference: currentPage }}
       />
-     <MediaList/>
-
-      <div className="mb-12 ">
-      <ConnectWithUs 
-        data={{ label:"Connect with us" }}
-        custom={{ gtm_reference: currentPage, template: 1 }}
+      <MediaList />
+      <ConnectWithUs
+        data={{ label: "Connect with us", }}
+        custom={{ gtm_reference: currentPage, template: 1, isPadding: true }}
       />
-      </div>
-     
-     
     </Layout>
   );
 }

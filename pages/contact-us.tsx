@@ -270,7 +270,7 @@ export default function ContactUsSection({ options }) {
               <div className="rounded-xl overflow-hidden">
                 <iframe
                 title="Google Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d373.1881839032969!2d55.41774100650829!3d25.262812596584762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f6ae92ab57d%3A0x59f6c410c1681472!2sMuhaisnah%202!5e0!3m2!1sid!2sid!4v1728035296876!5m2!1sid!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d507681.4895654901!2d106.807296!3d-6.2291968!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5dcd86d33251%3A0xb70fc9fde47e9f21!2sSecurity%20Industry%20Regulatory%20Agency%20(SIRA)!5e0!3m2!1sid!2sid!4v1728255317135!5m2!1sid!2sid"
                 width="1280"
                 height="400"
                 style={{ border: 0, width: "100%" }}

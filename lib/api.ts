@@ -58,6 +58,42 @@ export async function getAllPostsWithSlug() {
   return data?.posts
 }
 
+export async function getAllEventsWithSlug() {
+  const data = await fetchAPI(`
+    {
+      posts(first: 10000, where: {
+        categoryName: "event",
+        orderby: { field: DATE, order: DESC } 
+      }) {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
+  return data?.posts
+}
+
+export async function getAllNewsWithSlug() {
+  const data = await fetchAPI(`
+    {
+      posts(first: 10000, where: {
+        categoryName: "news",
+        orderby: { field: DATE, order: DESC } 
+      }) {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
+  return data?.posts
+}
+
 export async function getAllProductsWithSlug() {
   const data = await fetchAPI(`
     {
@@ -278,6 +314,234 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
         edges {
           node {
             ...PostFields
+          }
+        }
+      }
+    }
+  `,
+    {
+      variables: {
+        id: isDraft ? postPreview.id : slug,
+        idType: isDraft ? 'DATABASE_ID' : 'SLUG',
+      },
+    }
+  )
+
+  // Draft posts may not have an slug
+  if (isDraft) data.post.slug = postPreview.id
+  // Apply a revision (changes in a published post)
+  if (isRevision && data.post.revisions) {
+    const revision = data.post.revisions.edges[0]?.node
+
+    if (revision) Object.assign(data.post, revision)
+    delete data.post.revisions
+  }
+
+  // Filter out the main post
+  data.posts.edges = data.posts.edges.filter(({ node }) => node.slug !== slug)
+  // If there are still 3 posts, remove the last one
+  if (data.posts.edges.length > 2) data.posts.edges.pop()
+
+  return data
+}
+
+export async function getEventAndMoreEvents(slug, preview, previewData) {
+  const postPreview = preview && previewData?.post
+  // The slug may be the id of an unpublished post
+  const isId = Number.isInteger(Number(slug))
+  const isSameEvent = isId
+    ? Number(slug) === postPreview.id
+    : slug === postPreview.slug
+  const isDraft = isSameEvent && postPreview?.status === 'draft'
+  const isRevision = isSameEvent && postPreview?.status === 'publish'
+  const data = await fetchAPI(
+    `
+    fragment AuthorFields on User {
+      name
+      firstName
+      lastName
+      avatar {
+        url
+      }
+    }
+    fragment EventFields on Post {
+      title
+      excerpt
+      slug
+      date
+      featuredImage {
+        node {
+          sourceUrl
+          fullPathUrl
+        }
+      }
+      author {
+        node {
+          ...AuthorFields
+        }
+      }
+      categories {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+      tags {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+    }
+    query EventBySlug($id: ID!, $idType: PostIdType!) {
+      post(id: $id, idType: $idType) {
+        ...EventFields
+        content
+        ${
+          // Only some of the fields of a revision are considered as there are some inconsistencies
+          isRevision
+            ? `
+        revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
+          edges {
+            node {
+              title
+              excerpt
+              content
+              author {
+                node {
+                  ...AuthorFields
+                }
+              }
+            }
+          }
+        }
+        `
+            : ''
+        }
+      }
+      posts(first: 3, where: {
+        categoryName: "event", 
+        orderby: { field: DATE, order: DESC } 
+      }) {
+        edges {
+          node {
+            ...EventFields
+          }
+        }
+      }
+    }
+  `,
+    {
+      variables: {
+        id: isDraft ? postPreview.id : slug,
+        idType: isDraft ? 'DATABASE_ID' : 'SLUG',
+      },
+    }
+  )
+
+  // Draft posts may not have an slug
+  if (isDraft) data.post.slug = postPreview.id
+  // Apply a revision (changes in a published post)
+  if (isRevision && data.post.revisions) {
+    const revision = data.post.revisions.edges[0]?.node
+
+    if (revision) Object.assign(data.post, revision)
+    delete data.post.revisions
+  }
+
+  // Filter out the main post
+  data.posts.edges = data.posts.edges.filter(({ node }) => node.slug !== slug)
+  // If there are still 3 posts, remove the last one
+  if (data.posts.edges.length > 2) data.posts.edges.pop()
+
+  return data
+}
+
+export async function getNewAndMoreNews(slug, preview, previewData) {
+  const postPreview = preview && previewData?.post
+  // The slug may be the id of an unpublished post
+  const isId = Number.isInteger(Number(slug))
+  const isSameEvent = isId
+    ? Number(slug) === postPreview.id
+    : slug === postPreview.slug
+  const isDraft = isSameEvent && postPreview?.status === 'draft'
+  const isRevision = isSameEvent && postPreview?.status === 'publish'
+  const data = await fetchAPI(
+    `
+    fragment AuthorFields on User {
+      name
+      firstName
+      lastName
+      avatar {
+        url
+      }
+    }
+    fragment EventFields on Post {
+      title
+      excerpt
+      slug
+      date
+      featuredImage {
+        node {
+          sourceUrl
+          fullPathUrl
+        }
+      }
+      author {
+        node {
+          ...AuthorFields
+        }
+      }
+      categories {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+      tags {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+    }
+    query EventBySlug($id: ID!, $idType: PostIdType!) {
+      post(id: $id, idType: $idType) {
+        ...EventFields
+        content
+        ${
+          // Only some of the fields of a revision are considered as there are some inconsistencies
+          isRevision
+            ? `
+        revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
+          edges {
+            node {
+              title
+              excerpt
+              content
+              author {
+                node {
+                  ...AuthorFields
+                }
+              }
+            }
+          }
+        }
+        `
+            : ''
+        }
+      }
+      posts(first: 3, where: {
+        categoryName: "news", 
+        orderby: { field: DATE, order: DESC } 
+      }) {
+        edges {
+          node {
+            ...EventFields
           }
         }
       }
@@ -544,9 +808,6 @@ type PressReleaseResponse = {
 // Fetching Press Releases with TypeScript types
 export async function getPressReleases(
   orderBy: string = "DESC",
-  searchTerm: string = '',
-  first: number = 10,
-  after: string = ''
 ): Promise<PressReleaseResponse> {
   const query = `
     query NewQuery {
@@ -561,11 +822,10 @@ export async function getPressReleases(
     }
   `;
 
-  const variables = { orderBy, searchTerm: searchTerm ? searchTerm : '', first, after };
+  const variables = { orderBy };
   
   // Call your API and handle the response
   const response = await fetchAPI(query, { variables });
-  
   
   // Return the data with proper typing
   return {

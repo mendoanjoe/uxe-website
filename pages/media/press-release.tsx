@@ -11,7 +11,6 @@ export default function NewsSection({ options, pressReleaseOptions }) {
   const currentPage = "press-release";
   const { backgroundOptions, footerOptions, generalSettings } = options;
 
-
   return (
     <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
@@ -21,24 +20,17 @@ export default function NewsSection({ options, pressReleaseOptions }) {
         data={{
           title: "Multiple services to ensure the safety",
           subtitle: "COMPANY",
-          description: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments",
-          image_url: backgroundOptions?.hero_about_us?.url
+          description:
+            "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments",
+          image_url: backgroundOptions?.hero_about_us?.url,
         }}
         custom={{ gtm_reference: currentPage }}
       />
-      <div className="max-w-7xl mx-auto p-6">
-          {/* {validPressReleases.map((event, index) => (
-            <PressReleaseCard key={index} event={event} />
-          ))} */}
-          <MediaPressRelease/>
-      </div>
-
-      <div className="mb-12 ">
-        <ConnectWithUs
-          data={{ label: "Connect with us" }}
-          custom={{ gtm_reference: currentPage, template: 1 }}
-        />
-      </div>
+      <MediaPressRelease />
+      <ConnectWithUs
+        data={{ label: "Connect with us" }}
+        custom={{ gtm_reference: currentPage, template: 1, isPadding: true }}
+      />
     </Layout>
   );
 }
@@ -47,9 +39,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const options = await getSettings();
   let pressReleaseOptions = [];
 
-
   return {
-    props: { options, pressReleaseOptions }, 
+    props: { options, pressReleaseOptions },
     revalidate: 10,
   };
 };
