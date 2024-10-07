@@ -127,7 +127,10 @@ export async function getAllCareersWithSlug() {
 export async function getHeroSection(){
   const data = await fetchAPI(`{
     heroSections {
-      image_url
+      button_url
+      description
+      media_type
+      media_url
       title
     }
   }`)

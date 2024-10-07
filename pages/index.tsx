@@ -50,7 +50,6 @@ export default function Index({ options }) {
         <title>{`${generalSettings?.title}`}</title>
       </Head>
       <HeroImage
-
         custom={{ gtm_reference: currentPage }}
       />
       <AboutUs

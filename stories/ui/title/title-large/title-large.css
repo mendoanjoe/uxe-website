@@ -1,6 +1,6 @@
 .title-large {
   @apply text-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))]
-  max-lg:text-[max(24px,_min(calc(100vw_*_(80_/_1440)),_80px))]
+  /* max-lg:text-[max(24px,_min(calc(100vw_*_(80_/_1440)),_80px))] */
   font-medium leading-[120%] -tracking-[1.28px];
 }
 

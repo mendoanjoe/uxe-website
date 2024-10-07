@@ -4,14 +4,18 @@ import { SECTION_HERO } from "lib/constants";
 import Slider from "react-slick";
 import { getHeroSection } from "lib/api"; // Assuming this function exists
 import { Container } from "@/ui/base/container/Container";
+import { TitleLarge } from "@/ui/title/title-large/TitleLarge";
+import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
+import { TextMedium } from "@/ui/text/text-medium/TextMedium";
+import { TextHuge } from "@/ui/text/text-huge/TextHuge";
+import { Button } from "@/ui/component/button/Button";
 
 type HeroData = {
-  title: string;
-  clients?: {
-    alt: string;
-    logo_url: string;
-  }[];
-  hero_url: string;
+  button_url: string,
+  description: string,
+  media_type: string,
+  media_url: string,
+  title: string
 };
 
 export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => {
@@ -40,8 +44,11 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
       try {
         const data = await getHeroSection(); 
         const listHero: HeroData[] = data.map((element: any) => ({
-          title: element.title,
-          hero_url: element.image_url,
+          button_url: element.button_url,
+          description: element.description,
+          media_type: element.media_type,
+          media_url: element.media_url,
+          title: element.title
         }));
 
         console.log("Hero List", listHero);
@@ -64,7 +71,7 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     customPaging: (i: number) => (
-      <div className="custom-dot">
+      <div className="custom-dot max-md:h-2 max-sm:h-1">
         <div className="indicator-bar" />
       </div>
     ),
@@ -86,22 +93,41 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
 
   return (
     <section ref={sectionRef} id="section-hero" className="nhero">
-      <div className="h-[700px]">
+      <div className="h-[662px] max-md:h-[400px] max-sm:h-[300px]">
         {/* <Container size="xlarge" cls="nhero-container"> */}
         <div>
-          <div className="slider-container h-[700px]">
+          <div className="slider-container h-[662px] max-md:h-[400px] max-sm:h-[300px]">
             <Slider {...settings}>
               {/* {heroData.map && (
                 <img className="nhero-image" src={heroData.hero_url} alt="Hero Image" style={{ height: "100%" }} />
               )} */}
               {heroData.map((item, index) => (
-                <img
-                  key={index}
-                  className="nhero-image object-cover h-full w-full"
-                  src={item.hero_url}
-                  alt="Hero Image"
-                  style={{ height: "100%" }}
-                />
+                <div key={index} className="relative h-full">
+                  {item.media_type == "image" && (
+                    <img
+                      className="nhero-image object-cover object-top h-full w-full"
+                      src={item.media_url}
+                      alt="Hero Image"
+                      style={{ height: "100%" }}
+                    />
+                  )}
+
+                  {item.media_type == "video" && (
+                    <video src={item.media_url} style={{ height: "100%" }} className="h-full w-full" autoPlay muted loop></video>
+                  )}
+                  {item.media_type == "image" && (
+                    <div className="absolute bottom-0 left-0 right-0 max-w-[1440px] w-full mx-auto p-[max(32px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] max-md:pb-20 max-sm:pb-14 flex flex-col items-start gap-4 max-md:gap-3.5 max-sm:gap-3">
+                      <TitleLarge label={item.title} cls="font-normal" />
+                      <TextHuge label={item.description} cls="max-w-sm max-md:max-64 max-sm:max-w-64" />
+                      <TextMedium
+                        label="Read More"
+                        el="a"
+                        href={item.button_url}
+                        cls="block font-medium p-[10px_16px] rounded-full bg-[#BEBEBE40] text-white hover:bg-white hover:text-[#19191B] backdrop-blur-[2px] border border-[#cfcfcf40]"
+                      />
+                    </div>
+                  )}
+                </div>
               ))}
             </Slider>
           </div>
@@ -115,8 +141,8 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
 const SampleNextArrow = (props: any) => {
   const { onClick } = props;
   return (
-    <div className="slick-next" onClick={onClick}>
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+    <div className="slick-next w-12 h-12 max-md:w-10 max-md:h-8 max-sm:w-8 max-sm:h-6" onClick={onClick}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none" className="w-full h-full">
         <g clipPath="url(#clip0_151_15816)">
           <path
             fillRule="evenodd"
@@ -139,8 +165,8 @@ const SampleNextArrow = (props: any) => {
 const SamplePrevArrow = (props: any) => {
   const { onClick } = props;
   return (
-    <div className="slick-prev" onClick={onClick}>
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+    <div className="slick-prev w-12 h-12 max-md:w-10 max-md:h-8 max-sm:w-8 max-sm:h-6" onClick={onClick}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none" className="w-full h-full">
         <g clipPath="url(#clip0_151_15812)">
           <path
             fillRule="evenodd"
