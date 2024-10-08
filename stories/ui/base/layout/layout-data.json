@@ -3,12 +3,14 @@
     {
       "name": "Home",
       "url": "/",
-      "submenu": []
+      "submenu": [],
+      "level": 1
     },
     {
       "name": "About UXE",
       "url": "/about-us",
-      "submenu": []
+      "submenu": [],
+      "level": 1
     },
     {
       "name": "Solutions",
@@ -109,12 +111,14 @@
             }
           ]
         }
-      ]
+      ],
+      "level": 4
     },
     {
       "name": "CSR",
       "url": "/csr",
-      "submenu": []
+      "submenu": [],
+      "level": 1
     },
     {
       "name": "Media Center",
@@ -133,6 +137,7 @@
           "url": "/media/press-release"
         }
       ],
+      "level": 2,
       "contact_menu": [
         {
           "name": "+1 891 989-11-91",
@@ -157,12 +162,14 @@
     {
       "name": "Careers",
       "url": "/careers",
-      "submenu": []
+      "submenu": [],
+      "level": 1
     },
     {
       "name": "Contact Us",
       "url": "/contact-us",
-      "submenu": []
+      "submenu": [],
+      "level": 1
     }
   ],
   "footer": {
