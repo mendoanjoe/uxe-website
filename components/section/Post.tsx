@@ -64,6 +64,10 @@ export const Post = ({ data, custom, ...props }: SectionProps<PostProps>) => {
     };
   }, [sectionRef, gtm_reference]);
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <section ref={sectionRef} className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
@@ -77,7 +81,7 @@ export const Post = ({ data, custom, ...props }: SectionProps<PostProps>) => {
             </h2>
           </div>
           <div className="grid grid-cols-3 gap-[32px] max-xl:grid-cols-2 max-md:grid-cols-1">
-            {data.edges.map(({node}, index) => (
+            {data.edges.map(({ node }, index) => (
               <div
                 key={index}
                 className="rounded-[12px] border border-[#0000000F] overflow-hidden"
@@ -140,7 +144,14 @@ export const Post = ({ data, custom, ...props }: SectionProps<PostProps>) => {
             <Link
               href={"/media/news"}
               className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
-              onClick={() => GAClick("other_clicked", gtm_reference, SECTION_POST, "button-see-all-product")}
+              onClick={() =>
+                GAClick(
+                  "other_clicked",
+                  gtm_reference,
+                  SECTION_POST,
+                  "button-see-all-product"
+                )
+              }
             >
               See All News
             </Link>

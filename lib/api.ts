@@ -124,7 +124,7 @@ export async function getAllCareersWithSlug() {
   return data?.careers
 }
 
-export async function getHeroSection(){
+export async function getHeroSection() {
   const data = await fetchAPI(`{
     heroSections {
       button_url
@@ -135,8 +135,22 @@ export async function getHeroSection(){
     }
   }`)
 
-    return data?.heroSections
+  return data?.heroSections
 
+}
+
+export async function getCeoMessageOption() {
+  const data = await fetchAPI(`{
+    ceoMessage {
+      image_url
+      linkedin_url
+      message
+      name
+      role
+      personal_url
+    }
+  }`)
+  return data?.ceoMessage
 }
 
 export async function getAllPostsForHome(preview, afterCursor = "") {
@@ -292,9 +306,9 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
         ...PostFields
         content
         ${
-          // Only some of the fields of a revision are considered as there are some inconsistencies
-          isRevision
-            ? `
+    // Only some of the fields of a revision are considered as there are some inconsistencies
+    isRevision
+      ? `
         revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
           edges {
             node {
@@ -310,8 +324,8 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
           }
         }
         `
-            : ''
-        }
+      : ''
+    }
       }
       posts(first: 3, where: { orderby: { field: DATE, order: DESC } }) {
         edges {
@@ -403,9 +417,9 @@ export async function getEventAndMoreEvents(slug, preview, previewData) {
         ...EventFields
         content
         ${
-          // Only some of the fields of a revision are considered as there are some inconsistencies
-          isRevision
-            ? `
+    // Only some of the fields of a revision are considered as there are some inconsistencies
+    isRevision
+      ? `
         revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
           edges {
             node {
@@ -421,8 +435,8 @@ export async function getEventAndMoreEvents(slug, preview, previewData) {
           }
         }
         `
-            : ''
-        }
+      : ''
+    }
       }
       posts(first: 3, where: {
         categoryName: "event", 
@@ -517,9 +531,9 @@ export async function getNewAndMoreNews(slug, preview, previewData) {
         ...EventFields
         content
         ${
-          // Only some of the fields of a revision are considered as there are some inconsistencies
-          isRevision
-            ? `
+    // Only some of the fields of a revision are considered as there are some inconsistencies
+    isRevision
+      ? `
         revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
           edges {
             node {
@@ -535,8 +549,8 @@ export async function getNewAndMoreNews(slug, preview, previewData) {
           }
         }
         `
-            : ''
-        }
+      : ''
+    }
       }
       posts(first: 3, where: {
         categoryName: "news", 
@@ -675,11 +689,11 @@ export async function getCareerAndMoreCareers(slug) {
 
 // MY
 export async function getClient() {
-  const j = {"clients":[{"name":"COMPANY LOGO","url":"/image/company-logo-01.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-02.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-03.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-04.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-05.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-06.png"}]}
+  const j = { "clients": [{ "name": "COMPANY LOGO", "url": "/image/company-logo-01.png" }, { "name": "COMPANY LOGO", "url": "/image/company-logo-02.png" }, { "name": "COMPANY LOGO", "url": "/image/company-logo-03.png" }, { "name": "COMPANY LOGO", "url": "/image/company-logo-04.png" }, { "name": "COMPANY LOGO", "url": "/image/company-logo-05.png" }, { "name": "COMPANY LOGO", "url": "/image/company-logo-06.png" }] }
   return j?.clients
 }
 
-export async function getEvents(first = 10, after = '', searchTerm = '', tag='') {
+export async function getEvents(first = 10, after = '', searchTerm = '', tag = '') {
   const query = `
     query GetEvents($first: Int!, $after: String, $searchTerm: String) {
       posts(first: $first, after: $after, where: { 
@@ -718,7 +732,7 @@ export async function getEvents(first = 10, after = '', searchTerm = '', tag='')
     }
   `;
 
-  const variables = { first, after, searchTerm: searchTerm ? searchTerm : '' , tag: tag ? tag : ''};
+  const variables = { first, after, searchTerm: searchTerm ? searchTerm : '', tag: tag ? tag : '' };
   const data = await fetchAPI(query, { variables });
 
 
@@ -736,7 +750,7 @@ export async function getEvents(first = 10, after = '', searchTerm = '', tag='')
 
 
 
-export async function getNews(first = 10, after = '', searchTerm = '', tag='') {
+export async function getNews(first = 10, after = '', searchTerm = '', tag = '') {
   const query = `
     query GetEvents($first: Int!, $after: String, $searchTerm: String) {
       posts(first: $first, after: $after, where: { 
@@ -775,7 +789,7 @@ export async function getNews(first = 10, after = '', searchTerm = '', tag='') {
     }
   `;
 
-  const variables = { first, after, searchTerm: searchTerm ? searchTerm : '' , tag: tag ? tag : ''};
+  const variables = { first, after, searchTerm: searchTerm ? searchTerm : '', tag: tag ? tag : '' };
   const data = await fetchAPI(query, { variables });
 
 
@@ -826,10 +840,10 @@ export async function getPressReleases(
   `;
 
   const variables = { orderBy };
-  
+
   // Call your API and handle the response
   const response = await fetchAPI(query, { variables });
-  
+
   // Return the data with proper typing
   return {
     edges: response.pressReleaseOptions

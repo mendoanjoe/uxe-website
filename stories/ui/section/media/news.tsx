@@ -27,7 +27,6 @@ const NewsList = () => {
 
     const cursor = direction === 'next' ? endCursor : startCursor;
     const data = await getNews(10, cursor, term, category); // Pass category to getNews function
-    console.log(data);
 
     setEvents(data.edges.map(edge => edge.node));
     setHasNextPage(data.pageInfo.hasNextPage);
@@ -86,8 +85,8 @@ const NewsList = () => {
               <button type="submit" className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
                 <p>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M13.9996 13.9996L11.0996 11.0996" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z" stroke="black" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M13.9996 13.9996L11.0996 11.0996" stroke="black" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </p>
                 <p className="hidden">Search</p>
@@ -103,7 +102,7 @@ const NewsList = () => {
                 <span>{selectedCategory}</span>
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="square"/>
+                    <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#19191B" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square"/>
                   </svg>
                 </span>
               </button>
@@ -140,9 +139,9 @@ const NewsList = () => {
                         ? `https://api.uxe.ai${post.featuredImage.node.sourceUrl}`
                         : '/images/placeholder.jpg'}
                       alt="Event thumbnail"
-                      layout="fill"
-                      objectFit="cover"
-                      // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
+                      fill={true}
+                      style={{objectFit: "cover"}}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                     />
                   </div>
                 </div>
@@ -162,7 +161,7 @@ const NewsList = () => {
                     Read post
                     <span>
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                        <path d="M5.8335 14.6673L14.1668 6.33398M14.1668 6.33398H5.8335M14.1668 6.33398V14.6673" stroke="#19191B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5.8335 14.6673L14.1668 6.33398M14.1668 6.33398H5.8335M14.1668 6.33398V14.6673" stroke="#19191B" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </span>
                   </a>

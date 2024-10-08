@@ -70,6 +70,11 @@ const MediaPressRelease = () => {
     setSearchTerm(searchInput);
     fetchMoreEvents();
   };
+  const handleOnChangeSearch = (e) => {
+    setSearchInput(e.target.value);
+    setSearchTerm(e.target.value);
+    fetchMoreEvents();
+  };
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -91,9 +96,9 @@ const MediaPressRelease = () => {
   };
 
   // Conditional rendering for loading and error states
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading...</p>;
+  // }
 
   if (error) {
     return <p>Error: {error.message}</p>;
@@ -116,8 +121,9 @@ const MediaPressRelease = () => {
                 type="text"
                 placeholder="Search"
                 className="border boder-[#19191B3D] px-4 py-2.5 rounded-full text-sm font-medium text-[#19191B] focus:outline-none placeholder:text-[#19191B] min-w-72"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)} // Simpan input pengguna
+                value={searchInput ?? ""}
+                onChange={(e) => handleOnChangeSearch(e)}
+                // onKeyUp={(e) => handleOnChangeSearch(e)} // Simpan input pengguna
               />
               <button
                 type="submit"
@@ -134,16 +140,16 @@ const MediaPressRelease = () => {
                     <path
                       d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z"
                       stroke="black"
-                      stroke-width="1.33333"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.33333"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M13.9996 13.9996L11.0996 11.0996"
                       stroke="black"
-                      stroke-width="1.33333"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.33333"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </p>
@@ -169,30 +175,30 @@ const MediaPressRelease = () => {
                       <path
                         d="M12.6667 2.66602H3.33333C2.59695 2.66602 2 3.26297 2 3.99935V13.3327C2 14.0691 2.59695 14.666 3.33333 14.666H12.6667C13.403 14.666 14 14.0691 14 13.3327V3.99935C14 3.26297 13.403 2.66602 12.6667 2.66602Z"
                         stroke="black"
-                        stroke-width="1.33333"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.33333"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M10.6665 1.33398V4.00065"
                         stroke="black"
-                        stroke-width="1.33333"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.33333"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M5.3335 1.33398V4.00065"
                         stroke="black"
-                        stroke-width="1.33333"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.33333"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M2 6.66602H14"
                         stroke="black"
-                        stroke-width="1.33333"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.33333"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </span>
@@ -208,9 +214,9 @@ const MediaPressRelease = () => {
                       <path
                         d="M12.5 5.75L8 10.25L3.5 5.75"
                         stroke="#19191B"
-                        stroke-width="1.5"
-                        stroke-miterlimit="10"
-                        stroke-linecap="square"
+                        strokeWidth="1.5"
+                        strokeMiterlimit="10"
+                        strokeLinecap="square"
                       />
                     </svg>
                   </span>
@@ -249,9 +255,9 @@ const MediaPressRelease = () => {
                       <path
                         d="M12.5 5.75L8 10.25L3.5 5.75"
                         stroke="#19191B"
-                        stroke-width="1.5"
-                        stroke-miterlimit="10"
-                        stroke-linecap="square"
+                        strokeWidth="1.5"
+                        strokeMiterlimit="10"
+                        strokeLinecap="square"
                       />
                     </svg>
                   </span>
@@ -299,6 +305,15 @@ const MediaPressRelease = () => {
                       // objectFit="cover"
                       // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                     />
+                    <Image
+                      src={post.image_url
+                        ? post.image_url
+                        : '/images/placeholder.jpg'}
+                      alt="Event thumbnail"
+                      fill={true}
+                      style={{objectFit: "cover"}}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
+                    />
                   </div>
                 </div>
 
@@ -342,9 +357,9 @@ const MediaPressRelease = () => {
                         <path
                           d="M5.8335 14.6673L14.1668 6.33398M14.1668 6.33398H5.8335M14.1668 6.33398V14.6673"
                           stroke="#19191B"
-                          stroke-width="1.67"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.67"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </span>

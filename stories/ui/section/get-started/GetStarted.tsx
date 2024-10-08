@@ -35,16 +35,18 @@ export const GetStarted = ({
 
   useEffect(() => {
     const observer = GATimeSpent(gtm_reference, SECTION_GET_STARTED);
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const obsSection = sectionRef.current;
+
+    if (obsSection) {
+      observer.observe(obsSection);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (obsSection) {
+        observer.unobserve(obsSection);
       }
     };
-  }, [sectionRef]);
+  }, [sectionRef, gtm_reference]);
 
   return (
     <section

@@ -1,5 +1,4 @@
 import Slider from "react-slick";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { SECTION_TESTIMONIAL } from "lib/constants";
 import { GATimeSpent } from "lib/ga";
@@ -20,7 +19,11 @@ type TestimonialData = {
   reviewer_role: string;
 };
 
-export const Testimonial = ({ data, custom, ...props }: SectionProps<TestimonialData[], TestimonialCustom>) => {
+export const Testimonial = ({
+  data,
+  custom,
+  ...props
+}: SectionProps<TestimonialData[], TestimonialCustom>) => {
   // Props
   const { gtm_reference, show } = custom;
 
@@ -112,15 +115,31 @@ export const Testimonial = ({ data, custom, ...props }: SectionProps<Testimonial
     ],
   };
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <>
       {slides.length > 0 && (
-        <section ref={sectionRef} id="section-testimonial" className="bg-white" {...props}>
+        <section
+          ref={sectionRef}
+          id="section-testimonial"
+          className="bg-white"
+          {...props}
+        >
           <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
             <div className="flex flex-col gap-[48px]">
               <div className="flex flex-col items-start text-left">
-                <TextSmall label="TESTIMONIAL" cls="text-[#19191B80] uppercase font-medium !tracking-[.96px]" />
-                <TitleMedium el="h2" label="Partner Insights: What Others Have Shared About Us" cls="text-[#19191B] font-medium mt-[10px] !max-w-xl" />
+                <TextSmall
+                  label="TESTIMONIAL"
+                  cls="text-[#19191B80] uppercase font-medium !tracking-[.96px]"
+                />
+                <TitleMedium
+                  el="h2"
+                  label="Partner Insights: What Others Have Shared About Us"
+                  cls="text-[#19191B] font-medium mt-[10px] !max-w-xl"
+                />
               </div>
               <Slider
                 {...slide_setting}

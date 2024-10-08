@@ -81,6 +81,12 @@ export default function Post({ post, posts, preview, options }) {
     navigator.clipboard.writeText(siteUrl);
   };
 
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   if (!router.isFallback && !post?.slug && !options?.footerOptions) {
     return <ErrorPage statusCode={404} />;
   }
@@ -207,11 +213,13 @@ export default function Post({ post, posts, preview, options }) {
                 className="mx-auto rounded-[12px] my-[64px] w-full"
               />
             )}
-            <div
-              ref={postContent}
-              className="post-content"
-              dangerouslySetInnerHTML={{ __html: post?.content }}
-            ></div>
+            {isClient && (
+              <div
+                ref={postContent}
+                className="post-content"
+                dangerouslySetInnerHTML={{ __html: post?.content }}
+              ></div>
+            )}
           </div>
           <div className="flex flex-col gap-[16px] mt-[64px]">
             <TitleXXSmall label="Share this article" />

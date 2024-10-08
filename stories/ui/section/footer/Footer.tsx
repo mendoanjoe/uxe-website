@@ -31,16 +31,18 @@ export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
 
   useEffect(() => {
     const observer = GATimeSpent(gtm_reference, SECTION_FOOTER);
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const obsSection = sectionRef.current;
+
+    if (obsSection) {
+      observer.observe(obsSection);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (obsSection) {
+        observer.unobserve(obsSection);
       }
     };
-  }, [sectionRef]);
+  }, [sectionRef, gtm_reference]);
 
   const SCROLL_TO_TOP = () => {
     window.scrollTo({
@@ -51,7 +53,7 @@ export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
 
   return (
     <>
-      <section className="bg-[#071952] text-white">
+      <section ref={sectionRef} className="bg-[#071952] text-white">
         <div className="max-w-[1440px] mx-auto">
           <div className="p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))]">
             <div className="flex flex-col gap-[48px]">
@@ -169,7 +171,7 @@ export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
                     <div className="flex flex-col gap-[16px]">
                       <TextSmall label="Company" cls="uppercase font-medium" />
                       <div className="flex flex-col gap-[4px]">
-                        <TextLarge el="a" label="About UXE" cls="text-[#D9D9D9]" href="/company/about-us" />
+                        <TextLarge el="a" label="About UXE" cls="text-[#D9D9D9]" href="/about-us" />
                         <TextLarge el="a" label="CSR" cls="text-[#D9D9D9]" href="/csr" />
                         <TextLarge el="a" label="Careers" cls="text-[#D9D9D9]" href="/careers" />
                         <TextLarge el="a" label="Contact Us" cls="text-[#D9D9D9]" href="/contact-us" />

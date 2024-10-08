@@ -6,22 +6,22 @@ import { TitleXSmall } from "@/ui/title/title-xsmall/TitleXSmall";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import { TextSmall } from "@/ui/text/text-small/TextSmall";
 
-export const Feature = ({ data, custom, ...props }: SectionProps<null>) => {
+interface FeatureData {
+  description: string;
+  icon: string;
+  title: string;
+}
+
+export const Feature = ({ data, custom, ...props }: SectionProps<FeatureData[]>) => {
   // Props
   const { gtm_reference } = custom;
-  const [features, setFeature] = useState(data || [])
 
   // Reference
   const sectionRef = useRef(null);
 
   function svgToBase64(svg) {
-    // Ensure proper UTF-8 encoding using TextEncoder
     const encoded = new TextEncoder().encode(svg);
-  
-    // Convert the encoded array into a string for btoa
     const base64Encoded = btoa(Array.from(encoded, byte => String.fromCharCode(byte)).join(''));
-  
-    // Return the Base64 string with the data URI prefix
     return `data:image/svg+xml;base64,${base64Encoded}`;
   }
 
@@ -40,6 +40,10 @@ export const Feature = ({ data, custom, ...props }: SectionProps<null>) => {
     };
   }, [sectionRef, gtm_reference]);
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <section ref={sectionRef} id="section-feature" className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
@@ -52,7 +56,7 @@ export const Feature = ({ data, custom, ...props }: SectionProps<null>) => {
             <TitleMedium el="h2" label="At UXE, our commitment to living out our values is at the heart of everything we do" cls="text-[#19191B] font-medium mt-[10px] max-w-[36rem]" />
           </div>
 
-          {features.map((item, index) => (
+          {data.map((item, index) => (
             <div key={index} className="px-[20px] border-l border-[#0000000F] flex flex-col items-start gap-[40px]">
               <div className="bg-[#E6EDFF] p-[12px] rounded-[12px]">
                 <img src={svgToBase64(item.icon)} alt={item.title} />

@@ -21,6 +21,8 @@ export default function Event({ post, posts, preview, options }) {
   const router = useRouter();
   const morePosts = posts?.edges;
 
+  const [isClient, setIsClient] = useState(false)
+
   useEffect(() => {
     postContent.current.querySelectorAll("img").forEach((el) => {
       // Modify the src attribute
@@ -80,6 +82,10 @@ export default function Event({ post, posts, preview, options }) {
   const copyLink = () => {
     navigator.clipboard.writeText(siteUrl);
   };
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   if (!router.isFallback && !post?.slug && !options?.footerOptions) {
     return <ErrorPage statusCode={404} />;
@@ -207,11 +213,13 @@ export default function Event({ post, posts, preview, options }) {
                 className="mx-auto rounded-[12px] my-[64px] w-full"
               />
             )}
-            <div
-              ref={postContent}
-              className="post-content"
-              dangerouslySetInnerHTML={{ __html: post?.content }}
-            ></div>
+            {isClient && (
+              <div
+                ref={postContent}
+                className="post-content"
+                dangerouslySetInnerHTML={{ __html: post?.content }}
+              ></div>
+            )}
           </div>
           <div className="flex flex-col gap-[16px] mt-[64px]">
             <TitleXXSmall label="Share this article" />
@@ -415,8 +423,6 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const data = await getNewAndMoreNews(params?.slug, preview, previewData);
   const options = await getSettings();
-
-  console.log(data)
   return {
     props: {
       preview,

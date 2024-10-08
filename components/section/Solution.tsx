@@ -14,11 +14,7 @@ type SolutionData = {
   image_url: string;
 };
 
-export const Solution = ({
-  data,
-  custom,
-  ...props
-}: SectionProps<SolutionData[]>) => {
+export const Solution = ({ data, custom, ...props }: SectionProps<SolutionData[]>) => {
   // Props
   const { gtm_reference } = custom;
 
@@ -30,13 +26,6 @@ export const Solution = ({
   // State
   const [isMobile, setIsMobile] = useState(false);
   const [isActiveSolution, setIsActiveSolution] = useState(true);
-
-  const SCROLL_TO_TOP = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // Use smooth scrolling behavior
-    });
-  };
 
   const handleActiveSolution = (value) => {
     setIsActiveSolution(value);
@@ -62,15 +51,18 @@ export const Solution = ({
   }, [sectionRef, gtm_reference]);
 
   useEffect(() => {
+    const obsSlide1 = slide1Ref.current;
+    const obsSlide2 = slide2Ref.current;
+
     const handleSlide1Click = () => handleActiveSolution(true);
     const handleSlide2Click = () => handleActiveSolution(false);
 
     if (window.innerWidth >= 1024) {
-      if (slide1Ref.current) {
-        slide1Ref.current.addEventListener("mouseenter", handleSlide1Click);
+      if (obsSlide1) {
+        obsSlide1.addEventListener("mouseenter", handleSlide1Click);
       }
-      if (slide2Ref.current) {
-        slide2Ref.current.addEventListener("mouseenter", handleSlide2Click);
+      if (obsSlide1) {
+        obsSlide1.addEventListener("mouseenter", handleSlide2Click);
       }
     } else {
       handleIsMobile(true);
@@ -78,21 +70,25 @@ export const Solution = ({
 
     return () => {
       if (window.innerWidth > 1024) {
-        if (slide1Ref.current) {
-          slide1Ref.current.removeEventListener(
+        if (obsSlide1) {
+          obsSlide1.removeEventListener(
             "mouseenter",
             handleSlide1Click
           );
         }
-        if (slide2Ref.current) {
-          slide2Ref.current.removeEventListener(
+        if (obsSlide2) {
+          obsSlide2.removeEventListener(
             "mouseenter",
             handleSlide2Click
           );
         }
       }
     };
-  }, [sectionRef]);
+  }, [slide1Ref, slide2Ref]);
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <section

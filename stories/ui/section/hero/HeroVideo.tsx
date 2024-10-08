@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { TextMedium } from "../../text/text-medium/TextMedium";
 import { TitleHuge } from "../../title/title-huge/TitleHuge";
@@ -23,22 +23,29 @@ export const HeroVideo = ({ data, custom }: SectionProps<HeroData>) => {
   // Props
   const { hero_url, title, clients } = data;
   const { gtm_reference } = custom;
+  const [isClient, setIsClient] = useState(false)
 
   // Reference
   const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = GATimeSpent(gtm_reference, SECTION_HERO);
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const obsSection = sectionRef.current;
+
+    if (obsSection) {
+      observer.observe(obsSection);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (obsSection) {
+        observer.unobserve(obsSection);
       }
     };
-  }, [sectionRef]);
+  }, [sectionRef, gtm_reference]);
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   return (
     <section ref={sectionRef} id="section-hero" className="nhero">
@@ -72,14 +79,16 @@ export const HeroVideo = ({ data, custom }: SectionProps<HeroData>) => {
             </div>
           </div>
           <div className="nhero-video-overlay"></div> */}
-          <video
-            className="nhero-video"
-            src={hero_url}
-            autoPlay
-            loop
-            playsInline
-            muted
-          ></video>
+          {isClient && (
+            <video
+              className="nhero-video"
+              src={hero_url}
+              autoPlay
+              loop
+              playsInline
+              muted
+            ></video>
+          )}
           <ButtonReadMore
             label="Read More"
             onClick={() => GAClick("other_clicked", gtm_reference, "hero", "read-more")}

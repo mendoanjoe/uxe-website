@@ -27,17 +27,18 @@ export const VisionMission2 = ({
   const sectionRef = useRef(null);
   useEffect(() => {
     const observer = GATimeSpent(gtm_reference, SECTION_VISION_MISSION2);
+    const obsSection = sectionRef.current;
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (obsSection) {
+      observer.observe(obsSection);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (obsSection) {
+        observer.unobserve(obsSection);
       }
     };
-  }, [sectionRef]);
+  }, [sectionRef, gtm_reference]);
 
   return (
     <section ref={sectionRef} className="bg-white">

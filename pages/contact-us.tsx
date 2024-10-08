@@ -6,7 +6,7 @@ import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 import { TextMedium } from "@/ui/text/text-medium/TextMedium";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Meta } from "@/ui/base/Meta";
 import { TitleXSmall } from "@/ui/title/title-xsmall/TitleXSmall";
 import Image from "next/image";
@@ -20,6 +20,7 @@ export default function ContactUsSection({ options }) {
 
   const formBlock = useRef(null);
   const formMessage = useRef(null);
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
     const form = formBlock.current.querySelector("form");
@@ -70,6 +71,10 @@ export default function ContactUsSection({ options }) {
   const handleBack = () => {
     router.back();
   };
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   return (
     <>
@@ -228,11 +233,13 @@ export default function ContactUsSection({ options }) {
                   <TextSmall label="Contact us" cls="font-medium uppercase"/>
                   <TitleLarge el="h2" label="Get Started with UXE" />
                 </div>
-                <div
-                  className="form-contact"
-                  ref={formBlock}
-                  dangerouslySetInnerHTML={{ __html: contactOptions?.html }}
-                ></div>
+                {isClient && (
+                  <div
+                    className="form-contact"
+                    ref={formBlock}
+                    dangerouslySetInnerHTML={{ __html: contactOptions?.html }}
+                  ></div>
+                )}
                 <p
                   ref={formMessage}
                   className="hidden p-[10px] border-[2px] border-black w-full"
@@ -248,7 +255,7 @@ export default function ContactUsSection({ options }) {
                 <a href="tel:+971-60053-9000" className="flex gap-3 items-end p-5 border border-[#19191B0F] w-fit max-md:w-full rounded-xl">
                   <div className="bg-[#F4F5F6] border border-[#19191B0F] p-3 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <g clip-path="url(#clip0_834_3024)">
+                      <g clipPath="url(#clip0_834_3024)">
                         <path d="M19.4293 14.1325L15.0543 12.2575C14.8674 12.1778 14.6597 12.161 14.4624 12.2096C14.2652 12.2582 14.089 12.3696 13.9605 12.527L12.023 14.8942C8.98232 13.4605 6.53524 11.0134 5.10156 7.97269L7.46875 6.03519C7.62644 5.90694 7.73804 5.73081 7.78668 5.53345C7.83531 5.3361 7.81832 5.12828 7.73828 4.94144L5.86328 0.566443C5.77543 0.36504 5.62007 0.200601 5.42397 0.101481C5.22787 0.00236139 5.00332 -0.0252267 4.78906 0.0234739L0.726562 0.960974C0.519988 1.00868 0.335682 1.12499 0.203725 1.29093C0.0717677 1.45687 -4.75863e-05 1.66264 2.36571e-08 1.87465C2.36571e-08 11.8942 8.12109 19.9996 18.125 19.9996C18.3371 19.9998 18.5429 19.928 18.709 19.796C18.875 19.6641 18.9913 19.4797 19.0391 19.2731L19.9766 15.2106C20.025 14.9953 19.9968 14.7698 19.8969 14.5731C19.797 14.3763 19.6317 14.2205 19.4293 14.1325Z" fill="black"/>
                       </g>
                       <defs>
@@ -263,7 +270,7 @@ export default function ContactUsSection({ options }) {
                     <TextLarge label="+971-60053-9000" />
                   </div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M5.83398 14.1673L14.1673 5.83398M14.1673 5.83398H5.83398M14.1673 5.83398V14.1673" stroke="#19191B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5.83398 14.1673L14.1673 5.83398M14.1673 5.83398H5.83398M14.1673 5.83398V14.1673" stroke="#19191B" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </a>
               </div>

@@ -24,20 +24,23 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const sectionRef = useRef(null);
+  const [isClient, setIsClient] = useState(false)
 
   const { gtm_reference } = custom;
 
   useEffect(() => {
     const observer = GATimeSpent(gtm_reference, SECTION_HERO);
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const obsSection = sectionRef.current;
+
+    if (obsSection) {
+      observer.observe(obsSection);
     }
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (obsSection) {
+        observer.unobserve(obsSection);
       }
     };
-  }, [sectionRef]);
+  }, [sectionRef, gtm_reference]);
 
   useEffect(() => {
     async function fetchData() {
@@ -51,7 +54,6 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
           title: element.title
         }));
 
-        console.log("Hero List", listHero);
         setHeroData(listHero);
         setLoading(false);
       } catch (err) {
@@ -61,6 +63,10 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
     }
     fetchData();
   }, []);
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   const settings = {
     dots: true,
@@ -112,7 +118,7 @@ export const HeroImage = ({ custom }: { custom: { gtm_reference: string } }) => 
                     />
                   )}
 
-                  {item.media_type == "video" && (
+                  {item.media_type == "video" && isClient && (
                     <video src={item.media_url} style={{ height: "100%" }} className="h-full w-full" autoPlay muted loop></video>
                   )}
                   {item.media_type == "image" && (

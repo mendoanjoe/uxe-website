@@ -27,6 +27,7 @@ export const AboutUs = ({ data, custom }: SectionProps<AboutUsData>) => {
 
   // State
   const [isReadMore, setReadMore] = useState(false);
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
     const observer = GATimeSpent(gtm_reference, SECTION_ABOUT_US);
@@ -43,8 +44,6 @@ export const AboutUs = ({ data, custom }: SectionProps<AboutUsData>) => {
     };
   }, [sectionRef, gtm_reference]);
 
-  const [isClient, setIsClient] = useState(false)
-
   useEffect(() => {
     setIsClient(true)
   }, [])
@@ -58,6 +57,10 @@ export const AboutUs = ({ data, custom }: SectionProps<AboutUsData>) => {
     );
     setReadMore(!isReadMore);
   };
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <section ref={sectionRef} id="section-about-us" className="bg-white">

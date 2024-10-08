@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { GAClick, GATimeSpent } from "lib/ga";
 import { SECTION_GET_STARTED } from "lib/constants";
-import { TitleHuge } from "../../title/title-huge/TitleHuge";
+import { TitleHuge } from "@/ui/title/title-huge/TitleHuge";
 import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 
 type GetStartedData = {
   label: string;
+  description: string;
 };
 
 type GetStartedCustom = {
@@ -20,13 +20,13 @@ type GetStartedCustom = {
   isPadding?: boolean;
 };
 
-export const ConnectWithUs = ({
+export const GetStarted = ({
   data,
   custom,
   ...props
 }: SectionProps<GetStartedData, GetStartedCustom>) => {
   // Props
-  const { label } = data;
+  const { label, description } = data;
   const { gtm_reference, template = 0, isPadding = false } = custom;
 
   // Reference
@@ -35,7 +35,6 @@ export const ConnectWithUs = ({
   useEffect(() => {
     const observer = GATimeSpent(gtm_reference, SECTION_GET_STARTED);
     const obsSection = sectionRef.current;
-
     if (obsSection) {
       observer.observe(obsSection);
     }
@@ -46,6 +45,10 @@ export const ConnectWithUs = ({
       }
     };
   }, [sectionRef, gtm_reference]);
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <section
@@ -64,10 +67,7 @@ export const ConnectWithUs = ({
             <div className="flex gap-[20px] items-center justify-between w-full max-md:flex-col max-md:text-center">
               <div className="flex flex-col gap-[16px]">
                 <TitleMedium el="h2" label={label} decoration />
-                <TextLarge
-                  label="To explore potential partnership opportunities, please contact us at your earliest convenience"
-                  cls="text-white"
-                />
+                <TextLarge label={description} cls="text-white max-w-full" />
               </div>
               <Link
                 onClick={() =>
@@ -93,22 +93,26 @@ export const ConnectWithUs = ({
             <div className="get-started-profile">
               <img
                 alt="profile"
-                src="/image/person-image-01.png"
+                className="!w-12 !h-12 max-md:!w-11 max-md:!h-11"
+                src="/image/person-1.png"
                 title="Person"
               />
               <img
                 alt="profile"
-                src="/image/person-image-02.png"
+                className="!w-12 !h-12 max-md:!w-11 max-md:!h-11"
+                src="/image/person-2.png"
                 title="Person"
               />
               <img
                 alt="profile"
-                src="/image/person-image-03.png"
+                className="!w-12 !h-12 max-md:!w-11 max-md:!h-11"
+                src="/image/person-3.png"
                 title="Person"
               />
               <img
                 alt="profile"
-                src="/image/person-image-04.png"
+                className="!w-12 !h-12 max-md:!w-11 max-md:!h-11"
+                src="/image/person-4.png"
                 title="Person"
               />
             </div>

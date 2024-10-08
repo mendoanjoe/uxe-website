@@ -11,7 +11,6 @@ type Hero2Data = {
 
 export const Hero2 = ({ data, custom }: SectionProps<Hero2Data>) => {
   // Props
-  const { title, subtitle, description, image_url } = data;
   const { gtm_reference } = custom;
 
   // Reference
@@ -32,6 +31,10 @@ export const Hero2 = ({ data, custom }: SectionProps<Hero2Data>) => {
     };
   }, [sectionRef, gtm_reference]);
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <section ref={sectionRef} className="bg-black">
       <div className="max-w-[1440px] mx-auto overflow-hidden">
@@ -40,21 +43,21 @@ export const Hero2 = ({ data, custom }: SectionProps<Hero2Data>) => {
             <div className="flex items-end justify-between gap-[max(24px,_min(calc(100vw_*_(80_/_1440)),_80px))] max-md:flex-col max-md:items-start">
               <div className="flex flex-col items-start gap-[10px] max-w-lg">
                 {/* <span className="text-[12px] text-white font-medium leading-[112%] -tracking-[.96px] uppercase">
-                  {subtitle}
+                  {data.subtitle}
                 </span> */}
                 {/* <h2 className="text-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))] max-lg:text-[max(24px,_min(calc(100vw_*_(80_/_1440)),_80px))] font-medium leading-[120%] -tracking-[1.28px] !bg-clip-text bg-linear-11 text-transparent">
-                  {title}
+                  {data.title}
                 </h2> */}
               </div>
               {/* <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] font-medium leading-[132%] -tracking-[.16px] max-w-sm bg-linear-10 !bg-clip-text text-transparent text-end max-md:text-start">
-                {description}
+                {data.description}
               </p> */}
             </div>
           </div>
           <div
             className="absolute inset-0 w-full max-h-[400px] max-md:max-h-[300px] max-sm:max-h-[250px] bg-cover bg-no-repeat"
             style={{
-              backgroundImage: `url(${image_url})`,
+              backgroundImage: `url(${data.image_url})`,
             }}
           ></div>
         </div>

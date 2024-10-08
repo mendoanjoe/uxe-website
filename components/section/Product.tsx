@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { GAClick, GATimeSpent } from "lib/ga";
 import { getAllProduct } from "lib/new-api";
@@ -38,11 +37,7 @@ type ProductCustom = {
   show_button: boolean;
 };
 
-export const Product = ({
-  data,
-  custom,
-  ...props
-}: SectionProps<ProductData, ProductCustom>) => {
+export const Product = ({ data, custom, ...props }: SectionProps<ProductData, ProductCustom>) => {
   // Props
   const { gtm_reference, show_title, show_button } = custom;
 
@@ -92,6 +87,10 @@ export const Product = ({
     fetchProducts(endCursor);
     GAClick("other_clicked", gtm_reference, SECTION_PRODUCT, "button-load-product")
   };
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <section

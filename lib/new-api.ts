@@ -358,6 +358,35 @@ export async function getSettings() {
         title
         description
       }
+      heroSections {
+        button_url
+        description
+        media_type
+        media_url
+        title
+      }
+      ceoMessage {
+        image_url
+        linkedin_url
+        message
+        name
+        role
+        personal_url
+      }
+      callourAbout {
+        about
+        statistic_1_title
+        statistic_1_value
+        statistic_2_title
+        statistic_2_value
+        statistic_3_title
+        statistic_3_value
+      }
+      callourPartners {
+        description
+        image_url
+        title
+      }
     }
   `,
   )

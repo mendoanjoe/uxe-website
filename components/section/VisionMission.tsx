@@ -1,8 +1,5 @@
-import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
-import { GATimeSpent } from "lib/ga";
-import { SECTION_VISION_MISSION } from "lib/constants";
 import { TextSmall } from "@/ui/text/text-small/TextSmall";
 import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 import { TextHuge } from "@/ui/text/text-huge/TextHuge";
@@ -20,11 +17,7 @@ interface VisionMissionData {
   };
 }
 
-export const VisionMission = ({
-  data,
-  custom,
-  ...props
-}: SectionProps<VisionMissionData>) => {
+export const VisionMission = ({ data, custom, ...props }: SectionProps<VisionMissionData>) => {
   // Props
   const { vision, mission } = data;
   const { gtm_reference } = custom;
@@ -37,131 +30,7 @@ export const VisionMission = ({
   const imageRef = useRef(null);
 
   // State
-  const [isActiveSection, setIsActiveSection] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  // useEffect(() => {
-  //   const observer = GATimeSpent(gtm_reference, SECTION_VISION_MISSION);
-      // const obsSection = sectionRef.current;
-
-  //   if (obsSection) {
-  //     observer.observe(obsSection);
-  //   }
-
-  //   const visionHandle = () => {
-  //     const section = obsSection;
-  //     if (!section) { return; }
-
-  //     const sectionRect = section.getBoundingClientRect();
-  //     const windowHeight = window.innerHeight;
-  //     const windowWidth = window.innerWidth;
-  //     const sectionTop = sectionRect.top;
-
-  //     const containerPaddingValue = parseInt(
-  //       getComputedStyle(paddingRef.current).paddingTop.replace("px", "")
-  //     );
-
-  //     const container = imageRef.current.querySelectorAll("img");
-  //     const containerContent = contentRef.current.childNodes;
-  //     const containerFooter = footerRef.current.childNodes[1].childNodes;
-  //     const containerDescription = footerRef.current.childNodes[0];
-  //     const containerImageHeight = imageRef.current.getBoundingClientRect().height;
-
-  //     if (sectionTop < 0) {
-  //       const navigationElm = window.document.querySelector(
-  //         "#navigation-container"
-  //       );
-  //       if (navigationElm) {
-  //         paddingRef.current.style.paddingTop = `calc(max(44px, min(calc(100vw * (80 / 1440)), 80px)) + ${navigationElm.clientHeight}px)`;
-  //       }
-
-  //       container.forEach((e, i) => {
-  //         if (
-  //           sectionTop >
-  //           (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
-  //             navigationElm.clientHeight
-  //         ) {
-  //           if (windowWidth > 1023) {
-  //             e.style.transform = `translateY(${sectionTop}px)`;
-  //           }
-  //         }
-
-  //         if (
-  //           sectionTop <
-  //           (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
-  //             navigationElm.clientHeight
-  //         ) {
-  //           if (windowWidth > 1023) {
-  //             e.style.transform = `translateY(${
-  //               (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
-  //               navigationElm.clientHeight
-  //             }px)`;
-  //           }
-  //           setIsActiveSection(i);
-  //         }
-
-  //         if (
-  //           sectionTop <
-  //           (containerImageHeight * i - containerPaddingValue * 2 * i) * -1 -
-  //             navigationElm.clientHeight && sectionTop > ((containerImageHeight * 1 - containerPaddingValue * 2 * 1) * -1 -
-  //             navigationElm.clientHeight) * 2 && windowWidth < 1023
-  //         ) {
-  //           const a = ((containerImageHeight * 1 - containerPaddingValue * 2 * 1) * -1 -
-  //           navigationElm.clientHeight) * 2;
-  //           container[1].style.transform = `translateY(-${(sectionTop/a)*100}%)`;
-  //         }
-  //       });
-  //     } else {
-  //       const navigationElm = window.document.querySelector(
-  //         "#navigation-container"
-  //       );
-  //       if (navigationElm) {
-  //         paddingRef.current.style.paddingTop = `max(44px, min(calc(100vw * (80 / 1440)), 80px))`;
-  //       }
-  //     }
-
-  //     containerContent.forEach((element, ei) => {
-  //       if (ei == isActiveSection) {
-  //         if (windowWidth < 1023) {
-  //           containerContent[0].style.display = 'none'
-  //           containerContent[1].style.display = 'block'
-  //         }
-  //         element.style.opacity = 1;
-  //         // element.style.display = "block"
-  //         containerDescription.innerText = mission?.description;
-  //         containerFooter[ei].style.background = "#3760ff";
-  //         containerFooter[ei].style.width =
-  //           "max(32px, min(calc(100vw * (64 / 1440)), 64px))";
-  //       } else {
-  //         if (windowWidth < 1023) {
-  //           containerContent[0].style.display = 'block'
-  //           containerContent[1].style.display = 'none'
-  //         }
-  //         element.style.opacity = 0;
-  //         // element.style.display = "none"
-  //         containerDescription.innerText = vision?.description;
-  //         containerFooter[ei].style.background = "#0000003D";
-  //         containerFooter[ei].style.width =
-  //           "max(12px, min(calc(100vw * (24 / 1440)), 24px))";
-  //       }
-  //     });
-  //   };
-
-  //   window.addEventListener("scroll", visionHandle);
-  //   return () => {
-  //     if (sectionRef.current) {
-  //       observer.unobserve(sectionRef.current);
-  //     }
-  //     window.removeEventListener("scroll", visionHandle);
-  //   };
-  // }, [
-  //   sectionRef,
-  //   paddingRef,
-  //   imageRef,
-  //   contentRef,
-  //   footerRef,
-  //   isActiveSection,
-  // ]);
 
   useEffect(() => {
     const images = contentRef.current?.childNodes;
@@ -201,6 +70,11 @@ export const VisionMission = ({
       }
     };
   }, []);
+
+  if (!data) {
+    return null;
+  }
+
   return (
     <section
       ref={sectionRef}

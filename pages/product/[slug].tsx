@@ -9,7 +9,7 @@ import {
   getAllProductsWithSlug,
   getProductAndMoreProducts,
 } from "../../lib/api";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Layout } from "@/ui/base/layout/Layout";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { getSettings } from "lib/new-api";
@@ -23,11 +23,20 @@ export default function Product({ product, options }) {
 
   useEffect(() => {
     const observer = GATimeSpent(currentPage, SECTION_PRODUCT_DETAIL);
+    const obsSection = sectionRef.current;
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (obsSection) {
+      observer.observe(obsSection);
     }
 
+    return () => {
+      if (obsSection) {
+        observer.unobserve(obsSection);
+      }
+    };
+  }, [sectionRef, currentPage]);
+
+  useEffect(() => {
     productContent.current.querySelectorAll("img").forEach((el) => {
       // Modify the src attribute
       const currentSrc = el.src;
@@ -75,12 +84,15 @@ export default function Product({ product, options }) {
     window.addEventListener("scroll", handleScrollNav);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
       window.removeEventListener("scroll", handleScrollNav);
     };
-  }, [sectionRef]);
+  }, []);
+
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   const router = useRouter();
 
@@ -93,7 +105,7 @@ export default function Product({ product, options }) {
       <Head>
         <title>{`${options?.generalSettings?.title} | ${product?.title}`}</title>
       </Head>
-      <section className="bg-white">
+      <section ref={sectionRef} className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_0_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="flex flex-col gap-[40px] mt-[20px]">
             <div className="text-center flex flex-col items-center gap-[10px]">
@@ -109,10 +121,12 @@ export default function Product({ product, options }) {
                 alt={product?.title}
                 className="mx-auto max-h-[max(300px,_min(calc(100vw_*_(600_/_1440)),_600px))] w-full object-cover object-top rounded-[12px]"
               />
-              <div
-                ref={productContent}
-                dangerouslySetInnerHTML={{ __html: product?.content }}
-              ></div>
+              {isClient && (
+                <div
+                  ref={productContent}
+                  dangerouslySetInnerHTML={{ __html: product?.content }}
+                ></div>
+              )}
             </div>
           </div>
         </div>

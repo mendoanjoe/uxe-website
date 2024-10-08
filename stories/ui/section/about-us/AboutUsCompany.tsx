@@ -42,16 +42,24 @@ export const AboutUsCompany = ({ data, custom }: SectionProps<AboutUsCompanyData
 
   useEffect(() => {
     const observer = GATimeSpent(gtm_reference, SECTION_ABOUT_US);
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const obsSection = sectionRef.current;
+
+    if (obsSection) {
+      observer.observe(obsSection);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (obsSection) {
+        observer.unobserve(obsSection);
       }
     };
-  }, [sectionRef]);
+  }, [sectionRef, gtm_reference]);
+
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   return (
     <section ref={sectionRef} id="section-about-us" className="bg-white">
@@ -59,13 +67,15 @@ export const AboutUsCompany = ({ data, custom }: SectionProps<AboutUsCompanyData
         <Container size="medium">
           <div className="py-medium max-w-[54.875rem] flex flex-col gap-[40px]">
           <div className="flex flex-col gap-[20px] max-w-[800px]">
-            <p
-              ref={readMoreRef}
-              className="text-[30px] leading-[40.32px] font-medium tracking-[-0.02em] text-left text-black"
-              dangerouslySetInnerHTML={{
-                __html: text,
-              }}
-            ></p>
+            {isClient && (
+              <p
+                ref={readMoreRef}
+                className="text-[30px] leading-[40.32px] font-medium tracking-[-0.02em] text-left text-black"
+                dangerouslySetInnerHTML={{
+                  __html: text,
+                }}
+              ></p>
+            )}
           </div>
             <div className="flex justify-between gap-[30px] flex-wrap">
               {statistic.map(({ name, value }, id) => (
