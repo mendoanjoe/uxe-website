@@ -213,13 +213,13 @@ export default function Post({ post, posts, preview, options }) {
                 className="mx-auto rounded-[12px] my-[64px] w-full"
               />
             )}
-            {isClient && (
+            {/* {isClient && ( */}
               <div
                 ref={postContent}
                 className="post-content"
                 dangerouslySetInnerHTML={{ __html: post?.content }}
               ></div>
-            )}
+             {/* )} */}
           </div>
           <div className="flex flex-col gap-[16px] mt-[64px]">
             <TitleXXSmall label="Share this article" />

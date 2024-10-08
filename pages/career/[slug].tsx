@@ -135,9 +135,9 @@ export default function Career({ career, options }) {
                     <TextLarge label="Full-time" />
                   </div>
                 </div>
-                {isClient && (
+                {/* {isClient && ( */}
                   <div className="post-content space-y-3 mt-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))]" dangerouslySetInnerHTML={{ __html: career?.content }}></div>
-                )}
+                {/* )} */}
                 {/* <div className="space-y-3 mt-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))]">
                   <TitleXSmall el="h2" label="Job Description" />
                   <div className="space-y-3 text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] leading-[132%] -tracking-[.16px]">
@@ -254,13 +254,13 @@ export default function Career({ career, options }) {
                   </div>
                 </div>
                 <div className="space-y-3">
-                  {isClient && (
+                  {/* {isClient && ( */}
                     <div
                       className="form-career"
                       ref={formBlock}
                       dangerouslySetInnerHTML={{ __html: options?.career2Options.contact?.html }}
                     ></div>
-                  )}
+                  {/* )} */}
                   <p
                     ref={formMessage}
                     className="hidden p-[10px] border-[2px] border-black w-full"

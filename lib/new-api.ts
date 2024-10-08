@@ -308,7 +308,15 @@ export async function getSettings() {
           type
           url
         }
+        hero_audit {
+          type
+          url
+        }
         hero_blog {
+          type
+          url
+        }
+        hero_company {
           type
           url
         }
@@ -320,17 +328,21 @@ export async function getSettings() {
           type
           url
         }
-        hero_home {
+        hero_csr {
           type
           url
+        }
+        hero_home {
+          url
+          type
         }
         hero_product {
-          url
           type
+          url
         }
         hero_team {
-          type
           url
+          type
         }
       }
       career2Options {

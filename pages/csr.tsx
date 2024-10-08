@@ -43,7 +43,7 @@ export default function CsrSection({ careers, department, roles, options }) {
           title:"Access with Purpose",
           subtitle:"Corporate Social Responsibility",
           description: "UXE Corporate Social Responsibility Initiatives Driving Social and Environmnetal Change",
-          image_url: backgroundOptions?.hero_career?.url
+          image_url: backgroundOptions?.hero_csr?.url
         }}
         custom={{ gtm_reference: currentPage }}
       />

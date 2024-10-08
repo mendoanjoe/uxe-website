@@ -233,13 +233,13 @@ export default function ContactUsSection({ options }) {
                   <TextSmall label="Contact us" cls="font-medium uppercase"/>
                   <TitleLarge el="h2" label="Get Started with UXE" />
                 </div>
-                {isClient && (
+                {/* {isClient && ( */}
                   <div
                     className="form-contact"
                     ref={formBlock}
                     dangerouslySetInnerHTML={{ __html: contactOptions?.html }}
                   ></div>
-                )}
+                {/* )} */}
                 <p
                   ref={formMessage}
                   className="hidden p-[10px] border-[2px] border-black w-full"

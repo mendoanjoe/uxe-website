@@ -45,7 +45,7 @@ export default function CsrSection({ careers, department, roles, options }) {
           title:"Protect Business with Expert Security Consultancy",
           subtitle:"Services",
           description:"UXE Corporate Social Responsibility Initiatives Driving Social and Environmnetal Change",
-          image_url: backgroundOptions?.hero_career?.url,
+          image_url: backgroundOptions?.hero_audit?.url,
         }}
         custom={{ gtm_reference: currentPage }}
       />

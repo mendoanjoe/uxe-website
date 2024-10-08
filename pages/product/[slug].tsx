@@ -121,12 +121,12 @@ export default function Product({ product, options }) {
                 alt={product?.title}
                 className="mx-auto max-h-[max(300px,_min(calc(100vw_*_(600_/_1440)),_600px))] w-full object-cover object-top rounded-[12px]"
               />
-              {isClient && (
+              {/* {isClient && ( */}
                 <div
                   ref={productContent}
                   dangerouslySetInnerHTML={{ __html: product?.content }}
                 ></div>
-              )}
+              {/* )} */}
             </div>
           </div>
         </div>
