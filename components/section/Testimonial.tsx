@@ -84,7 +84,7 @@ export const Testimonial = ({
     return () => {
       mediaQueryList.removeEventListener("change", handleMediaChange);
     };
-  }, [data, textRef, show]);
+  }, [data, textRef, show, slides]);
 
   const slide_setting = {
     slidesToShow: 3,

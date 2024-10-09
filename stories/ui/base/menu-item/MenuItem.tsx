@@ -19,8 +19,6 @@ export const MenuItem = ({ menu, isFixed }: MenuItemProps) => {
     "hover:text-[#19191B] hover:bg-[#BEBEBE1F]": isFixed,
   });
 
-  console.log(menu)
-
   return (
     menu.map(({ name, url, submenu, level }, index) => (
       <li key={index} className='group cursor-pointer max-md:border-b-[.5px] max-md:border-b-[#19191b1a] relative' id={`menu-item-${index}`}>

@@ -9,10 +9,10 @@ import { GetStarted } from "@/ui/section/get-started/GetStarted";
 
 export default function ProductSection({ products, options }) {
   const currentPage = "product";
-  const { testimonialOptions, backgroundOptions, footerOptions, generalSettings } = options;
+  const { testimonialOptions, backgroundOptions, footerOptions, generalSettings, allformOptions } = options;
 
   return (
-    <Layout data={{ general: generalSettings, footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | Products`}</title>
       </Head>

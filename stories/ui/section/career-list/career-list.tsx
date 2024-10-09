@@ -133,7 +133,7 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
               <div className="aspect-video rounded-xl overflow-hidden relative">
                 {isClient && (
                   <video
-                    src={`${options.video.url}`}
+                    src={`${options.hero_career_video.url}`}
                     className="w-full h-full object-cover"
                     controls
                   ></video>

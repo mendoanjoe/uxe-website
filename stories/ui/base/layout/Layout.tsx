@@ -9,6 +9,7 @@ type SchemaData = {
   menu?: any;
   footer?: any;
   general?: any;
+  subscribe?: any;
 }
 
 interface LayoutProps {
@@ -28,7 +29,7 @@ export const Layout = ({ data, children }: LayoutProps) => {
         {children}
         <Footer
           data={footer}
-          custom={{ gtm_reference: "footer" }}
+          custom={{ gtm_reference: "footer", subscribe: data.subscribe }}
         />
       </div>
     </>

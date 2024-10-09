@@ -16,7 +16,7 @@ import { TitleXXSmall } from "@/ui/title/title-xxsmall/TitleXXSmall";
 import { useRouter } from 'next/router';
 
 export default function ContactUsSection({ options }) {
-  const { backgroundOptions, contactOptions, footerOptions, generalSettings } = options;
+  const { backgroundOptions, contactOptions, footerOptions, generalSettings, allformOptions } = options;
 
   const formBlock = useRef(null);
   const formMessage = useRef(null);
@@ -237,7 +237,7 @@ export default function ContactUsSection({ options }) {
                   <div
                     className="form-contact"
                     ref={formBlock}
-                    dangerouslySetInnerHTML={{ __html: contactOptions?.html }}
+                    dangerouslySetInnerHTML={{ __html: allformOptions?.form_contact?.html }}
                   ></div>
                 {/* )} */}
                 <p

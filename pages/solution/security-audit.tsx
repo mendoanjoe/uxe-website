@@ -21,16 +21,12 @@ import { Partners } from "@/section/Partners";
 export default function CsrSection({ careers, department, roles, options }) {
   const currentPage = "career";
   const {
-    featureOptions,
-    testimonialOptions,
     backgroundOptions,
-    visionAndMissionOptions,
     footerOptions,
     generalSettings,
-    teamOptions,
-    career2Options,
     auditOptions,
-    callourPartners
+    callourPartners,
+    allformOptions
   } = options;
 
   const [isClient, setIsClient] = useState(false);
@@ -46,7 +42,7 @@ export default function CsrSection({ careers, department, roles, options }) {
   }, []);
   
   return (
-    <Layout data={{ general: generalSettings, footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | About Us`}</title>
       </Head>
@@ -95,21 +91,21 @@ export default function CsrSection({ careers, department, roles, options }) {
             <div className="flex flex-col items-center gap-10 max-md:gap-6 max-sm:gap-4 max-md:w-full">
               <div className="grid grid-cols-3 max-md:grid-cols-1 gap-5 max-md:w-full">
                 <div className="relative">
-                  <img src="/image/expertise-1.png" title="Expertise 1" className="w-full h-full" />
+                  <img src="/image/expertise-1.png" alt="Expertise 1" className="w-full h-full" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-[#0D0D0D8A] backdrop-blur-sm min-h-24 flex flex-col justify-end">
                     <TitleXXSmall el="h3" label="01" />
                     <TextMedium label="Assessing the effectiveness of security systems." />
                   </div>
                 </div>
                 <div className="relative">
-                  <img src="/image/expertise-2.png" title="Expertise 1" className="w-full h-full" />
+                  <img src="/image/expertise-2.png" alt="Expertise 1" className="w-full h-full" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-[#0D0D0D8A] backdrop-blur-sm min-h-24 flex flex-col justify-end">
                     <TitleXXSmall el="h3" label="02" />
                     <TextMedium label="Ensuring compliance with security specifications and standards." />
                   </div>
                 </div>
                 <div className="relative">
-                  <img src="/image/expertise-3.png" title="Expertise 1" className="w-full h-full" />
+                  <img src="/image/expertise-3.png" alt="Expertise 1" className="w-full h-full" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-[#0D0D0D8A] backdrop-blur-sm min-h-24 flex flex-col justify-end">
                     <TitleXXSmall el="h3" label="03" />
                     <TextMedium label="Recommending necessary modifications to meet the latest security and technical developments." />

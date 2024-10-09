@@ -16,19 +16,15 @@ import { CareerListSection } from "@/ui/section/career-list/career-list";
 export default function CareerSection({ careers, department, roles, options }) {
   const currentPage = "career";
   const {
-    featureOptions,
-    testimonialOptions,
     backgroundOptions,
-    visionAndMissionOptions,
     footerOptions,
     generalSettings,
-    teamOptions,
-    career2Options,
+    allformOptions
   } = options;
 
   
   return (
-    <Layout data={{ general: generalSettings, footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | About Us`}</title>
       </Head>
@@ -45,7 +41,7 @@ export default function CareerSection({ careers, department, roles, options }) {
         data={careers}
         department={department}
         roles={roles}
-        options={career2Options}
+        options={backgroundOptions}
         custom={{ gtm_reference: currentPage, show_title: true }}
       />
     </Layout>

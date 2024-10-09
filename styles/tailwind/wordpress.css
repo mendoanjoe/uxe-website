@@ -223,3 +223,19 @@
   @apply w-fit text-[max(12px,_min(calc(100vw_*_(14_/_1440)),_14px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[6px_12px] rounded-full bg-black hover:opacity-70 cursor-pointer mr-2;
   border: 1px solid rgba(207, 207, 207, 0.25);
 }
+
+.form-subscribe form > p {
+  @apply bg-white rounded-[100px] p-[6px_6px_6px_14px] max-md:p-[4px_4px_4px_10px] flex items-center justify-start gap-[14px];
+}
+
+.form-subscribe form input[type="email"] {
+  @apply w-full ring-0 outline-0 placeholder:text-[#939599] text-[14px] text-[#19191B] font-[400] leading-[132%] -tracking-[.14px];
+}
+
+.form-subscribe form input[type="submit"] {
+  @apply bg-[#19191B] p-[10px_16px] max-md:p-[8px_14px] rounded-[100px] min-w-[80px] text-[14px] font-medium leading-[132%] -tracking-[.14px];
+}
+
+/* .form-subscribe input[type="email"]::placeholder {
+  @apply text-[#939599];
+} */

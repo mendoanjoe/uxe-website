@@ -258,7 +258,7 @@ export default function Career({ career, options }) {
                     <div
                       className="form-career"
                       ref={formBlock}
-                      dangerouslySetInnerHTML={{ __html: options?.career2Options.contact?.html }}
+                      dangerouslySetInnerHTML={{ __html: options?.allformOptions.form_career?.html }}
                     ></div>
                   {/* )} */}
                   <p

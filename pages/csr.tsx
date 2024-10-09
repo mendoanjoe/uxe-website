@@ -16,14 +16,10 @@ import { useEffect, useState } from "react";
 export default function CsrSection({ careers, department, roles, options }) {
   const currentPage = "career";
   const {
-    featureOptions,
-    testimonialOptions,
     backgroundOptions,
-    visionAndMissionOptions,
     footerOptions,
     generalSettings,
-    teamOptions,
-    career2Options,
+    allformOptions
   } = options;
 
   const [isClient, setIsClient] = useState(false);
@@ -34,7 +30,7 @@ export default function CsrSection({ careers, department, roles, options }) {
 
   
   return (
-    <Layout data={{ general: generalSettings, footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | About Us`}</title>
       </Head>
@@ -54,7 +50,7 @@ export default function CsrSection({ careers, department, roles, options }) {
               {isClient && (
                 <div className="rounded-xl overflow-hidden">
                   <video
-                    src="https://api.uxe.ai/wp-content/uploads/2024/10/HR-career-fair.mp4"
+                    src={backgroundOptions?.hero_csr_video?.url}
                     className="w-full h-full object-cover"
                     controls
                   ></video>

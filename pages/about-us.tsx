@@ -23,12 +23,13 @@ export default function ProductSection({ options }) {
     teamOptions,
     callourAbout,
     ceoMessage,
+    allformOptions
   } = options;
 
   let coreTeam = teamOptions.slice(0, 5) || [];
 
   return (
-    <Layout data={{ general: generalSettings, footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | About Us`}</title>
       </Head>

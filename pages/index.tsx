@@ -28,10 +28,11 @@ export default function Index({ options }) {
     heroSections,
     callourAbout,
     callourPartners,
+    allformOptions
   } = options;
 
   return (
-    <Layout data={{ general: generalSettings, footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
       <Head>
         <title>{`${generalSettings?.title}`}</title>
       </Head>

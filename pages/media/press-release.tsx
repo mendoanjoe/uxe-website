@@ -9,10 +9,10 @@ import MediaPressRelease from "@/ui/section/media/press-release-2";
 
 export default function NewsSection({ options, pressReleaseOptions }) {
   const currentPage = "press-release";
-  const { backgroundOptions, footerOptions, generalSettings } = options;
+  const { backgroundOptions, footerOptions, generalSettings, allformOptions } = options;
 
   return (
-    <Layout data={{ general: generalSettings, footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | Press Release`}</title>
       </Head>

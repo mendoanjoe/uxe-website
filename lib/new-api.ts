@@ -344,14 +344,24 @@ export async function getSettings() {
           url
           type
         }
-      }
-      career2Options {
-        contact {
-          html
-        }
-        video {
+        hero_csr_video {
           type
           url
+        }
+        hero_career_video {
+          type
+          url
+        }
+      }
+      allformOptions {
+        form_career {
+          html
+        }
+        form_contact {
+          html
+        }
+        form_subscribe {
+          html
         }
       }
       teamOptions {

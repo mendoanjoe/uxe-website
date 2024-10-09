@@ -22,9 +22,9 @@ type FooterData = {
   follow_us_menu: MenuData[];
 };
 
-export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
+export const Footer = ({ data, custom }: SectionProps<FooterData, { subscribe: any }>) => {
   // Props
-  const { gtm_reference } = custom;
+  const { gtm_reference, subscribe } = custom;
 
   // Reference
   const sectionRef = useRef(null);
@@ -43,6 +43,53 @@ export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
       }
     };
   }, [sectionRef, gtm_reference]);
+
+  const formBlock = useRef(null);
+  const formMessage = useRef(null);
+
+  useEffect(() => {
+    const form = formBlock.current.querySelector("form");
+    formBlock.current.querySelectorAll("br").forEach((item) => item.remove());
+    const formID = formBlock.current.querySelector(
+      'input[name="_wpcf7"]'
+    ).value;
+    form.action = `https://api.uxe.ai/wp-json/contact-form-7/v1/contact-forms/${formID}/feedback`;
+    const handleSubmit = async (event) => {
+      event.preventDefault(); // Prevent default form submission
+
+      try {
+        const formData = new FormData(form);
+
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            // No need to set Content-Type for FormData as it is automatically set
+          },
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const responseData = await response.json();
+        formMessage.current.classList.remove("hidden");
+        formMessage.current.innerText = responseData.message;
+
+        // Reset the form after successful submission
+        form.reset();
+      } catch (error) {
+        console.error("There was a problem with your fetch operation:", error);
+      }
+    };
+
+    form.addEventListener("submit", handleSubmit);
+
+    return () => {
+      form.removeEventListener("submit", handleSubmit);
+    };
+  }, [formBlock, formMessage]);
 
   const SCROLL_TO_TOP = () => {
     window.scrollTo({
@@ -207,7 +254,7 @@ export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
                   <div className="bg-[#142764] p-5 rounded-xl max-w-[350px] max-lg:max-w-none max-lg:w-full flex flex-col gap-4">
                     <TitleXXSmall el="h3" label="Subscribe to Our Newsletter" cls="font-medium" />
                     <TextSmall label="Stay updated with the latest news, articles, and partnership opportunities by subscribing to our newsletter." cls="text-[#D9D9D9]" />
-                    <form action="" method="post" className="w-full">
+                    {/* <form action="" method="post" className="w-full">
                       <div className="bg-white rounded-[100px] p-[6px_6px_6px_14px] max-md:p-[4px_4px_4px_10px] flex items-center justify-start gap-[14px]">
                         <input
                           type="text"
@@ -221,7 +268,18 @@ export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
                           Join
                         </button>
                       </div>
-                    </form>
+                    </form> */}
+                    {subscribe && (
+                      <div
+                        ref={formBlock}
+                        className="form-subscribe"
+                        dangerouslySetInnerHTML={{ __html: subscribe?.form_subscribe?.html }}
+                      ></div>
+                    )}
+                    <p
+                      ref={formMessage}
+                      className="hidden p-[10px] border-[2px] border-black w-full"
+                    ></p>
                   </div>
                 </div>
               </div>

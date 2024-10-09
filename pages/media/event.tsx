@@ -9,13 +9,13 @@ import { ConnectWithUs } from "@/ui/section/get-started/ConnectWithUs";
 
 export default function EventSection({ options }) {
   const currentPage = "Event";
-  const { backgroundOptions, footerOptions, generalSettings, teamOptions } =
+  const { backgroundOptions, footerOptions, generalSettings, teamOptions, allformOptions } =
     options;
 
   let coreTeam = teamOptions.slice(0, 5) || [];
 
   return (
-    <Layout data={{ general: generalSettings, footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | Events`}</title>
       </Head>

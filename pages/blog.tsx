@@ -14,7 +14,7 @@ import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 
 export default function BlogSection({ posts, options }) {
   const currentPage = "blog";
-  const { testimonialOptions, backgroundOptions, footerOptions, generalSettings } = options;
+  const { testimonialOptions, backgroundOptions, footerOptions, generalSettings, allformOptions } = options;
   const [postData, setPosts] = useState([...posts.edges]);
   const [endCursor, setEndCursor] = useState(posts?.pageInfo?.endCursor || null);
   const [hasMorePosts, setHasMorePosts] = useState(posts?.pageInfo?.hasNextPage || null);
@@ -39,7 +39,7 @@ export default function BlogSection({ posts, options }) {
   };
 
   return (
-    <Layout data={{ general: generalSettings, footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | Media Center`}</title>
       </Head>
