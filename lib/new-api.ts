@@ -255,7 +255,7 @@ export async function getSettings() {
           }
         }
       }
-      posts(first: 3) {
+      posts(first: 3, where: { categoryName: "news" }) {
         edges {
           node {
             title

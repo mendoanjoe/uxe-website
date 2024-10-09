@@ -114,10 +114,10 @@ export default function Post({ post, posts, preview, options }) {
               />
 
               <div className="flex flex-col gap-[4px]">
-                <TextMedium
+                {/* <TextMedium
                   label={post?.author?.node?.name}
                   cls="font-medium"
-                />
+                /> */}
                 <TextMedium
                   label={new Date(post?.date)
                     .toLocaleDateString("en-GB", {

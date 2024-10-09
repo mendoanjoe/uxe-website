@@ -40,7 +40,7 @@ export const MenuItem = ({ menu, isFixed }: MenuItemProps) => {
                           <TextXSmall key={idn} label={item.group} cls='font-bold uppercase mb-5' />
                           <div className={idn == 0 ? `flex gap-6 flex-col` : `grid grid-cols-2 gap-5`}>
                             {item.submenu.map((item, idd) => (
-                              <div>
+                              <div key={idd}>
                                 {item.name == undefined ? (
                                   <div className='min-w-48'>
                                     <TextMedium key={idd} label={item.group} cls='font-bold' />
@@ -59,8 +59,8 @@ export const MenuItem = ({ menu, isFixed }: MenuItemProps) => {
                                             <path d="M12.458 8.38L12.468 12.79L11.708 13.55L11.688 9.74L7.72797 13.69L7.15797 13.12L11.138 9.14H7.30797L8.06797 8.38H12.458Z" fill="white"/>
                                             </g>
                                             <defs>
-                                            <filter id="filter0_b_440_8236" x="-1.66667" y="-1.16667" width="23.3333" height="23.3333" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                            <filter id="filter0_b_440_8236" x="-1.66667" y="-1.16667" width="23.3333" height="23.3333" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                                             <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.833333"/>
                                             <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_440_8236"/>
                                             <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_440_8236" result="shape"/>
@@ -85,8 +85,8 @@ export const MenuItem = ({ menu, isFixed }: MenuItemProps) => {
                                         <path d="M12.458 8.38L12.468 12.79L11.708 13.55L11.688 9.74L7.72797 13.69L7.15797 13.12L11.138 9.14H7.30797L8.06797 8.38H12.458Z" fill="white"/>
                                         </g>
                                         <defs>
-                                        <filter id="filter0_b_440_8236" x="-1.66667" y="-1.16667" width="23.3333" height="23.3333" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                        <filter id="filter0_b_440_8236" x="-1.66667" y="-1.16667" width="23.3333" height="23.3333" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                                        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                                         <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.833333"/>
                                         <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_440_8236"/>
                                         <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_440_8236" result="shape"/>
@@ -113,8 +113,8 @@ export const MenuItem = ({ menu, isFixed }: MenuItemProps) => {
                               <path d="M12.458 8.38L12.468 12.79L11.708 13.55L11.688 9.74L7.72797 13.69L7.15797 13.12L11.138 9.14H7.30797L8.06797 8.38H12.458Z" fill="white"/>
                               </g>
                               <defs>
-                              <filter id="filter0_b_440_8236" x="-1.66667" y="-1.16667" width="23.3333" height="23.3333" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                              <filter id="filter0_b_440_8236" x="-1.66667" y="-1.16667" width="23.3333" height="23.3333" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                              <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                               <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.833333"/>
                               <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_440_8236"/>
                               <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_440_8236" result="shape"/>

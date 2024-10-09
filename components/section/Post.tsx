@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import { GAClick, GATimeSpent } from "lib/ga";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SECTION_POST } from "lib/constants";
 
 type SchemaEdges = {
@@ -47,6 +47,7 @@ interface PostProps {
 
 export const Post = ({ data, custom, ...props }: SectionProps<PostProps>) => {
   const { gtm_reference } = custom;
+  const [isClient, setIsClient] = useState(false)
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -63,6 +64,10 @@ export const Post = ({ data, custom, ...props }: SectionProps<PostProps>) => {
       }
     };
   }, [sectionRef, gtm_reference]);
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   if (!data) {
     return null;
@@ -106,9 +111,11 @@ export const Post = ({ data, custom, ...props }: SectionProps<PostProps>) => {
                     >
                       {node.title}
                     </Link>
-                    <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50 line-clamp-2" dangerouslySetInnerHTML={{
-                      __html: node?.excerpt,
-                    }}></p>
+                    {isClient && (
+                      <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50 line-clamp-2" dangerouslySetInnerHTML={{
+                        __html: node?.excerpt,
+                      }}></p>
+                    )}
                     {/* <TextLarge
                       label={node?.excerpt
                         .replace("<p>", "")
@@ -117,7 +124,7 @@ export const Post = ({ data, custom, ...props }: SectionProps<PostProps>) => {
                     /> */}
                   </div>
                   <Link
-                    href={"/post/" + node.slug}
+                    href={"/article/" + node.slug}
                     className="flex items-center gap-[8px] hover:opacity-70"
                   >
                     <span className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">
