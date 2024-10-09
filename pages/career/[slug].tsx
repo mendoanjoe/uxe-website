@@ -119,7 +119,7 @@ export default function Career({ career, options }) {
   }
 
   return (
-    <Layout data={{ general: options?.generalSettings, footer: options?.footerOptions }}>
+    <Layout data={{ general: options?.generalSettings, footer: options?.footerOptions, subscribe: options?.allformOptions }}>
       <Head>
         <title>{`${options?.generalSettings?.title} | ${career?.title}`}</title>
       </Head>

@@ -42,7 +42,7 @@ export default function CsrSection({ careers, department, roles, options }) {
   }, []);
   
   return (
-    <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
+    <Layout data={{ general: options?.generalSettings, footer: options?.footerOptions, subscribe: options?.allformOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | About Us`}</title>
       </Head>

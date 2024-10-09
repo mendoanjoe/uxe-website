@@ -101,7 +101,7 @@ export default function Product({ product, options }) {
   }
 
   return (
-    <Layout data={{ general: options?.generalSettings, footer: options?.footerOptions }}>
+    <Layout data={{ general: options?.generalSettings, footer: options?.footerOptions, subscribe: options?.allformOptions }}>
       <Head>
         <title>{`${options?.generalSettings?.title} | ${product?.title}`}</title>
       </Head>

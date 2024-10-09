@@ -92,7 +92,7 @@ export default function Post({ post, posts, preview, options }) {
   }
 
   return (
-    <Layout data={{ general: options?.generalSettings, footer: options?.footerOptions }}>
+    <Layout data={{ general: options?.generalSettings, footer: options?.footerOptions, subscribe: options?.allformOptions }}>
       <Head>
         <title>{`${options?.generalSettings?.title} | ${post?.title}`}</title>
       </Head>
