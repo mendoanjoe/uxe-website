@@ -399,6 +399,11 @@ export async function getSettings() {
         image_url
         title
       }
+      auditOptions {
+        description
+        icon
+        title
+      }
     }
   `,
   )

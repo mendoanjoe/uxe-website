@@ -57,7 +57,10 @@ export default function Index({ options }) {
       <div className="w-[70%] mx-auto h-[1px] bg-[#19191B17]"></div>
       <Partners
         data={callourPartners}
-        custom={{ gtm_reference: currentPage }}
+        custom={{
+          gtm_reference: currentPage,
+          title: "Our Collaborative Partnerships Fueling Innovation, Growth, and Success Together",
+        }}
       />
 
       <Testimonial

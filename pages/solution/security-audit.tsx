@@ -15,6 +15,8 @@ import { TitleXXSmall } from "@/ui/title/title-xxsmall/TitleXXSmall";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { TextHuge } from "@/ui/text/text-huge/TextHuge";
 import { useEffect, useState } from "react";
+import { Button } from "@/ui/component/button/Button";
+import { Partners } from "@/section/Partners";
 
 export default function CsrSection({ careers, department, roles, options }) {
   const currentPage = "career";
@@ -27,9 +29,17 @@ export default function CsrSection({ careers, department, roles, options }) {
     generalSettings,
     teamOptions,
     career2Options,
+    auditOptions,
+    callourPartners
   } = options;
 
   const [isClient, setIsClient] = useState(false);
+
+  function svgToBase64(svg) {
+    const encoded = new TextEncoder().encode(svg);
+    const base64Encoded = btoa(Array.from(encoded, byte => String.fromCharCode(byte)).join(''));
+    return `data:image/svg+xml;base64,${base64Encoded}`;
+  }
 
   useEffect(() => {
     setIsClient(true);
@@ -64,134 +74,11 @@ export default function CsrSection({ careers, department, roles, options }) {
               )}
               <div className="space-y-4">
                 <div className="space-y-8 max-md:space-y-8 max-sm:space-y-6">
-                  {/* <TextSmall label="OUR VALUES" cls="font-medium opacity-50 uppercase"/> */}
-                  <TitleMedium label="Objective of security Audit system" cls="" />
-                  <TextLarge cls="max-w-full text-[#939599]" label="Objectives and scope of the security audit, outlining the goals and areas to be evaluated within the security system user environment. This may include :" />
-                </div>
-                <div className="grid grid-cols-[auto_auto] max-sm:grid-cols-1 gap-y-3 gap-x-6">
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-full p-1 bg-[#ECECEC]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
-                        <path d="M9.55447 2.83325L4.66558 7.72214L2.44336 5.49992" stroke="#3760FF" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <TextLarge label="Assessing the functionality" />
+                  <TitleMedium label="About UXE Audit Services" cls="" />
+                  <div className="space-y-5 max-md:space-y-4 max-sm:space-y-3">
+                    <TextLarge cls="max-w-full" label="At UXE, we specialize in comprehensive security audits tailored to a wide range of industries." />
+                    <TextLarge cls="max-w-full" label="Our mission is to ensure that your security systems are not only effective but also compliant with the highest standards and latest technological advancements. With years of expertise, we serve a diverse clientele, providing unmatched audit services that enhance safety and security." />
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-full p-1 bg-[#ECECEC]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
-                        <path d="M9.55447 2.83325L4.66558 7.72214L2.44336 5.49992" stroke="#3760FF" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <TextLarge label="Performance" />
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-full p-1 bg-[#ECECEC]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
-                        <path d="M9.55447 2.83325L4.66558 7.72214L2.44336 5.49992" stroke="#3760FF" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <TextLarge label="Compliance of security systems" />
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-full p-1 bg-[#ECECEC]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
-                        <path d="M9.55447 2.83325L4.66558 7.72214L2.44336 5.49992" stroke="#3760FF" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <TextLarge label="Surveillance cameras" />
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-full p-1 bg-[#ECECEC]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
-                        <path d="M9.55447 2.83325L4.66558 7.72214L2.44336 5.49992" stroke="#3760FF" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <TextLarge label="Access control systems" />
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-full p-1 bg-[#ECECEC]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
-                        <path d="M9.55447 2.83325L4.66558 7.72214L2.44336 5.49992" stroke="#3760FF" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <TextLarge label="Alarm systems" />
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-full p-1 bg-[#ECECEC]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
-                        <path d="M9.55447 2.83325L4.66558 7.72214L2.44336 5.49992" stroke="#3760FF" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <TextLarge label="Intrusion detection systems" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-24 max-lg:space-y-10 max-md:space-y-8 max-sm:space-y-6">
-              <TitleMedium label="Services provided by UXE Audit Department" cls="max-w-96" />
-              <div className="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8 max-md:gap-6 max-sm:gap-4">
-                <div className="space-y-6 bg-[#F7F7F7] p-6 rounded-xl border border-[#19191B0F]">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg border border-[#3760FF17] bg-[#3760FF0A]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M7.5 24H1.5C0.673 24 0 23.327 0 22.5V21.5C0 20.673 0.673 20 1.5 20H7.5C8.327 20 9 20.673 9 21.5V22.5C9 23.327 8.327 24 7.5 24ZM1.5 21C1.224 21 1 21.224 1 21.5V22.5C1 22.776 1.224 23 1.5 23H7.5C7.776 23 8 22.776 8 22.5V21.5C8 21.224 7.776 21 7.5 21H1.5Z" fill="#3760FF"/>
-                        <path d="M6.5 20.75C6.224 20.75 6 20.526 6 20.25V8.5C6 7.673 5.327 7 4.5 7C3.673 7 3 7.673 3 8.5V20.25C3 20.526 2.776 20.75 2.5 20.75C2.224 20.75 2 20.526 2 20.25V8.5C2 7.122 3.122 6 4.5 6C5.878 6 7 7.122 7 8.5V20.25C7 20.526 6.776 20.75 6.5 20.75Z" fill="#3760FF"/>
-                        <path d="M22.5 15H6.75C6.474 15 6.25 14.776 6.25 14.5C6.25 14.224 6.474 14 6.75 14H22.5C22.776 14 23 13.776 23 13.5V10.5C23 10.224 22.776 10 22.5 10H6.75C6.474 10 6.25 9.776 6.25 9.5C6.25 9.224 6.474 9 6.75 9H22.5C23.327 9 24 9.673 24 10.5V13.5C24 14.327 23.327 15 22.5 15Z" fill="#3760FF"/>
-                        <path d="M18.4995 14.9999C18.4125 14.9999 18.3235 14.9769 18.2425 14.9289C18.0055 14.7869 17.9295 14.4799 18.0715 14.2429L21.0715 9.24292C21.2135 9.00592 21.5205 8.92892 21.7575 9.07192C21.9945 9.21392 22.0705 9.52092 21.9285 9.75792L18.9285 14.7579C18.8345 14.9139 18.6685 14.9999 18.4995 14.9999Z" fill="#3760FF"/>
-                        <path d="M14.4995 14.9999C14.4125 14.9999 14.3235 14.9769 14.2425 14.9289C14.0055 14.7869 13.9295 14.4799 14.0715 14.2429L17.0715 9.24292C17.2135 9.00592 17.5195 8.92892 17.7575 9.07192C17.9945 9.21392 18.0705 9.52092 17.9285 9.75792L14.9285 14.7579C14.8345 14.9139 14.6685 14.9999 14.4995 14.9999Z" fill="#3760FF"/>
-                        <path d="M10.4995 14.9999C10.4125 14.9999 10.3235 14.9769 10.2425 14.9289C10.0055 14.7869 9.92948 14.4799 10.0715 14.2429L13.0715 9.24292C13.2145 9.00592 13.5205 8.92892 13.7575 9.07192C13.9945 9.21392 14.0705 9.52092 13.9285 9.75792L10.9285 14.7579C10.8345 14.9139 10.6685 14.9999 10.4995 14.9999Z" fill="#3760FF"/>
-                        <path d="M6.49948 15.0002C6.41248 15.0002 6.32348 14.9772 6.24248 14.9292C6.00548 14.7872 5.92948 14.4802 6.07148 14.2432L9.07148 9.24321C9.21248 9.00621 9.51948 8.92921 9.75648 9.07121C9.99348 9.21321 10.0695 9.52021 9.92748 9.75721L6.92748 14.7572C6.83448 14.9142 6.66848 15.0002 6.49948 15.0002Z" fill="#3760FF"/>
-                      </svg>
-                    </div>
-                    <TextLarge label="ANPR" cls="font-medium" />
-                  </div>
-                  <TextLarge label="Verification of Automatic number plate recognition system (ANPR) based on activity as per SIRA Law requirements." />
-                </div>
-                <div className="space-y-6 bg-[#F7F7F7] p-6 rounded-xl border border-[#19191B0F]">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg border border-[#3760FF17] bg-[#3760FF0A]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
-                        <g clipPath="url(#clip0_923_3063)">
-                          <mask id="path-1-outside-1_923_3063" maskUnits="userSpaceOnUse" x="-0.420898" y="-0.456543" width="26" height="26" fill="black">
-                            <rect fill="white" x="-0.420898" y="-0.456543" width="26" height="26"/>
-                            <path d="M24.2537 5.69606C24.4194 5.69606 24.5538 5.56169 24.5538 5.39595V0.843576C24.5538 0.677835 24.4194 0.543457 24.2537 0.543457H0.87922C0.71348 0.543457 0.579102 0.677835 0.579102 0.843576V5.39595C0.579102 5.56169 0.71348 5.69606 0.87922 5.69606H2.92534V7.48098H0.87922C0.71348 7.48098 0.579102 7.61536 0.579102 7.7811V12.3335C0.579102 12.4992 0.71348 12.6336 0.87922 12.6336H2.92809C2.92786 12.6382 2.92534 12.6421 2.92534 12.6466V24.248C2.92534 24.4135 3.05972 24.5479 3.22546 24.5479H6.03206C6.19757 24.5479 6.33195 24.4135 6.33195 24.248V12.6466C6.33195 12.6421 6.32966 12.6382 6.32943 12.6336H18.8035C18.8032 12.6382 18.8007 12.6421 18.8007 12.6466V24.248C18.8007 24.4135 18.9351 24.5479 19.1008 24.5479H21.9074C22.0732 24.5479 22.2076 24.4135 22.2076 24.248V12.6466C22.2076 12.6421 22.205 12.6382 22.2048 12.6336H24.2537C24.4194 12.6336 24.5538 12.4992 24.5538 12.3335V7.7811C24.5538 7.61536 24.4194 7.48098 24.2537 7.48098H22.2076V5.69606H24.2537ZM20.9393 5.09583L23.9536 1.70433V5.09583H20.9393ZM20.1596 8.08122L23.6722 12.0334H20.5792L17.0669 8.08122H20.1596ZM16.6836 12.0334L13.171 8.08122H16.264L19.7764 12.0334H16.6836ZM12.7876 12.0334L9.27522 8.08122H12.368L15.8806 12.0334H12.7876ZM8.892 12.0334L5.3794 8.08122H8.47238L11.985 12.0334H8.892ZM4.99618 12.0334L1.48381 8.08122H4.57656L8.08916 12.0334H4.99618ZM6.33195 7.48098V5.69606H18.8007V7.48098H6.33195ZM1.46069 5.09583L4.97329 1.14347H8.06604L4.55367 5.09583H1.46069ZM8.86888 1.14347H11.9619L8.44926 5.09583H5.35628L8.86888 1.14347ZM15.8577 1.14347L12.3449 5.09583H9.2521L12.7647 1.14347H15.8577ZM19.7535 1.14347L16.2409 5.09583H13.1479L16.6607 1.14347H19.7535ZM17.0437 5.09583L20.5563 1.14347H23.6491L20.1367 5.09583H17.0437ZM4.17045 1.14347L1.17934 4.5091V1.14347H4.17045ZM3.52558 5.69606H5.73194V7.48098H3.52558V5.69606ZM1.17934 8.64185L4.19334 12.0334H1.17934V8.64185ZM5.73194 12.6466V23.9479H3.52558V12.6466C3.52558 12.6421 3.52306 12.6382 3.52283 12.6336H5.73469C5.73446 12.6382 5.73194 12.6421 5.73194 12.6466ZM21.6073 12.6466V23.9479H19.4007V12.6466C19.4007 12.6421 19.3984 12.6382 19.3982 12.6336H21.6101C21.6098 12.6382 21.6073 12.6421 21.6073 12.6466ZM23.9536 11.4468L20.9624 8.08122H23.9536V11.4468ZM21.6073 7.48098H19.4007V5.69606H21.6073V7.48098Z"/>
-                          </mask>
-                          <path d="M24.2537 5.69606C24.4194 5.69606 24.5538 5.56169 24.5538 5.39595V0.843576C24.5538 0.677835 24.4194 0.543457 24.2537 0.543457H0.87922C0.71348 0.543457 0.579102 0.677835 0.579102 0.843576V5.39595C0.579102 5.56169 0.71348 5.69606 0.87922 5.69606H2.92534V7.48098H0.87922C0.71348 7.48098 0.579102 7.61536 0.579102 7.7811V12.3335C0.579102 12.4992 0.71348 12.6336 0.87922 12.6336H2.92809C2.92786 12.6382 2.92534 12.6421 2.92534 12.6466V24.248C2.92534 24.4135 3.05972 24.5479 3.22546 24.5479H6.03206C6.19757 24.5479 6.33195 24.4135 6.33195 24.248V12.6466C6.33195 12.6421 6.32966 12.6382 6.32943 12.6336H18.8035C18.8032 12.6382 18.8007 12.6421 18.8007 12.6466V24.248C18.8007 24.4135 18.9351 24.5479 19.1008 24.5479H21.9074C22.0732 24.5479 22.2076 24.4135 22.2076 24.248V12.6466C22.2076 12.6421 22.205 12.6382 22.2048 12.6336H24.2537C24.4194 12.6336 24.5538 12.4992 24.5538 12.3335V7.7811C24.5538 7.61536 24.4194 7.48098 24.2537 7.48098H22.2076V5.69606H24.2537ZM20.9393 5.09583L23.9536 1.70433V5.09583H20.9393ZM20.1596 8.08122L23.6722 12.0334H20.5792L17.0669 8.08122H20.1596ZM16.6836 12.0334L13.171 8.08122H16.264L19.7764 12.0334H16.6836ZM12.7876 12.0334L9.27522 8.08122H12.368L15.8806 12.0334H12.7876ZM8.892 12.0334L5.3794 8.08122H8.47238L11.985 12.0334H8.892ZM4.99618 12.0334L1.48381 8.08122H4.57656L8.08916 12.0334H4.99618ZM6.33195 7.48098V5.69606H18.8007V7.48098H6.33195ZM1.46069 5.09583L4.97329 1.14347H8.06604L4.55367 5.09583H1.46069ZM8.86888 1.14347H11.9619L8.44926 5.09583H5.35628L8.86888 1.14347ZM15.8577 1.14347L12.3449 5.09583H9.2521L12.7647 1.14347H15.8577ZM19.7535 1.14347L16.2409 5.09583H13.1479L16.6607 1.14347H19.7535ZM17.0437 5.09583L20.5563 1.14347H23.6491L20.1367 5.09583H17.0437ZM4.17045 1.14347L1.17934 4.5091V1.14347H4.17045ZM3.52558 5.69606H5.73194V7.48098H3.52558V5.69606ZM1.17934 8.64185L4.19334 12.0334H1.17934V8.64185ZM5.73194 12.6466V23.9479H3.52558V12.6466C3.52558 12.6421 3.52306 12.6382 3.52283 12.6336H5.73469C5.73446 12.6382 5.73194 12.6421 5.73194 12.6466ZM21.6073 12.6466V23.9479H19.4007V12.6466C19.4007 12.6421 19.3984 12.6382 19.3982 12.6336H21.6101C21.6098 12.6382 21.6073 12.6421 21.6073 12.6466ZM23.9536 11.4468L20.9624 8.08122H23.9536V11.4468ZM21.6073 7.48098H19.4007V5.69606H21.6073V7.48098Z" fill="#3760FF"/>
-                          <path d="M24.2537 5.69606C24.4194 5.69606 24.5538 5.56169 24.5538 5.39595V0.843576C24.5538 0.677835 24.4194 0.543457 24.2537 0.543457H0.87922C0.71348 0.543457 0.579102 0.677835 0.579102 0.843576V5.39595C0.579102 5.56169 0.71348 5.69606 0.87922 5.69606H2.92534V7.48098H0.87922C0.71348 7.48098 0.579102 7.61536 0.579102 7.7811V12.3335C0.579102 12.4992 0.71348 12.6336 0.87922 12.6336H2.92809C2.92786 12.6382 2.92534 12.6421 2.92534 12.6466V24.248C2.92534 24.4135 3.05972 24.5479 3.22546 24.5479H6.03206C6.19757 24.5479 6.33195 24.4135 6.33195 24.248V12.6466C6.33195 12.6421 6.32966 12.6382 6.32943 12.6336H18.8035C18.8032 12.6382 18.8007 12.6421 18.8007 12.6466V24.248C18.8007 24.4135 18.9351 24.5479 19.1008 24.5479H21.9074C22.0732 24.5479 22.2076 24.4135 22.2076 24.248V12.6466C22.2076 12.6421 22.205 12.6382 22.2048 12.6336H24.2537C24.4194 12.6336 24.5538 12.4992 24.5538 12.3335V7.7811C24.5538 7.61536 24.4194 7.48098 24.2537 7.48098H22.2076V5.69606H24.2537ZM20.9393 5.09583L23.9536 1.70433V5.09583H20.9393ZM20.1596 8.08122L23.6722 12.0334H20.5792L17.0669 8.08122H20.1596ZM16.6836 12.0334L13.171 8.08122H16.264L19.7764 12.0334H16.6836ZM12.7876 12.0334L9.27522 8.08122H12.368L15.8806 12.0334H12.7876ZM8.892 12.0334L5.3794 8.08122H8.47238L11.985 12.0334H8.892ZM4.99618 12.0334L1.48381 8.08122H4.57656L8.08916 12.0334H4.99618ZM6.33195 7.48098V5.69606H18.8007V7.48098H6.33195ZM1.46069 5.09583L4.97329 1.14347H8.06604L4.55367 5.09583H1.46069ZM8.86888 1.14347H11.9619L8.44926 5.09583H5.35628L8.86888 1.14347ZM15.8577 1.14347L12.3449 5.09583H9.2521L12.7647 1.14347H15.8577ZM19.7535 1.14347L16.2409 5.09583H13.1479L16.6607 1.14347H19.7535ZM17.0437 5.09583L20.5563 1.14347H23.6491L20.1367 5.09583H17.0437ZM4.17045 1.14347L1.17934 4.5091V1.14347H4.17045ZM3.52558 5.69606H5.73194V7.48098H3.52558V5.69606ZM1.17934 8.64185L4.19334 12.0334H1.17934V8.64185ZM5.73194 12.6466V23.9479H3.52558V12.6466C3.52558 12.6421 3.52306 12.6382 3.52283 12.6336H5.73469C5.73446 12.6382 5.73194 12.6421 5.73194 12.6466ZM21.6073 12.6466V23.9479H19.4007V12.6466C19.4007 12.6421 19.3984 12.6382 19.3982 12.6336H21.6101C21.6098 12.6382 21.6073 12.6421 21.6073 12.6466ZM23.9536 11.4468L20.9624 8.08122H23.9536V11.4468ZM21.6073 7.48098H19.4007V5.69606H21.6073V7.48098Z" stroke="#3760FF" strokeWidth="0.4" mask="url(#path-1-outside-1_923_3063)"/>
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_923_3063">
-                            <rect width="24.0045" height="24.0045" fill="white" transform="translate(0.543945 0.543457)"/>
-                          </clipPath>
-                        </defs>
-                      </svg>
-                    </div>
-                    <TextLarge label="HVM" cls="font-medium" />
-                  </div>
-                  <TextLarge label="Verification of Access Control System (ACS) based on activity as per SIRA Law requirements." />
-                </div>
-                <div className="space-y-6 bg-[#F7F7F7] p-6 rounded-xl border border-[#19191B0F]">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg border border-[#3760FF17] bg-[#3760FF0A]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <g clipPath="url(#clip0_923_3074)">
-                          <path d="M21.3927 7.30371H2.61013C2.32213 7.30371 2.08838 7.53747 2.08838 7.82547V10.9559C2.08838 16.4216 6.5357 20.869 12.0014 20.869C17.4672 20.869 21.9145 16.4216 21.9145 10.9559V7.82547C21.9145 7.53747 21.6807 7.30371 21.3927 7.30371ZM20.871 10.9559C20.871 15.8467 16.8922 19.8254 12.0015 19.8254C7.11072 19.8254 3.13189 15.8467 3.13189 10.9559V8.34722H20.871V10.9559Z" fill="#3760FF"/>
-                          <path d="M12.0013 9.39087C9.41245 9.39087 7.30566 11.4977 7.30566 14.0865C7.30566 16.6754 9.41245 18.7822 12.0013 18.7822C14.5902 18.7822 16.697 16.6754 16.697 14.0865C16.697 11.4977 14.5902 9.39087 12.0013 9.39087ZM12.0013 17.7387C9.98742 17.7387 8.34913 16.1005 8.34913 14.0865C8.34913 12.0726 9.98737 10.4343 12.0013 10.4343C14.0153 10.4343 15.6535 12.0726 15.6535 14.0865C15.6535 16.1004 14.0153 17.7387 12.0013 17.7387Z" fill="#3760FF"/>
-                          <path d="M12.0003 11.4778C10.5614 11.4778 9.3916 12.6486 9.3916 14.0865C9.3916 15.5244 10.5614 16.6951 12.0003 16.6951C13.4392 16.6951 14.609 15.5244 14.609 14.0865C14.609 12.6486 13.4393 11.4778 12.0003 11.4778ZM12.0003 15.6517C11.1373 15.6517 10.4351 14.9494 10.4351 14.0865C10.4351 13.2235 11.1373 12.5212 12.0003 12.5212C12.8633 12.5212 13.5655 13.2235 13.5655 14.0865C13.5655 14.9494 12.8633 15.6517 12.0003 15.6517Z" fill="#3760FF"/>
-                          <path d="M23.4787 3.13062H0.522243C0.234244 3.13062 0.000488281 3.36437 0.000488281 3.65237V6.7828C0.000488281 7.64578 0.702732 8.34802 1.5657 8.34802H22.4353C23.2982 8.34802 24.0005 7.64578 24.0005 6.7828V3.65237C24.0005 3.36437 23.7667 3.13062 23.4787 3.13062ZM22.957 6.7828C22.957 7.0708 22.7222 7.30456 22.4352 7.30456H1.5657C1.27873 7.30456 1.04395 7.0708 1.04395 6.7828V4.17408H22.957V6.7828Z" fill="#3760FF"/>
-                          <path d="M18.2591 11.4778C18.5472 11.4778 18.7808 11.2442 18.7808 10.9561C18.7808 10.6679 18.5472 10.4343 18.2591 10.4343C17.9709 10.4343 17.7373 10.6679 17.7373 10.9561C17.7373 11.2442 17.9709 11.4778 18.2591 11.4778Z" fill="#3760FF"/>
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_923_3074">
-                            <rect width="24" height="24" fill="white" transform="translate(0.000488281 0.000244141)"/>
-                          </clipPath>
-                        </defs>
-                      </svg>
-                    </div>
-                    <TextLarge label="Access Control System" cls="font-medium" />
-                  </div>
-                  <TextLarge label="Verification of Access Control System (ACS) based on activity as per SIRA Law requirements." />
                 </div>
               </div>
             </div>
@@ -200,10 +87,75 @@ export default function CsrSection({ careers, department, roles, options }) {
       </section>
       <section className="bg-[#F4F5F6]">
         <div className="max-w-[1440px] mx-auto flex flex-col gap-10">
+          <div className="p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] flex flex-col gap-12 max-lg:gap-10 max-md:gap-8 max-sm:gap-6">
+            <div className="flex justify-between items-start gap-6 max-lg:gap-5 max-md:gap-4 max-sm:gap-3 max-md:flex-col">
+              <TitleMedium label="Our Expertise" />
+              <TextLarge cls="max-w-full max-w-lg" label="We offer a thorough evaluation and verification of your security systems. Our services ensure that service providers comply with specified security standards, and we provide actionable recommendations to enhance your security infrastructure. Our audit services include:" />
+            </div>
+            <div className="flex flex-col items-center gap-10 max-md:gap-6 max-sm:gap-4 max-md:w-full">
+              <div className="grid grid-cols-3 max-md:grid-cols-1 gap-5 max-md:w-full">
+                <div className="relative">
+                  <img src="/image/expertise-1.png" title="Expertise 1" className="w-full h-full" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-[#0D0D0D8A] backdrop-blur-sm min-h-24 flex flex-col justify-end">
+                    <TitleXXSmall el="h3" label="01" />
+                    <TextMedium label="Assessing the effectiveness of security systems." />
+                  </div>
+                </div>
+                <div className="relative">
+                  <img src="/image/expertise-2.png" title="Expertise 1" className="w-full h-full" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-[#0D0D0D8A] backdrop-blur-sm min-h-24 flex flex-col justify-end">
+                    <TitleXXSmall el="h3" label="02" />
+                    <TextMedium label="Ensuring compliance with security specifications and standards." />
+                  </div>
+                </div>
+                <div className="relative">
+                  <img src="/image/expertise-3.png" title="Expertise 1" className="w-full h-full" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-[#0D0D0D8A] backdrop-blur-sm min-h-24 flex flex-col justify-end">
+                    <TitleXXSmall el="h3" label="03" />
+                    <TextMedium label="Recommending necessary modifications to meet the latest security and technical developments." />
+                  </div>
+                </div>
+              </div>
+              <Button label="Get in Touch" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="section-feature" className="bg-white">
+        <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
+          <div className="grid grid-cols-3 gap-[48px_32px] max-xl:grid-cols-2 max-md:grid-cols-1">
+            <div className="flex flex-col col-span-3 max-xl:col-span-2 max-md:col-span-1 justify-center p-[0px_14px_max(14px,_min(calc(100vw_*_(40_/_1440)),_40px))_14px] bg-[url('/image/featured-background.png')] bg-no-repeat">
+              <TitleMedium el="h2" label="Comprehensive Audit Services" cls="text-[#19191B] font-medium mt-[10px] max-w-[36rem]" />
+            </div>
+
+            {auditOptions.map((item, index) => (
+              <div key={index} className="px-[20px] border-l border-[#0000000F] flex flex-col items-start gap-[40px]">
+                <div className="bg-[#E6EDFF] p-[12px] rounded-[12px]">
+                  <img src={svgToBase64(item.icon)} alt={item.title} />
+                </div>
+                <div className="flex flex-col gap-[8px]">
+                  <TitleXSmall el="h3" label={item.title} cls="text-[#19191B]" />
+                  <TextLarge label={item.description} cls="text-[#19191B]" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <Partners
+        data={callourPartners}
+        custom={{
+          gtm_reference: currentPage,
+          title: "Trusted by Leading Organizations",
+          description: "We are proud to have served some of the most prestigious organizations across various sectors. Our major clients include"
+        }}
+      />
+      <section className="bg-[#F4F5F6]">
+        <div className="max-w-[1440px] mx-auto flex flex-col gap-10">
           <div className="p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] flex flex-col gap-16 max-lg:gap-10 max-md:gap-8 max-sm:gap-6">
             <div className="flex flex-col items-center gap-6 max-lg:gap-5 max-md:gap-4 max-sm:gap-3 max-w-2xl text-center mx-auto max-md:text-left max-md:items-start">
-              <TitleMedium label="Industry we cover" cls="" />
-              <TextLarge cls="max-w-full text-[#939599]" label="It involves systematically reviewing and testing security controls, policies, and procedures to identify vulnerabilities, ensure regulatory compliance, and safeguard against potential threats." />
+              <TitleMedium label="Industries We Serve" cls="" />
+              <TextLarge cls="max-w-full text-[#939599]" label="Our audit services are trusted by a wide range of industries, including but not limited to:" />
             </div>
             <div className="flex gap-3 items-center justify-center flex-wrap max-w-3xl mx-auto max-md:items-start max-md:mx-0 max-md:justify-start max-md:gap-2">
               <TextLarge label="Amusement park" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
@@ -217,6 +169,9 @@ export default function CsrSection({ careers, department, roles, options }) {
               <TextLarge label="Bank" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
               <TextLarge label="Residential & Commercial buildings" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
             </div>
+            <div className="flex items-center mx-auto">
+              <Button label="Download All Industry List" />
+            </div>
           </div>
         </div>
       </section>
@@ -226,11 +181,11 @@ export default function CsrSection({ careers, department, roles, options }) {
             <div className="grid grid-cols-2 max-md:grid-cols-1 items-center gap-14 max-md:gap-10 max-sm:gap-8">
               <div className="space-y-12 max-lg:space-y-10 max-md:space-y-8 max-sm:space-y-6">
                 <div className="space-y-6 max-lg:space-y-5 max-md:space-y-4 max-sm:space-y-3">
-                  <TitleMedium label="Solutions for Governments and Business Environments" cls="" />
-                  <TextLarge cls="max-w-full text-[#939599]" label="By choosing UXE Security Solutions you are selecting experienced security partner who is dedicated to delivering tailored solutions." />
+                  <TitleMedium label="Get in Touch" cls="" />
+                  <TextLarge cls="max-w-full text-[#939599]" label="For more information or to schedule an audit, contact our customer support team available 24/7." />
                 </div>
                 <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3 max-md:gap-2">
-                  <a href="tel:+971-60053-9000" className="flex gap-3 items-end p-4 border border-[#19191B0F] rounded-xl">
+                  <a href="tel:600-539000" className="flex gap-3 items-end p-4 border border-[#19191B0F] rounded-xl">
                     <div className="bg-[#F4F5F6] border border-[#19191B0F] p-2 rounded-full my-auto">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none">
                         <g clipPath="url(#clip0_834_3024)">
@@ -245,7 +200,7 @@ export default function CsrSection({ careers, department, roles, options }) {
                     </div>
                     <div>
                       <TitleXXSmall label="Customer service" cls="text-[max(12px,_min(calc(100vw_*_(14_/_1440)),_14px))] leading-[132%] -tracking-[.14px]"/>
-                      <TextLarge label="+971-60053-9000" />
+                      <TextLarge label="600-539000" />
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" className="ml-auto" fill="none">
                       <path d="M5.83398 14.1673L14.1673 5.83398M14.1673 5.83398H5.83398M14.1673 5.83398V14.1673" stroke="#19191B" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round"/>
@@ -273,6 +228,7 @@ export default function CsrSection({ careers, department, roles, options }) {
                     </svg>
                   </a>
                 </div>
+                <TextLarge cls="max-w-full text-[#939599]" label="We are here to help you ensure the highest level of security and compliance for your organizations" />
               </div>
               <div className="rounded-xl overflow-hidden">
                 <iframe
