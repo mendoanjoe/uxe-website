@@ -500,6 +500,8 @@ export async function getNewAndMoreNews(slug, preview, previewData) {
       excerpt
       slug
       date
+      eventDate
+      eventLocation
       featuredImage {
         node {
           sourceUrl
@@ -714,6 +716,8 @@ export async function getEvents(first = 10, after = '', searchTerm = '', tag = '
             date
             slug
             excerpt
+            eventDate
+            eventLocation
             featuredImage {
               node {
                 sourceUrl
@@ -771,6 +775,8 @@ export async function getNews(first = 10, after = '', searchTerm = '', tag = '')
             date
             slug
             excerpt
+            eventDate
+            eventLocation
             featuredImage {
               node {
                 sourceUrl

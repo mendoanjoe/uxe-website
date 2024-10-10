@@ -321,7 +321,7 @@ const MediaPressRelease = () => {
                   {/* Headline */}
                   <div className="flex-1 flex flex-col justify-between max-w-md py-5 max-md:py-0 max-md:gap-2">
                     <TextMedium
-                      label={formatDateWithRelativeTime(new Date(post.date))}
+                      label={formatDateWithRelativeTime(new Date(post.created_at))}
                       cls="text-[#3F3F3F]"
                     />
                     <TitleSmall
@@ -330,7 +330,7 @@ const MediaPressRelease = () => {
                       href={post.url}
                       cls="line-clamp-2 underline hover:text-[#365EFF]"
                     />
-                    <TextMedium label="By Wesley Luiten" cls="text-[#3F3F3F]" />
+                    <TextMedium label={`By ${post.added_by}`} cls="text-[#3F3F3F]" />
                   </div>
 
                   {/* Read Post Button */}

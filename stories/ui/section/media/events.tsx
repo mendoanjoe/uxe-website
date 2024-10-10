@@ -154,8 +154,8 @@ const NewsList = () => {
                   <div className='flex-1 flex flex-col justify-between max-w-md py-5 max-md:py-0 max-md:gap-2'>
                     <TitleSmall label={post.title} el='a' href={"/event/" + post.slug} cls='line-clamp-2' />
                     <div>
-                      <TextMedium label={formatToReadableDate(post.date)} cls='text-[#3F3F3F]' />
-                      <TextMedium label="Dubai Tower Internationale" cls='text-[#3F3F3F]' />
+                      <TextMedium label={formatToReadableDate(post.eventDate)} cls='text-[#3F3F3F]' />
+                      <TextMedium label={post.eventLocation} cls='text-[#3F3F3F]' />
                     </div>
                   </div>
 

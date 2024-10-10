@@ -121,7 +121,7 @@ export default function Event({ post, posts, preview, options }) {
                 <div className="flex gap-1">
                   <TextMedium label="Date:" cls="font-bold" />
                   <TextMedium
-                    label={new Date(post?.date)
+                    label={new Date(post?.eventDate)
                       .toLocaleDateString("en-GB", {
                         year: "numeric",
                         month: "short",
@@ -132,7 +132,7 @@ export default function Event({ post, posts, preview, options }) {
                 </div>
                 <div className="flex gap-1">
                   <TextMedium label="Location:" cls="font-bold" />
-                  <TextMedium label="Museum Of the Future" />
+                  <TextMedium label={post.eventLocation} />
                 </div>
               </div>
             </div>
