@@ -132,7 +132,7 @@ export default function Event({ post, posts, preview, options }) {
                 </div>
                 <div className="flex gap-1">
                   <TextMedium label="Location:" cls="font-bold" />
-                  <TextMedium label={post.eventLocation} />
+                  <TextMedium label={post?.eventLocation} />
                 </div>
               </div>
             </div>
