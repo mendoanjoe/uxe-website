@@ -61,8 +61,8 @@ export const Solution = ({ data, custom, ...props }: SectionProps<SolutionData[]
       if (obsSlide1) {
         obsSlide1.addEventListener("mouseenter", handleSlide1Click);
       }
-      if (obsSlide1) {
-        obsSlide1.addEventListener("mouseenter", handleSlide2Click);
+      if (obsSlide2) {
+        obsSlide2.addEventListener("mouseenter", handleSlide2Click);
       }
     } else {
       handleIsMobile(true);

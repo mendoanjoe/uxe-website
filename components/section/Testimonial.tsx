@@ -76,15 +76,15 @@ export const Testimonial = ({
       }
     };
 
-    if (slides.length > 0) {
+    // if (slides.length > 0) {
       handleMediaChange(mediaQueryList);
-    }
+    // }
     mediaQueryList.addEventListener("change", handleMediaChange);
 
     return () => {
       mediaQueryList.removeEventListener("change", handleMediaChange);
     };
-  }, [data, textRef, show, slides]);
+  }, [data, textRef, show]);
 
   const slide_setting = {
     slidesToShow: 3,

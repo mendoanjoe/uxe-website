@@ -114,13 +114,13 @@ const MediaPressRelease = () => {
               cls="opacity-50 max-w-xl"
             />
           </div>
-          <div className="flex items-center justify-between space-x-4">
+          <div className="flex items-center justify-between gap-3 flex-wrap max-md:w-full">
             {/* Search form */}
-            <form onSubmit={handleSearch} className="relative">
+            <form onSubmit={handleSearch} className="relative max-md:w-full">
               <input
                 type="text"
                 placeholder="Search"
-                className="border boder-[#19191B3D] px-4 py-2.5 rounded-full text-sm font-medium text-[#19191B] focus:outline-none placeholder:text-[#19191B] min-w-72"
+                className="border boder-[#19191B3D] px-4 py-2.5 rounded-full text-sm font-medium text-[#19191B] focus:outline-none placeholder:text-[#19191B] min-w-72 max-md:w-full"
                 value={searchInput ?? ""}
                 onChange={(e) => handleOnChangeSearch(e)}
                 // onKeyUp={(e) => handleOnChangeSearch(e)} // Simpan input pengguna
@@ -157,12 +157,12 @@ const MediaPressRelease = () => {
               </button>
             </form>
 
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center flex-wrap gap-3 max-md:w-full">
               {/* Dropdown */}
-              <div className="relative">
+              <div className="relative max-md:w-full">
                 <button
                   onClick={toggleDateDropdown}
-                  className="border boder-[#19191B3D] px-4 py-2.5 rounded-full text-sm font-medium text-[#19191B] focus:outline-none placeholder:text-[#19191B] flex items-center gap-2.5"
+                  className="border boder-[#19191B3D] px-4 py-2.5 rounded-full text-sm font-medium text-[#19191B] focus:outline-none placeholder:text-[#19191B] flex items-center gap-2.5 max-md:w-full"
                 >
                   <span>
                     <svg
@@ -203,7 +203,7 @@ const MediaPressRelease = () => {
                     </svg>
                   </span>
                   <span>{selectedDate}</span>
-                  <span>
+                  <span className="ml-auto">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -224,7 +224,7 @@ const MediaPressRelease = () => {
 
                 {/* Dropdown content */}
                 {isDateDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg">
+                  <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-[2]">
                     {categories.map((category) => (
                       <div
                         key={category}
@@ -238,10 +238,10 @@ const MediaPressRelease = () => {
                 )}
               </div>
               {/* Dropdown */}
-              <div className="relative">
+              <div className="relative max-md:w-full">
                 <button
                   onClick={toggleDropdown}
-                  className="border boder-[#19191B3D] px-4 py-2.5 rounded-full text-sm font-medium text-[#19191B] focus:outline-none placeholder:text-[#19191B] flex items-center gap-2.5"
+                  className="border boder-[#19191B3D] px-4 py-2.5 rounded-full text-sm font-medium text-[#19191B] focus:outline-none placeholder:text-[#19191B] flex items-center gap-2.5 max-md:w-full max-md:justify-between"
                 >
                   <span>{selectedCategory}</span>
                   <span>
@@ -265,7 +265,7 @@ const MediaPressRelease = () => {
 
                 {/* Dropdown content */}
                 {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg">
+                  <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-[2]">
                     {categories.map((category) => (
                       <div
                         key={category}
@@ -288,11 +288,11 @@ const MediaPressRelease = () => {
             {pressReleases.map((post, index) => (
               <div
                 key={index}
-                className="flex flex-col gap-6 max-md:gap-4 md:flex-row bg-[#F7F7F7] p-6 max-md:p-4 rounded-xl overflow-hidden"
+                className="flex flex-col gap-6 max-md:gap-4 md:flex-row bg-[#F7F7F7] p-6 max-md:p-4 max-sm:p-3 rounded-xl max-md:rounded-lg max-sm:rounded-md overflow-hidden"
               >
                 {/* Thumbnail Image */}
                 <div className="w-full md:w-1/3">
-                  <div className="relative w-full h-full min-h-44 rounded-xl overflow-hidden">
+                  <div className="relative w-full h-full min-h-44 rounded-xl max-md:rounded-lg max-sm:rounded-md overflow-hidden">
                     <img
                       src={
                         post.image_url
@@ -317,7 +317,7 @@ const MediaPressRelease = () => {
                   </div>
                 </div>
 
-                <div className="flex justify-between w-full">
+                <div className="flex justify-between w-full max-md:flex-col gap-4">
                   {/* Headline */}
                   <div className="flex-1 flex flex-col justify-between max-w-md py-5 max-md:py-0 max-md:gap-2">
                     <TextMedium

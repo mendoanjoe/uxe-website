@@ -77,7 +77,7 @@ const NewsList = () => {
           </div>
           <div className="flex flex-wrap items-center gap-4">
             {/* Search form */}
-            <form onSubmit={handleSearch} className="relative">
+            <form onSubmit={handleSearch} className="relative max-md:w-full">
               <input
                 type="text"
                 placeholder="Search"
@@ -97,10 +97,10 @@ const NewsList = () => {
             </form>
 
             {/* Dropdown */}
-            <div className="relative">
+            <div className="relative max-md:w-full">
               <button
                 onClick={toggleDropdown}
-                className="border boder-[#19191B3D] px-4 py-2.5 rounded-full text-sm font-medium text-[#19191B] focus:outline-none placeholder:text-[#19191B] flex items-center gap-2.5"
+                className="border boder-[#19191B3D] px-4 py-2.5 rounded-full text-sm font-medium text-[#19191B] focus:outline-none placeholder:text-[#19191B] flex items-center gap-2.5 max-md:w-full max-md:justify-between"
               >
                 <span>{selectedCategory}</span>
                 <span>
@@ -112,7 +112,7 @@ const NewsList = () => {
 
               {/* Dropdown content */}
               {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg">
+                <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-[2]">
                   {categories.map((category) => (
                     <div
                       key={category}
@@ -133,10 +133,10 @@ const NewsList = () => {
         ) : (
           <div className="space-y-5">
             {events.map((post, index) => (
-              <div key={index} className="flex flex-col gap-6 max-md:gap-4 md:flex-row bg-[#F7F7F7] p-6 max-md:p-4 rounded-xl overflow-hidden">
+              <div key={index} className="flex flex-col gap-6 max-md:gap-4 md:flex-row bg-[#F7F7F7] p-6 max-md:p-4 max-sm:p-3 rounded-xl max-md:rounded-lg max-sm:rounded-md overflow-hidden">
                 {/* Thumbnail Image */}
                 <div className="w-full md:w-1/3">
-                  <div className="relative w-full h-full min-h-44 rounded-xl overflow-hidden">
+                  <div className="relative w-full h-full min-h-44 rounded-xl max-md:rounded-lg max-sm:rounded-md overflow-hidden">
                     <Image
                       src={post.featuredImage?.node?.sourceUrl
                         ? `https://api.uxe.ai${post.featuredImage.node.sourceUrl}`
