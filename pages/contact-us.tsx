@@ -237,7 +237,7 @@ export default function ContactUsSection({ options }) {
                   <div
                     className="form-contact"
                     ref={formBlock}
-                    dangerouslySetInnerHTML={{ __html: allformOptions?.form_contacthtml }}
+                    dangerouslySetInnerHTML={{ __html: allformOptions?.form_contact.html }}
                   ></div>
                 {/* )} */}
                 <p
