@@ -17,7 +17,7 @@
       "url": "",
       "submenu": [
         {
-          "group": "Governments",
+          "group": "For Government",
           "submenu": [
             {
               "group": "Solutions",
@@ -33,6 +33,10 @@
                 {
                   "name": "Securepath",
                   "url": "/product/securepath"
+                },
+                {
+                  "name": "UC",
+                  "url": "/product/uc"
                 }
               ]
             },
@@ -48,7 +52,7 @@
           ]
         },
         {
-          "group": "Business",
+          "group": "For Business",
           "submenu": [
             {
               "group": "Solutions",
@@ -64,10 +68,23 @@
                 {
                   "name": "Qumra",
                   "url": "/product/qumra"
+                }
+              ]
+            },
+            {
+              "group": "Services",
+              "submenu": [
+                {
+                  "name": "Security Audit",
+                  "url": "/solution/security-audit"
                 },
                 {
-                  "name": "UC",
-                  "url": "/product/uc"
+                  "name": "Security Consulting",
+                  "url": "/product/security-consulting"
+                },
+                {
+                  "name": "Security Training",
+                  "url": "/product/security-training"
                 }
               ]
             },
@@ -89,23 +106,6 @@
                 {
                   "name": "Smart Guard",
                   "url": "/product/smart-guard"
-                }
-              ]
-            },
-            {
-              "group": "Services",
-              "submenu": [
-                {
-                  "name": "Security Audit",
-                  "url": "/solution/security-audit"
-                },
-                {
-                  "name": "Security Consulting",
-                  "url": "/product/security-consulting"
-                },
-                {
-                  "name": "Security Training",
-                  "url": "/product/security-training"
                 }
               ]
             }

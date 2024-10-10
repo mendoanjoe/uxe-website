@@ -352,6 +352,10 @@ export async function getSettings() {
           type
           url
         }
+        hero_audit_video {
+          type
+          url
+        }
       }
       allformOptions {
         form_career {

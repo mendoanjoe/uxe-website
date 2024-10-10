@@ -107,26 +107,33 @@ export default function Event({ post, posts, preview, options }) {
           </div>
           <div className="flex justify-between items-center mt-[28px]">
             <div className="flex items-center gap-[16px]">
-              <img
+              {/* <img
                 alt={post?.author?.node?.name}
                 className="w-[48px] h-[48px] rounded-full"
                 src={post?.author?.node?.avatar?.url}
-              />
+              /> */}
 
               <div className="flex flex-col gap-[4px]">
                 {/* <TextMedium
                   label={post?.author?.node?.name}
                   cls="font-medium"
                 /> */}
-                <TextMedium
-                  label={new Date(post?.date)
-                    .toLocaleDateString("en-GB", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })
-                    .replace(/,/g, "")}
-                />
+                <div className="flex gap-1">
+                  <TextMedium label="Date:" cls="font-bold" />
+                  <TextMedium
+                    label={new Date(post?.date)
+                      .toLocaleDateString("en-GB", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })
+                      .replace(/,/g, "")}
+                  />
+                </div>
+                <div className="flex gap-1">
+                  <TextMedium label="Location:" cls="font-bold" />
+                  <TextMedium label="Museum Of the Future" />
+                </div>
               </div>
             </div>
             <div className="flex gap-[8px]">
