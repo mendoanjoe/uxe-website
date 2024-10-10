@@ -377,9 +377,6 @@ export async function getSettings() {
           twitter
         }
       }
-      contactOptions {
-        html
-      }
       generalSettings {
         title
         description

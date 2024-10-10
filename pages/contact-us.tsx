@@ -16,7 +16,7 @@ import { TitleXXSmall } from "@/ui/title/title-xxsmall/TitleXXSmall";
 import { useRouter } from 'next/router';
 
 export default function ContactUsSection({ options }) {
-  const { backgroundOptions, contactOptions, footerOptions, generalSettings, allformOptions } = options;
+  const { backgroundOptions, footerOptions, generalSettings, allformOptions } = options;
 
   const formBlock = useRef(null);
   const formMessage = useRef(null);
