@@ -96,7 +96,7 @@ export const HeroImage = ({ data, custom }: SectionProps<HeroImageData[]>) => {
                     loop
                   ></video>
                 )}
-                {item.media_type == "image" && (
+                {index != 0 && (
                   <div className="absolute bottom-0 left-0 right-0 max-w-[1440px] w-full mx-auto p-[max(32px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] max-md:pb-20 max-sm:pb-14 flex flex-col items-start gap-4 max-md:gap-3.5 max-sm:gap-3">
                     <TitleLarge label={item.title} cls="font-normal" />
                     <TextHuge

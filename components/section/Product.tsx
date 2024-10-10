@@ -51,6 +51,7 @@ export const Product = ({ data, custom, ...props }: SectionProps<ProductData, Pr
     data?.pageInfo?.hasNextPage || null
   );
   const [isLoading, setLoading] = useState(false);
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
     const observer = GATimeSpent(gtm_reference, SECTION_PRODUCT);
@@ -66,6 +67,10 @@ export const Product = ({ data, custom, ...props }: SectionProps<ProductData, Pr
       }
     };
   }, [sectionRef, gtm_reference]);
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   const fetchProducts = async (afterCursor) => {
     try {
@@ -152,10 +157,17 @@ export const Product = ({ data, custom, ...props }: SectionProps<ProductData, Pr
                   >
                     {node?.title}
                   </Link>
-                  <TextLarge
+                  {isClient && (
+                    <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-60 leading-[132%] -tracking-[.14px] line-clamp-2" dangerouslySetInnerHTML={{
+                      __html: node?.excerpt
+                      .replace("<p>", "")
+                      .replace("</p>", ""),
+                    }}></p>
+                  )}
+                  {/* <TextLarge
                     label={node?.excerpt.replace("<p>", "").replace("</p>", "")}
                     cls="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-60 leading-[132%] -tracking-[.14px] line-clamp-2"
-                  />
+                  /> */}
                 </div>
               </div>
             ))}

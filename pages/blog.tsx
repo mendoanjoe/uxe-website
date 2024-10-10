@@ -19,6 +19,7 @@ export default function BlogSection({ posts, options }) {
   const [endCursor, setEndCursor] = useState(posts?.pageInfo?.endCursor || null);
   const [hasMorePosts, setHasMorePosts] = useState(posts?.pageInfo?.hasNextPage || null);
   const [loading, setLoading] = useState(false);
+  const [isClient, setIsClient] = useState(false)
 
   const fetchPosts = async (afterCursor) => {
     try {
@@ -37,6 +38,10 @@ export default function BlogSection({ posts, options }) {
     setLoading(true);
     fetchPosts(endCursor);
   };
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   return (
     <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
@@ -89,12 +94,18 @@ export default function BlogSection({ posts, options }) {
                             >
                               {node.title}
                             </Link>
-                            <TextLarge
+                            {isClient && (
+                              <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-50 leading-[132%] -tracking-[.14px] line-clamp-2" dangerouslySetInnerHTML={{
+                                __html: node?.excerpt.replace("<p>", "")
+                                .replace("</p>", ""),
+                              }}></p>
+                            )}
+                            {/* <TextLarge
                               label={node?.excerpt
                                 .replace("<p>", "")
                                 .replace("</p>", "")}
                               cls="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50 line-clamp-2"
-                            />
+                            /> */}
                           </div>
                           <Link
                             href={"/post/" + node.slug}
@@ -150,12 +161,18 @@ export default function BlogSection({ posts, options }) {
                             >
                               {node.title}
                             </Link>
-                            <TextLarge
+                            {/* <TextLarge
                               label={node?.excerpt
                                 .replace("<p>", "")
                                 .replace("</p>", "")}
                               cls="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50 line-clamp-2"
-                            />
+                            /> */}
+                            {isClient && (
+                              <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-50 leading-[132%] -tracking-[.14px] line-clamp-2" dangerouslySetInnerHTML={{
+                                __html: node?.excerpt.replace("<p>", "")
+                                .replace("</p>", ""),
+                              }}></p>
+                            )}
                           </div>
                           <Link
                             href={"/post/" + node.slug}

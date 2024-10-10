@@ -380,12 +380,18 @@ export default function Post({ post, posts, preview, options }) {
                           >
                             {node?.title}
                           </Link>
-                          <TextLarge
+                          {/* <TextLarge
                             label={node?.excerpt
                               .replace("<p>", "")
                               .replace("</p>", "")}
                             cls="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50 line-clamp-2"
-                          />
+                          /> */}
+                          {isClient && (
+                            <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-50 leading-[132%] -tracking-[.14px] line-clamp-2" dangerouslySetInnerHTML={{
+                              __html: node?.excerpt.replace("<p>", "")
+                              .replace("</p>", ""),
+                            }}></p>
+                          )}
                         </div>
                         <Link
                           href={"/post/" + node?.slug}

@@ -113,7 +113,9 @@ export const Post = ({ data, custom, ...props }: SectionProps<PostProps>) => {
                     </Link>
                     {isClient && (
                       <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50 line-clamp-2" dangerouslySetInnerHTML={{
-                        __html: node?.excerpt,
+                        __html: node?.excerpt
+                        .replace("<p>", "")
+                        .replace("</p>", ""),
                       }}></p>
                     )}
                     {/* <TextLarge
