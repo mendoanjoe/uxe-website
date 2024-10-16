@@ -180,6 +180,10 @@
   grid-column: span 2 / span 2;
 }
 
+.form-career form > p:nth-child(2) {
+  display: none;
+}
+
 .form-career label {
   content: none
 }
@@ -209,8 +213,9 @@
 
 .form-career form > div:nth-child(2),
 .form-career form > div:nth-child(9),
-.form-career form > p:nth-child(10),
-.form-career form > p:nth-child(11) {
+.form-career form > div:nth-child(10),
+.form-career form > p:nth-child(11),
+.form-career form > p:nth-child(12) {
   grid-column: span 2 / span 2;
 }
 
