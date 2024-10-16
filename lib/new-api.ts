@@ -415,6 +415,20 @@ export async function getSettings() {
         icon
         title
       }
+      cseOptions {
+        benefit_list {
+          description
+          tagline
+          title
+        }
+        featured_list {
+          icon
+          title
+        }
+        heading_description
+        heading_tagline
+        heading_title
+      }
     }
   `,
   )
