@@ -12,6 +12,7 @@ import { Leadership } from "@/ui/section/leadership/Leadership";
 import { CEOMsgSection } from "@/ui/section/ceo/ceo";
 import { AboutUsCompany } from "@/ui/section/about-us/AboutUsCompany";
 import { CareerListSection } from "@/ui/section/career-list/career-list";
+import { FeatureCareer } from "@/ui/section/feature/FeatureCareer";
 
 export default function CareerSection({ careers, department, roles, options }) {
   const currentPage = "career";
@@ -19,10 +20,10 @@ export default function CareerSection({ careers, department, roles, options }) {
     backgroundOptions,
     footerOptions,
     generalSettings,
-    allformOptions
+    allformOptions,
+    career24Options
   } = options;
 
-  
   return (
     <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
       <Head>
@@ -35,6 +36,10 @@ export default function CareerSection({ careers, department, roles, options }) {
           description: "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments",
           image_url: backgroundOptions?.hero_career?.url
         }}
+        custom={{ gtm_reference: currentPage }}
+      />
+      <FeatureCareer
+        data={career24Options}
         custom={{ gtm_reference: currentPage }}
       />
       <CareerListSection
@@ -53,6 +58,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const department = await getAllDepartment()
   const roles = await getAllRole()
   const options = await getSettings();
+
   return {
     props: { careers, department, roles, options },
     revalidate: 10,

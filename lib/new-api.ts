@@ -441,6 +441,16 @@ export async function getSettings() {
         heading_tagline
         heading_title
       }
+      career24Options {
+        featured_list {
+          icon
+          title
+          description
+        }
+        heading_description
+        heading_tagline
+        heading_title
+      }
     }
   `,
   )

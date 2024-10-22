@@ -384,6 +384,8 @@ export async function getEventAndMoreEvents(slug, preview, previewData) {
     fragment EventFields on Post {
       title
       excerpt
+      eventDate
+      eventLocation
       slug
       date
       featuredImage {
