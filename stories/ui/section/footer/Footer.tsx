@@ -238,8 +238,8 @@ export const Footer = ({ data, custom }: SectionProps<FooterData, { subscribe: a
                       <TextSmall label="Media center" cls="uppercase font-medium" />
                       <div className="flex flex-col gap-[4px]">
                         <TextLarge el="a" label="Event" cls="text-[#D9D9D9]" href="/media/event" />
-                        <TextLarge el="a" label="News" cls="text-[#D9D9D9]" href="/media/event" />
-                        <TextLarge el="a" label="Media & Press Release Center" cls="text-[#D9D9D9]" href="/media/news" />
+                        <TextLarge el="a" label="News" cls="text-[#D9D9D9]" href="/media/news" />
+                        <TextLarge el="a" label="Media & Press Release Center" cls="text-[#D9D9D9]" href="/media/press-release" />
                       </div>
                     </div>
                     <div className="flex flex-col gap-[16px]">
