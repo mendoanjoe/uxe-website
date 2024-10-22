@@ -100,9 +100,16 @@ export const CareerListSection = ({ data, department, roles, options, custom, ..
                    onChange={(event) => setSelectedDepartment(event.target.value)}
                   >
                     <option value="Departments">Departments</option>
-                    {department.edges.map((item, index) => (
-                      <option key={index} value={item.node.department}>{item.node.department}</option>
-                    ))}
+                    <option value="Administration Department">Administration Department</option>
+                    <option value="Customer Service Department">Customer Service Department</option>
+                    <option value="Finance Department">Finance Department</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Internal Auditor Department">Internal Auditor Department</option>
+                    <option value="Marketing Department">Marketing Department</option>
+                    <option value="Procurement Department">Procurement Department</option>
+                    <option value="Project Managment">Project Managment</option>
+                    <option value="Security Systems Audit & Operations">Security Systems Audit & Operations</option>
                   </select>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="h-5 w-5 ml-1 absolute top-4 right-4 max-md:top-3 max-md:right-3 text-slate-700">
                     <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#19191B" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square"/>

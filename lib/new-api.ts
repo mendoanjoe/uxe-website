@@ -356,6 +356,18 @@ export async function getSettings() {
           type
           url
         }
+        hero_event {
+          type
+          url
+        }
+        hero_news {
+          type
+          url
+        }
+        hero_media {
+          type
+          url
+        }
       }
       allformOptions {
         form_career {

@@ -24,19 +24,19 @@
               "submenu": [
                 {
                   "name": "Video guard",
-                  "url": "/product/video-guard"
+                  "url": "#"
                 },
                 {
                   "name": "E-guard",
-                  "url": "/product/e-guard"
+                  "url": "/product/augmented-reality"
                 },
                 {
                   "name": "Securepath",
-                  "url": "/product/securepath"
+                  "url": "/product/secure-path"
                 },
                 {
                   "name": "UC",
-                  "url": "/product/uc"
+                  "url": "#"
                 }
               ]
             },
@@ -45,7 +45,7 @@
               "submenu": [
                 {
                   "name": "Container Tracker",
-                  "url": "/product/container-tracker"
+                  "url": "#"
                 }
               ]
             }
@@ -59,7 +59,7 @@
               "submenu": [
                 {
                   "name": "Boxdrop",
-                  "url": "/product/boxdrop"
+                  "url": "#"
                 },
                 {
                   "name": "Keyless",
@@ -80,11 +80,11 @@
                 },
                 {
                   "name": "Security Consulting",
-                  "url": "/product/security-consulting"
+                  "url": "/contact-us"
                 },
                 {
                   "name": "Security Training",
-                  "url": "/product/security-training"
+                  "url": "#"
                 }
               ]
             },
@@ -93,19 +93,19 @@
               "submenu": [
                 {
                   "name": "Smart Locks",
-                  "url": "/product/smart-locks"
+                  "url": "#"
                 },
                 {
                   "name": "Vehicle Tracker",
-                  "url": "/product/vehicle-tracker"
+                  "url": "#"
                 },
                 {
                   "name": "Bodyworn Camera",
-                  "url": "/product/bodyworn-camera"
+                  "url": "#"
                 },
                 {
                   "name": "Smart Guard",
-                  "url": "/product/smart-guard"
+                  "url": "#"
                 }
               ]
             }

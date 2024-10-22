@@ -230,7 +230,7 @@ export const Footer = ({ data, custom }: SectionProps<FooterData, { subscribe: a
                         <TextLarge el="a" label="For Governments" cls="text-[#D9D9D9]" href="/#for-government" />
                         <TextLarge el="a" label="For Business" cls="text-[#D9D9D9]" href="/#for-business" />
                         <TextLarge el="a" label="Product" cls="text-[#D9D9D9]" href="/products" />
-                        <TextLarge el="a" label="Security Consultancy" cls="text-[#D9D9D9]" href="#" />
+                        <TextLarge el="a" label="Security Consultancy" cls="text-[#D9D9D9]" href="/contact-us" />
                         <TextLarge el="a" label="Training Center" cls="text-[#D9D9D9]" href="#" />
                       </div>
                     </div>
@@ -239,7 +239,7 @@ export const Footer = ({ data, custom }: SectionProps<FooterData, { subscribe: a
                       <div className="flex flex-col gap-[4px]">
                         <TextLarge el="a" label="Event" cls="text-[#D9D9D9]" href="/media/event" />
                         <TextLarge el="a" label="News" cls="text-[#D9D9D9]" href="/media/event" />
-                        <TextLarge el="a" label="Media & Press Release Center" cls="text-[#D9D9D9]" href="/media/press-release" />
+                        <TextLarge el="a" label="Media & Press Release Center" cls="text-[#D9D9D9]" href="/media/news" />
                       </div>
                     </div>
                     <div className="flex flex-col gap-[16px]">

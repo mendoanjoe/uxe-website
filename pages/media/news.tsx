@@ -9,10 +9,8 @@ import { ConnectWithUs } from "@/ui/section/get-started/ConnectWithUs";
 
 export default function NewsSection({ options }) {
   const currentPage = "News";
-  const { backgroundOptions, footerOptions, generalSettings, teamOptions, allformOptions } =
+  const { backgroundOptions, footerOptions, generalSettings, allformOptions } =
     options;
-
-  let coreTeam = teamOptions.slice(0, 5) || [];
 
   return (
     <Layout data={{ general: generalSettings, footer: footerOptions, subscribe: allformOptions }}>
@@ -25,7 +23,7 @@ export default function NewsSection({ options }) {
           subtitle: "COMPANY",
           description:
             "Intelligent Security Beyond Cameras: Seamless Solutions for Governments and Business Environments",
-          image_url: backgroundOptions?.hero_about_us?.url,
+          image_url: backgroundOptions?.hero_news?.url,
         }}
         custom={{ gtm_reference: currentPage }}
       />
