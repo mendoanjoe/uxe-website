@@ -231,7 +231,7 @@ export const Footer = ({ data, custom }: SectionProps<FooterData, { subscribe: a
                         <TextLarge el="a" label="For Business" cls="text-[#D9D9D9]" href="/#section-solution" />
                         <TextLarge el="a" label="Product" cls="text-[#D9D9D9]" href="/products" />
                         <TextLarge el="a" label="Security Consultancy" cls="text-[#D9D9D9]" href="/contact-us" />
-                        <TextLarge el="a" label="Training Center" cls="text-[#D9D9D9]" href="#" />
+                        <TextLarge el="a" label="Training Center" cls="text-[#D9D9D9]" href="/contact-us" />
                       </div>
                     </div>
                     <div className="flex flex-col gap-[16px]">
