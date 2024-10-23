@@ -24,7 +24,7 @@
               "submenu": [
                 {
                   "name": "Video guard",
-                  "url": "#"
+                  "url": "/contact-us"
                 },
                 {
                   "name": "E-guard",
@@ -36,7 +36,7 @@
                 },
                 {
                   "name": "UC",
-                  "url": "#"
+                  "url": "/contact-us"
                 }
               ]
             },
@@ -45,7 +45,7 @@
               "submenu": [
                 {
                   "name": "Container Tracker",
-                  "url": "#"
+                  "url": "/contact-us"
                 }
               ]
             }
@@ -59,7 +59,7 @@
               "submenu": [
                 {
                   "name": "Boxdrop",
-                  "url": "#"
+                  "url": "/contact-us"
                 },
                 {
                   "name": "Keyless",
@@ -84,7 +84,7 @@
                 },
                 {
                   "name": "Security Training",
-                  "url": "#"
+                  "url": "/contact-us"
                 }
               ]
             },
@@ -93,19 +93,19 @@
               "submenu": [
                 {
                   "name": "Smart Locks",
-                  "url": "#"
+                  "url": "/contact-us"
                 },
                 {
                   "name": "Vehicle Tracker",
-                  "url": "#"
+                  "url": "/contact-us"
                 },
                 {
                   "name": "Bodyworn Camera",
-                  "url": "#"
+                  "url": "/contact-us"
                 },
                 {
                   "name": "Smart Guard",
-                  "url": "#"
+                  "url": "/contact-us"
                 }
               ]
             }

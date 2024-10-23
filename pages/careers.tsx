@@ -38,16 +38,16 @@ export default function CareerSection({ careers, department, roles, options }) {
         }}
         custom={{ gtm_reference: currentPage }}
       />
-      <FeatureCareer
-        data={career24Options}
-        custom={{ gtm_reference: currentPage }}
-      />
       <CareerListSection
         data={careers}
         department={department}
         roles={roles}
         options={backgroundOptions}
         custom={{ gtm_reference: currentPage, show_title: true }}
+      />
+      <FeatureCareer
+        data={career24Options}
+        custom={{ gtm_reference: currentPage }}
       />
     </Layout>
   );

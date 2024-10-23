@@ -227,8 +227,8 @@ export const Footer = ({ data, custom }: SectionProps<FooterData, { subscribe: a
                     <div className="flex flex-col gap-[16px]">
                       <TextSmall label="Solution" cls="uppercase font-medium" />
                       <div className="flex flex-col gap-[4px]">
-                        <TextLarge el="a" label="For Governments" cls="text-[#D9D9D9]" href="/#for-government" />
-                        <TextLarge el="a" label="For Business" cls="text-[#D9D9D9]" href="/#for-business" />
+                        <TextLarge el="a" label="For Governments" cls="text-[#D9D9D9]" href="/#section-solution" />
+                        <TextLarge el="a" label="For Business" cls="text-[#D9D9D9]" href="/#section-solution" />
                         <TextLarge el="a" label="Product" cls="text-[#D9D9D9]" href="/products" />
                         <TextLarge el="a" label="Security Consultancy" cls="text-[#D9D9D9]" href="/contact-us" />
                         <TextLarge el="a" label="Training Center" cls="text-[#D9D9D9]" href="#" />
@@ -278,7 +278,7 @@ export const Footer = ({ data, custom }: SectionProps<FooterData, { subscribe: a
                     )}
                     <p
                       ref={formMessage}
-                      className="hidden p-[10px] border-[2px] border-black w-full"
+                      className="hidden p-[10px]"
                     ></p>
                   </div>
                 </div>

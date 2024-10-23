@@ -94,7 +94,7 @@ export const Solution = ({ data, custom, ...props }: SectionProps<SolutionData[]
     <section
       ref={sectionRef}
       id="section-solution"
-      className="bg-[#F4F5F6]"
+      className="bg-[#F4F5F6] scroll-m-20"
       {...props}
     >
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden bg-[url('/image/solution-background.png')] max-lg:bg-none bg-cover">
