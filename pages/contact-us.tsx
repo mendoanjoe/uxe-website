@@ -121,7 +121,7 @@ export default function ContactUsSection({ options }) {
           <div className="max-w-[1440px] mx-auto overflow-hidden">
             <div className="grid grid-cols-2 max-md:grid-cols-1 min-h-screen">
               <div className="bg-black text-white">
-                <div className="relative overflow-hidden w-full h-full object-cover max-h-[1036px]">
+                <div className="relative overflow-hidden w-full h-full object-cover max-h-[1036px] max-md:h-[400px] max-sm:h-[300px]">
                   {backgroundOptions?.hero_contact && (
                     <img
                       alt="Contact Us Background"
