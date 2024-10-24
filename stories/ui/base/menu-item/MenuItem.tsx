@@ -32,7 +32,7 @@ export const MenuItem = ({ menu, isFixed }: MenuItemProps) => {
                 </svg>
               </div>
               <div className='max-md:mt-[14px]' id={`submenu-item-${index}`}>
-                <div className={`hidden absolute overflow-hidden left-[50%] translate-x-[-50%] top-[105%] bg-white text-black z-50 rounded-[16px] group-hover:p-3 group-hover:h-auto shadow-md gap-5 ${level == 4 ? "group-hover:flex w-max" : "group-hover:grid"} max-md:group-hover:flex max-md:flex-col max-md:relative max-md:w-full max-md:shadow-none max-md:p-0`}>
+                <div className={`hidden absolute overflow-hidden left-[50%] translate-x-[-50%] top-[100%] bg-white text-black z-50 rounded-[16px] group-hover:p-3 group-hover:h-auto shadow-md gap-5 ${level == 4 ? "group-hover:flex w-max" : "group-hover:grid"} max-md:group-hover:flex max-md:flex-col max-md:relative max-md:w-full max-md:shadow-none max-md:p-0`}>
                   {submenu.map((item, idn) => (
                     <div key={idn}>
                       {item.name == undefined ? (

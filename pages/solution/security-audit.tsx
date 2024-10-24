@@ -135,7 +135,8 @@ export default function CsrSection({ careers, department, roles, options }) {
         custom={{
           gtm_reference: currentPage,
           title: auditpageOptions?.organization_title,
-          description: auditpageOptions?.organization_description
+          description: auditpageOptions?.organization_description,
+          variant: "1"
         }}
       />
       <section className="bg-[#F4F5F6]">
