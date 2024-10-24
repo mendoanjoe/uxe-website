@@ -28,7 +28,8 @@ export default function Index({ options }) {
     heroSections,
     callourAbout,
     callourPartners,
-    allformOptions
+    allformOptions,
+    auditpageOptions
   } = options;
 
   return (
@@ -57,7 +58,7 @@ export default function Index({ options }) {
       />
       <div className="w-[70%] mx-auto h-[1px] bg-[#19191B17]"></div>
       <Partners
-        data={callourPartners}
+        data={auditpageOptions?.organization_list}
         custom={{
           gtm_reference: currentPage,
           title: "Our Collaborative Partnerships Fueling Innovation, Growth, and Success Together",

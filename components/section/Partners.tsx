@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 
 interface PartnersData {
   description: string;
-  image_url: string;
+  image: string;
   title: string;
 }
 
@@ -55,8 +55,9 @@ export const Partners = ({ data, custom }: SectionProps<PartnersData[], {
             {data.map((item, index) => (
               <img
                 key={index}
-                src={item.image_url}
-                alt={item.title}
+                src={item.image}
+                alt="Image"
+                // alt={item.title}
                 className="w-full h-full"
               />
             ))}

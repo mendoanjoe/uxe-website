@@ -422,10 +422,44 @@ export async function getSettings() {
         image_url
         title
       }
-      auditOptions {
-        description
-        icon
-        title
+      auditpageOptions {
+        heading_description
+        heading_title
+        heading_video {
+          type
+          url
+        }
+        expertise_title
+        expertise_description
+        expertise_button_text
+        expertise_button_url
+        expertise_list {
+          description
+          image {
+            type
+            url
+          }
+          title
+        }
+        audit_service_title
+        audit_service_description
+        audit_service_list {
+          description
+          icon
+          title
+        }
+        organization_title
+        organization_description
+        organization_list {
+          image
+        }
+        industries_title
+        industries_button_text
+        industries_button_url
+        industries_description
+        industries_list {
+          text
+        }
       }
       cseOptions {
         benefit_list {

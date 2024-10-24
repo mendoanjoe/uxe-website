@@ -17,6 +17,7 @@ import { TextHuge } from "@/ui/text/text-huge/TextHuge";
 import { useEffect, useState } from "react";
 import { Button } from "@/ui/component/button/Button";
 import { Partners } from "@/section/Partners";
+import { convertNewlinesToHTML } from "utils/utils";
 
 export default function CsrSection({ careers, department, roles, options }) {
   const currentPage = "career";
@@ -24,7 +25,7 @@ export default function CsrSection({ careers, department, roles, options }) {
     backgroundOptions,
     footerOptions,
     generalSettings,
-    auditOptions,
+    auditpageOptions,
     callourPartners,
     allformOptions
   } = options;
@@ -62,20 +63,23 @@ export default function CsrSection({ careers, department, roles, options }) {
               {isClient && backgroundOptions && (
                 <div className="rounded-xl overflow-hidden">
                   <video
-                    src={backgroundOptions?.hero_audit_video?.url}
+                    src={auditpageOptions?.heading_video?.url}
                     className="w-full h-full object-cover"
                     controls
                   ></video>
                 </div>
               )}
               <div className="space-y-4">
-                <div className="space-y-8 max-md:space-y-8 max-sm:space-y-6">
-                  <TitleMedium label="About UXE Audit Services" cls="" />
-                  <div className="space-y-5 max-md:space-y-4 max-sm:space-y-3">
-                    <TextLarge cls="max-w-full" label="At UXE, we specialize in comprehensive security audits tailored to a wide range of industries." />
-                    <TextLarge cls="max-w-full" label="Our mission is to ensure that your security systems are not only effective but also compliant with the highest standards and latest technological advancements. With years of expertise, we serve a diverse clientele, providing unmatched audit services that enhance safety and security." />
+                {isClient && auditpageOptions && (
+                  <div className="space-y-8 max-md:space-y-8 max-sm:space-y-6">
+                    <TitleMedium label={auditpageOptions?.heading_title} cls="" />
+                    <div className="space-y-5 max-md:space-y-4 max-sm:space-y-3">
+                      <p className="text-large max-w-full" dangerouslySetInnerHTML={{
+                        __html: convertNewlinesToHTML(auditpageOptions?.heading_description),
+                      }}></p>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
@@ -85,34 +89,22 @@ export default function CsrSection({ careers, department, roles, options }) {
         <div className="max-w-[1440px] mx-auto flex flex-col gap-10">
           <div className="p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] flex flex-col gap-12 max-lg:gap-10 max-md:gap-8 max-sm:gap-6">
             <div className="flex justify-between items-start gap-6 max-lg:gap-5 max-md:gap-4 max-sm:gap-3 max-md:flex-col">
-              <TitleMedium label="Our Expertise" />
-              <TextLarge cls="max-w-full max-w-lg" label="We offer a thorough evaluation and verification of your security systems. Our services ensure that service providers comply with specified security standards, and we provide actionable recommendations to enhance your security infrastructure. Our audit services include:" />
+              <TitleMedium label={auditpageOptions?.expertise_title} />
+              <TextLarge cls="max-w-full max-w-lg" label={auditpageOptions?.expertise_description} />
             </div>
             <div className="flex flex-col items-center gap-10 max-md:gap-6 max-sm:gap-4 max-md:w-full">
               <div className="grid grid-cols-3 max-md:grid-cols-1 gap-5 max-md:w-full">
-                <div className="relative">
-                  <img src="/image/expertise-1.png" alt="Expertise 1" className="w-full h-full" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-[#0D0D0D8A] backdrop-blur-sm min-h-24 flex flex-col justify-end">
-                    <TitleXXSmall el="h3" label="01" />
-                    <TextMedium label="Assessing the effectiveness of security systems." />
+                {auditpageOptions?.expertise_list.map((item, index) => (
+                  <div key={index} className="relative">
+                    <img src={item?.image?.url} alt={item?.description} className="w-full h-full" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-[#0D0D0D8A] backdrop-blur-sm min-h-24 flex flex-col justify-end">
+                      <TitleXXSmall el="h3" label={item?.title} />
+                      <TextMedium label={item?.description} />
+                    </div>
                   </div>
-                </div>
-                <div className="relative">
-                  <img src="/image/expertise-2.png" alt="Expertise 1" className="w-full h-full" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-[#0D0D0D8A] backdrop-blur-sm min-h-24 flex flex-col justify-end">
-                    <TitleXXSmall el="h3" label="02" />
-                    <TextMedium label="Ensuring compliance with security specifications and standards." />
-                  </div>
-                </div>
-                <div className="relative">
-                  <img src="/image/expertise-3.png" alt="Expertise 1" className="w-full h-full" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-[#0D0D0D8A] backdrop-blur-sm min-h-24 flex flex-col justify-end">
-                    <TitleXXSmall el="h3" label="03" />
-                    <TextMedium label="Recommending necessary modifications to meet the latest security and technical developments." />
-                  </div>
-                </div>
+                ))}
               </div>
-              <Button el="a" label="Get in Touch" href="/contact-us" />
+              <Button el="a" label={auditpageOptions?.expertise_button_text} href={auditpageOptions?.expertise_button_url} />
             </div>
           </div>
         </div>
@@ -121,10 +113,10 @@ export default function CsrSection({ careers, department, roles, options }) {
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="grid grid-cols-3 gap-[48px_32px] max-xl:grid-cols-2 max-md:grid-cols-1">
             <div className="flex flex-col col-span-3 max-xl:col-span-2 max-md:col-span-1 justify-center p-[0px_14px_max(14px,_min(calc(100vw_*_(40_/_1440)),_40px))_14px] bg-[url('/image/featured-background.png')] bg-no-repeat">
-              <TitleMedium el="h2" label="Comprehensive Audit Services" cls="text-[#19191B] font-medium mt-[10px] max-w-[36rem]" />
+              <TitleMedium el="h2" label={auditpageOptions?.audit_service_title} cls="text-[#19191B] font-medium mt-[10px] max-w-[36rem]" />
             </div>
 
-            {auditOptions.map((item, index) => (
+            {auditpageOptions.audit_service_list.map((item, index) => (
               <div key={index} className="px-[20px] border-l border-[#0000000F] flex flex-col items-start gap-[40px]">
                 <div className="bg-[#E6EDFF] p-[12px] rounded-[12px]">
                   <img src={svgToBase64(item.icon)} alt={item.title} />
@@ -139,34 +131,27 @@ export default function CsrSection({ careers, department, roles, options }) {
         </div>
       </section>
       <Partners
-        data={callourPartners}
+        data={auditpageOptions?.organization_list}
         custom={{
           gtm_reference: currentPage,
-          title: "Trusted by Leading Organizations",
-          description: "We are proud to have served some of the most prestigious organizations across various sectors. Our major clients include"
+          title: auditpageOptions?.organization_title,
+          description: auditpageOptions?.organization_description
         }}
       />
       <section className="bg-[#F4F5F6]">
         <div className="max-w-[1440px] mx-auto flex flex-col gap-10">
           <div className="p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] flex flex-col gap-16 max-lg:gap-10 max-md:gap-8 max-sm:gap-6">
             <div className="flex flex-col items-center gap-6 max-lg:gap-5 max-md:gap-4 max-sm:gap-3 max-w-2xl text-center mx-auto max-md:text-left max-md:items-start">
-              <TitleMedium label="Industries We Serve" cls="" />
-              <TextLarge cls="max-w-full text-[#939599]" label="Our audit services are trusted by a wide range of industries, including but not limited to:" />
+              <TitleMedium label={auditpageOptions?.industries_title} cls="" />
+              <TextLarge cls="max-w-full text-[#939599]" label={auditpageOptions?.industries_description} />
             </div>
             <div className="flex gap-3 items-center justify-center flex-wrap max-w-3xl mx-auto max-md:items-start max-md:mx-0 max-md:justify-start max-md:gap-2">
-              <TextLarge label="Amusement park" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
-              <TextLarge label="Cinemas" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
-              <TextLarge label="Hotels" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
-              <TextLarge label="Shopping centers" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
-              <TextLarge label="Balloon Operation" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
-              <TextLarge label="Gymnasium" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
-              <TextLarge label="Jewelry shops" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
-              <TextLarge label="Sports & recreational club" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
-              <TextLarge label="Bank" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
-              <TextLarge label="Residential & Commercial buildings" cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
+              {auditpageOptions?.industries_list.map((item, index) => (
+                <TextLarge key={index} label={item.text} cls="text-[#072D99] py-2 p-4 border border-[#072D993D] rounded-[100px] font-medium w-fit"/>
+              ))}
             </div>
             <div className="flex items-center mx-auto">
-              <Button label="Download All Industry List" />
+              <Button el="a" label={auditpageOptions?.industries_button_text} href={auditpageOptions?.industries_button_url} />
             </div>
           </div>
         </div>
@@ -228,13 +213,13 @@ export default function CsrSection({ careers, department, roles, options }) {
               </div>
               <div className="rounded-xl overflow-hidden">
                 <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.335947140009!2d55.41065167743774!3d25.259281977671243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5dcd86d33251%3A0xb70fc9fde47e9f21!2sSecurity%20Industry%20Regulatory%20Agency%20(SIRA)!5e0!3m2!1sen!2sid!4v1729596203651!5m2!1sen!2sid"
-                width="1280"
-                height="320"
-                style={{ border: 0, width: "100%" }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"/>
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.335947140009!2d55.41065167743774!3d25.259281977671243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5dcd86d33251%3A0xb70fc9fde47e9f21!2sSecurity%20Industry%20Regulatory%20Agency%20(SIRA)!5e0!3m2!1sen!2sid!4v1729596203651!5m2!1sen!2sid"
+                  width="1280"
+                  height="320"
+                  style={{ border: 0, width: "100%" }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"/>
               </div>
             </div>
           </div>
