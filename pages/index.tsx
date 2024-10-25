@@ -61,7 +61,8 @@ export default function Index({ options }) {
         data={auditpageOptions?.organization_list}
         custom={{
           gtm_reference: currentPage,
-          title: "Our Collaborative Partnerships Fueling Innovation, Growth, and Success Together",
+          title: "Our Partners",
+          description: "Fueling Innovation, Growth, and Success Together",
         }}
       />
 
