@@ -53,12 +53,8 @@ export const Partners = ({ data, custom }: SectionProps<PartnersData[], {
             </div>
           )}
           {variant == "2" && (
-            <div className="flex flex-col items-center gap-3 text-center">
-              <TitleSmall
-                el="h2"
-                label={title}
-                cls="text-black font-medium text-center max-w-none max-lg:text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))]"
-              />
+            <div className="flex flex-col items-center gap-3 text-center col-span-3 max-xl:col-span-2 max-md:col-span-1 justify-center p-[0px_14px_max(14px,_min(calc(100vw_*_(40_/_1440)),_40px))_14px]">
+              <TitleMedium el="h2" label={title} cls="text-[#19191B] font-medium mt-[10px] max-w-[36rem]" />
               <TextLarge label={description} cls="max-w-lg" />
             </div>
           )}
