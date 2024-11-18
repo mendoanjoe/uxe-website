@@ -65,7 +65,7 @@ export const Partners = ({ data, custom }: SectionProps<PartnersData[], {
                 src={item.image}
                 alt="Image"
                 // alt={item.title}
-                className="w-full h-full border-l border-[#0000000F]"
+                className="w-full h-full border-l border-[#0000000F] max-h-[100px] object-contain"
               />
             ))}
           </div>

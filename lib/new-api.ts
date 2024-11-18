@@ -481,8 +481,9 @@ export async function getSettings() {
         heading_title
       }
       awardOptions {
+        title
         description
-        image_url
+        year
       }
     }
   `,
