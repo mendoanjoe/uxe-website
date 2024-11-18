@@ -27,7 +27,6 @@ export default function Index({ options }) {
     posts,
     heroSections,
     callourAbout,
-    callourPartners,
     allformOptions,
     auditpageOptions
   } = options;
