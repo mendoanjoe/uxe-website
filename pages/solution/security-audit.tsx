@@ -26,7 +26,6 @@ export default function CsrSection({ careers, department, roles, options }) {
     footerOptions,
     generalSettings,
     auditpageOptions,
-    callourPartners,
     allformOptions
   } = options;
 
