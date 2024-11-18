@@ -58,7 +58,7 @@ export const Partners = ({ data, custom }: SectionProps<PartnersData[], {
               <TextLarge label={description} cls="max-w-lg" />
             </div>
           )}
-          <div className="grid grid-cols-5 gap-[48px_32px]">
+          <div className="grid grid-cols-5 max-md:grid-cols-2 gap-[48px_32px]">
             {data.map((item, index) => (
               <img
                 key={index}

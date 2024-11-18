@@ -480,6 +480,10 @@ export async function getSettings() {
         heading_tagline
         heading_title
       }
+      awardOptions {
+        description
+        image_url
+      }
     }
   `,
   )

@@ -13,6 +13,7 @@ import { Partners } from "@/section/Partners";
 import { Testimonial } from "@/section/Testimonial";
 import { GetStarted } from "@/section/GetStarted";
 import { Post } from "@/section/Post";
+import { Award } from "@/section/Award";
 
 export default function Index({ options }) {
   const currentPage = "HOMEPAGE";
@@ -28,7 +29,8 @@ export default function Index({ options }) {
     heroSections,
     callourAbout,
     allformOptions,
-    auditpageOptions
+    auditpageOptions,
+    awardOptions
   } = options;
 
   return (
@@ -62,6 +64,15 @@ export default function Index({ options }) {
           gtm_reference: currentPage,
           title: "Our Partners",
           description: "Fueling Innovation, Growth, and Success Together",
+        }}
+      />
+
+      <Award
+        data={awardOptions}
+        custom={{
+          gtm_reference: currentPage,
+          title: "Awards & Certification",
+          description: "achievements",
         }}
       />
 
