@@ -417,11 +417,6 @@ export async function getSettings() {
         statistic_3_title
         statistic_3_value
       }
-      callourPartners {
-        description
-        image_url
-        title
-      }
       auditpageOptions {
         heading_description
         heading_title
