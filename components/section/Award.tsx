@@ -61,7 +61,7 @@ export const Award = ({ data, custom }: SectionProps<AwardData[], {
               <div key={index} className="w-full h-full aspect-square bg-white rounded-full flex items-center justify-center p-[34px] max-sm:w-[250px] max-sm:h-[250px] max-sm:mx-auto">
                 <div className="flex flex-col gap-[12px] items-center justify-center">
                   <p className="text-[#19191B] text-[12px] font-[400] leading-[132%] -tracking-[.12px] text-center">
-                    Certificated FANR and recognized by the regulation of UAE
+                    {item.description}
                   </p>
                   <div className="relative flex flex-col items-center w-full">
                       <p className="text-[16px] leading-[132%] -tracking-[.16px] bg-gradient-to-b from-[#FFAD00] to-[#A47208] bg-clip-text text-transparent">{item.title}</p>
